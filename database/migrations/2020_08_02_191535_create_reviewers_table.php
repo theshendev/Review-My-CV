@@ -15,6 +15,13 @@ class CreateReviewersTable extends Migration
     {
         Schema::create('reviewers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('company_email')->unique();
+            $table->string('phone');
+            $table->string('company');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

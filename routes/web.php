@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
+Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
+
+Route::post('/login/reviewer', 'Auth\LoginController@reviewerLogin')->name('login.reviewer');
+Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer');
+
+Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer')->name('reviewer');
