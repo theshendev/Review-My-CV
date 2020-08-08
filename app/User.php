@@ -37,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function allowed_users()
+    {
+        return $this->belongsToMany('App\User', 'allowed_users', 'user_id', 'allowed_reviewer_id');
+    }
 }
