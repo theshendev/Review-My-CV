@@ -25,6 +25,6 @@ Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
 
 Route::post('/login/reviewer', 'Auth\LoginController@reviewerLogin')->name('login.reviewer');
-Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer');
+Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->name('register.reviewer');
 
 Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer')->name('reviewer');

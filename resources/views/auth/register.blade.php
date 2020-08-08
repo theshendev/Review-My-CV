@@ -1,4 +1,5 @@
 @extends('layouts.app')
+{{--{{dd($errors)}}--}}
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -40,17 +41,17 @@
 
                                         <div class="form-group row">
                                             <label for="{{$email}}"
-                                                   class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                                   class="col-md-4 col-form-label text-md-right">@isset($url) Company @endisset{{ __('E-Mail Address') }}</label>
 
                                             <div class="col-md-6">
                                                 <input id="{{$email}}" type="email"
-                                                       class="form-control @error('{{$email}}') is-invalid @enderror"
+                                                       class="form-control @error($email) is-invalid @enderror"
                                                        name="{{$email}}" value="{{ old($email) }}" required
                                                        autocomplete="email">
 
-                                                @error('{{$email}}')
+                                                @error($email)
                                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ ucwords($message) }}</strong>
                                     </span>
                                                 @enderror
                                             </div>
@@ -127,6 +128,15 @@
                                                 </button>
                                             </div>
                                         </div>
+                                        @isset($url)
+                                            <a class="btn btn-link" href="{{ route('register') }}">
+                                                Register as user
+                                            </a>
+                                        @else
+                                            <a class="btn btn-link" href="{{ route('register.reviewer') }}">
+                                                Register as reviewer
+                                            </a>
+                                        @endisset
                                     </form>
                     </div>
                 </div>

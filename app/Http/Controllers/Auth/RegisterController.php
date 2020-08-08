@@ -59,8 +59,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required','regex:/(09)[0-9]{9}/','unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers,company_email'],
+            'phone' => ['required','regex:/(09)[0-9]{9}/','unique:users','unique:reviewers'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -68,8 +68,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'company_email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers'],
-            'phone' => ['required','regex:/(09)[0-9]{9}/','unique:reviewers'],
+            'company_email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users,email'],
+            'phone' => ['required','regex:/(09)[0-9]{9}/','unique:reviewers','unique:users'],
             'company' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);

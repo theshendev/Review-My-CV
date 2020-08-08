@@ -22,7 +22,7 @@
 
                                         <div class="form-group row">
                                                 <label for="{{$email}}"
-                                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                                       class="col-md-4 col-form-label text-md-right">@isset($url) Company @endisset{{ __('E-Mail Address') }}</label>
 
                                                 <div class="col-md-6">
 
@@ -82,6 +82,15 @@
                                                         </a>
                                                     @endif
                                                 </div>
+                                                @isset($url)
+                                                    <a class="btn btn-link" href="{{ route('login') }}">
+                                                        Login as user
+                                                    </a>
+                                                    @else
+                                                    <a class="btn btn-link" href="{{ route('login.reviewer') }}">
+                                                        Login as reviewer
+                                                    </a>
+                                                @endisset
                                             </div>
                                         </form>
                     </div>
