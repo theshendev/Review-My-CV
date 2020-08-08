@@ -18,7 +18,7 @@
                                         $email='email'
                                     @endphp
                                     <form method="POST" action="{{ route('register') }}"
-                                          aria-label="{{ __('Register') }}">
+                                          aria-label="{{ __('Register') }}" enctype="multipart/form-data">
                                         @endisset
                                         @csrf
 
@@ -120,7 +120,27 @@
                                                        autocomplete="new-password">
                                             </div>
                                         </div>
+                                        @isset($url)
 
+
+                                            @else
+                                        <div class="form-group row">
+                                            <label for="cv"
+                                                   class="col-md-4 col-form-label text-md-right">{{ __('Upload CV') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="cv" type="file" class="form-control @error('cv') is-invalid @enderror"
+                                                       name="cv" required>
+                                                @error('cv')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
+                                            </div>
+
+                                        </div>
+
+                                        @endisset
                                         <div class="form-group row mb-0">
                                             <div class="col-md-6 offset-md-4">
                                                 <button type="submit" class="btn btn-primary">

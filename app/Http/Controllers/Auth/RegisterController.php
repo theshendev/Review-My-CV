@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers,company_email'],
             'phone' => ['required','regex:/(09)[0-9]{9}/','unique:users','unique:reviewers'],
+            'cv' => ['required','mimes:pdf,docx'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -82,10 +83,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $cv =$data['cv'];
+        dd(file_get_contents($cv));
+        $uniqueFileName = uniqid() . $cv->getClientOriginalName();
+        $cv->storeAs('public/users_cv', $uniqueFileName);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'cv' =>$uniqueFileName,
             'password' => Hash::make($data['password']),
         ]);
     }
