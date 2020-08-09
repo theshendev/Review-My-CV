@@ -38,8 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function allowed_users()
+    public function allowed_reviewers()
     {
-        return $this->belongsToMany('App\User', 'allowed_users', 'user_id', 'allowed_reviewer_id');
+        return $this->belongsToMany('App\Reviewer', 'allowed_reviewers', 'user_id', 'allowed_reviewer_id');
     }
 }

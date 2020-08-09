@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'UserController@home')->name('home');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
@@ -28,3 +28,9 @@ Route::post('/login/reviewer', 'Auth\LoginController@reviewerLogin')->name('logi
 Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->name('register.reviewer');
 
 Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer')->name('reviewer');
+
+
+Route::get('/users/{user}','UserController@profile');
+Route::get('/users/{user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
+Route::get('/users/{user}/forbid_reviewer/{reviewer}','UserController@forbid_reviewer')->name('forbid_reviewer');
+Route::get('/users/{user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');

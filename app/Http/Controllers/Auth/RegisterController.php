@@ -84,7 +84,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $cv =$data['cv'];
-        dd(file_get_contents($cv));
         $uniqueFileName = uniqid() . $cv->getClientOriginalName();
         $cv->storeAs('public/users_cv', $uniqueFileName);
         return User::create([

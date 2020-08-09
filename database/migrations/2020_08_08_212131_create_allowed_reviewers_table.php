@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAllowedUsersTable extends Migration
+class CreateAllowedReviewersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateAllowedUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('allowed_users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('allowed_reviewers', function (Blueprint $table) {
+            $table->primary(['user_id', 'allowed_reviewer_id']);
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('allowed_reviewer_id');
             $table->timestamp('expires_at');
