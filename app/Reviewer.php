@@ -12,7 +12,7 @@ class Reviewer extends Authenticatable
     protected $guard = 'reviewer';
 
     protected $fillable = [
-        'name', 'company_email', 'password','phone','company'
+        'name', 'company_email', 'password','phone','company','position'
     ];
 
     protected $hidden = [

@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'company_email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users,email'],
             'phone' => ['required','regex:/(09)[0-9]{9}/','unique:reviewers','unique:users'],
             'company' => ['required', 'string'],
+            'position' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -103,6 +104,7 @@ class RegisterController extends Controller
             'company_email' => $request['company_email'],
             'phone' => $request['phone'],
             'company' => $request['company'],
+            'position' => $request['position'],
             'password' => Hash::make($request['password']),
         ]);
         Auth::guard('reviewer')->login($user);

@@ -65,7 +65,7 @@
                                                     <input id="company" type="text"
                                                            class="form-control @error('company') is-invalid @enderror"
                                                            name="company" value="{{ old('company') }}" required
-                                                           autocomplete="email">
+                                                           >
 
                                                     @error('company')
                                                     <span class="invalid-feedback" role="alert">
@@ -73,6 +73,25 @@
                                     </span>
                                                     @enderror
                                                 </div>
+
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="position"
+                                                       class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
+
+                                                <div class="col-md-6">
+                                                    <input id="position" type="text"
+                                                           class="form-control @error('position') is-invalid @enderror"
+                                                           name="position" value="{{ old('position') }}" required
+                                                    >
+
+                                                    @error('position')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                </div>
+
                                             </div>
                                         @endisset
                                         <div class="form-group row">

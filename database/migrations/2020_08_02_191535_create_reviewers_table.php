@@ -19,6 +19,9 @@ class CreateReviewersTable extends Migration
             $table->string('company_email')->unique();
             $table->string('phone');
             $table->string('company');
+            $table->string('position');
+            $table->boolean('is_available')->default(true);
+            $table->float('score',2,1)->default(3.0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

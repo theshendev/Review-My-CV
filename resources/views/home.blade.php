@@ -33,7 +33,7 @@
                                 <div class="col-md-8 align-self-center" style="font-size: 1.3rem">
 
                                     {{$reviewer->name}}
-                                    <small style="color: #f66d9b;">HR at {{$reviewer->company}}</small>
+                                    <small style="color: #f66d9b;">{{$reviewer->position}} at {{$reviewer->company}}</small>
                                 </div>
                                 <div class="col-md-4">
                                     @if(\Illuminate\Support\Facades\Auth::user()->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',$reviewer->id)->exists())
