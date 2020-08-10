@@ -23,6 +23,19 @@
                 </div>
             </div>
         </div>
-
+        @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',\Illuminate\Support\Facades\Auth::guard('reviewer')->id())->exists())
+        <div class="row col-8 mt-3">
+            <form action="{{route('comment.store',['user'=>$user->id])}}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="body">Comment Body</label>
+                    <textarea class="form-control" name="body" id="body" rows="3"></textarea>
+                </div>
+                <button class="btn btn-success">
+                    Submit
+                </button>
+            </form>
+        </div>
+        @endif
     </div>
 @endsection

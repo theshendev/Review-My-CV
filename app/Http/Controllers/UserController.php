@@ -10,19 +10,27 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['download_cv','profile']);
+        $this->middleware('auth')->except(['download_cv','profile','show']);
     }
 
-    public function profile(User $user)
+    public function index()
     {
-        return view('user.profile',compact('user'));
+        $users = User::all();
+        return view('users.index',compact('users'));
+    }
+
+    public function show(User $user)
+    {
+        return view('users.show',compact('user'));
     }
 
     public function home()
     {
         $reviewers = Reviewer::all();
-        return view('home',compact('reviewers'));
+        return view('users.home',compact('reviewers'));
     }
+
+
     public function allow_reviewer(User $user,Reviewer $reviewer)
     {
         if ($user->allowed_reviewers()->where('allowed_reviewer_id',$reviewer->id)->exists()){

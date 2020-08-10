@@ -26,8 +26,6 @@
                     </div>
                     <div class="card-body">
                         @foreach($reviewers as $reviewer)
-{{--                            {{dump(\Illuminate\Support\Facades\Auth::user()->allowed_reviewers->contains($reviewer->id))}}--}}
-
                             <div class="row">
 
                                 <div class="col-md-8 align-self-center" style="font-size: 1.3rem">
