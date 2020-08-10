@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Reviewer;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
         {
@@ -21,6 +23,36 @@ class LoginController extends Controller
             |
             */
 
+
+
+            public function redirectToProvider($provider)
+            {
+                return Socialite::driver($provider)->redirect();
+            }
+            public function handleProviderCallback($provider)
+            {
+                $getInfo = Socialite::driver($provider)->user();
+                $user = $this->createUser($getInfo,$provider);
+                Auth::guard('reviewer')->login($user);
+                return redirect()->to('/reviewer');
+
+//                dd($user->getName());
+                // $user->token;
+            }
+        protected function createUser($getInfo,$provider){
+
+            $user = Reviewer::where('provider_id', $getInfo->id)->first();
+
+            if (!$user) {
+                $user = Reviewer::create([
+                    'name' => $getInfo->name,
+                    'company_email' => $getInfo->email,
+                    'provider' => $provider,
+                    'provider_id' => $getInfo->id
+                ]);
+            }
+            return $user;
+        }
             use AuthenticatesUsers;
 
             /**

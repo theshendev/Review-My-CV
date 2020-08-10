@@ -36,3 +36,7 @@ Route::get('/users/{user}/forbid_reviewer/{reviewer}','UserController@forbid_rev
 Route::get('/users/{user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
 
 Route::post('/users/{user}/comment','CommentController@store')->name('comment.store');
+
+
+Route::get('login/reviewer/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('callback/{provider}', 'Auth\LoginController@handleProviderCallback');
