@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['download_cv','profile','show']);
+//        $this->middleware('auth')->except(['download_cv','profile','show']);
     }
 
     public function index()
