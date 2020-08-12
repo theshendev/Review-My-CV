@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         .custom-select{

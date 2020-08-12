@@ -13,4 +13,10 @@ class ReviewerController extends Controller
         return view('reviewers.index',compact('reviewers'));
     }
 
+    public function show(Reviewer $reviewer)
+    {
+        return view('reviewers.show',compact('reviewer'));
+
+    }
+
 }
