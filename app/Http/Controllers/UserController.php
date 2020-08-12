@@ -24,12 +24,6 @@ class UserController extends Controller
         return view('users.show',compact('user'));
     }
 
-    public function home()
-    {
-        $reviewers = Reviewer::all();
-        return view('users.home',compact('reviewers'));
-    }
-
 
     public function allow_reviewer(User $user,Reviewer $reviewer)
     {
