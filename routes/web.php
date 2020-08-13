@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'UserController@home')->name('home');
+Route::get('/user/profile', 'UserController@profile')->name('home');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
@@ -29,6 +29,7 @@ Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->nam
 
 Route::get('/reviewers', 'ReviewerController@index')->name('reviewers.index');
 Route::get('/reviewers/{reviewer}', 'ReviewerController@show')->name('reviewer.show');
+Route::post('/{reviewer}/{comment}/score','ReviewerController@add_score')->name('reviewer.score');
 Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer')->name('reviewer');
 
 

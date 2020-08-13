@@ -8,9 +8,9 @@ class Comment extends Model
 {
     protected $fillable=['body','user_id'];
 
-    public function user()
+    public function reviewer()
     {
-        $this->belongsTo('App\Comment');
+        return $this->belongsTo('App\Reviewer');
     }
 
 }

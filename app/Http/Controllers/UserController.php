@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth')->except(['download_cv','profile','show']);
+        $this->middleware('auth')->except(['download_cv','show']);
     }
 
     public function index()
@@ -23,6 +23,16 @@ class UserController extends Controller
     {
         return view('users.show',compact('user'));
     }
+
+    public function profile()
+    {
+        $user = auth()->user();
+        $comments = auth()->user()->comments->where('is_checked','==',0);
+        return view('users.profile',compact('user','comments'));
+    }
+
+
+
 
 
     public function allow_reviewer(User $user,Reviewer $reviewer)

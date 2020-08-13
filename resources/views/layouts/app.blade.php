@@ -18,9 +18,35 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="{{asset('js/star-rating.min.js')}}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
+        /*.rating > span:hover:before,*/
+        /*.rating > span:hover ~ span:before {*/
+            /*cursor: pointer;*/
+            /*transition: all 200ms;*/
+            /*color: gold;*/
+            /*content:"\f005";*/
+        /*}*/
+        /*.rating:hover span:nth-child(2) {*/
+            /*transition-delay: 30ms;*/
+        /*}*/
+
+        /*.rating:hover span:nth-child(3) {*/
+            /*transition-delay: 60ms;*/
+        /*}*/
+
+        /*.rating:hover span:nth-child(4) {*/
+            /*transition-delay: 90ms;*/
+        /*}*/
+
+        /*.rating:hover span:nth-child(5) {*/
+            /*transition-delay: 120ms;*/
+        /*}*/
+
         .custom-select{
             width: 13%;
             text-align: center;
@@ -69,12 +95,16 @@
         }
     </style>
 </head>
-<body>
+<body style="background: url(http://127.0.0.1:8000/images/index.jpg) center/cover no-repeat">
     <div id="app">
         @include('partials.nav')
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+    <script>
+        $("#input-id").rating();
+</script>
 </body>
 </html>
