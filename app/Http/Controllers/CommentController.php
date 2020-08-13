@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Notifications\CommentAdded;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ class CommentController extends Controller
 
             ]);
         $user->allowed_reviewers()->updateExistingPivot($reviewer->id,['expires_at'=>now()]);
+        $user->notify(new CommentAdded($reviewer,$comment));
         return back();
     }
 }
