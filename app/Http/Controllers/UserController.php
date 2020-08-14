@@ -37,7 +37,7 @@ class UserController extends Controller
 
     public function allow_reviewer(User $user,Reviewer $reviewer)
     {
-        if ($user->allowed_reviewers()->where('allowed_reviewer_id',$reviewer->id)->exists()){
+        if (relationExists($user,$reviewer)){
             $user->allowed_reviewers()->updateExistingPivot($reviewer->id,['expires_at' => now()->addDays(5)]);
 
         }
