@@ -24,29 +24,18 @@
     <script src="{{asset('js/star-rating.min.js')}}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        /*.rating > span:hover:before,*/
-        /*.rating > span:hover ~ span:before {*/
-            /*cursor: pointer;*/
-            /*transition: all 200ms;*/
-            /*color: gold;*/
-            /*content:"\f005";*/
-        /*}*/
-        /*.rating:hover span:nth-child(2) {*/
-            /*transition-delay: 30ms;*/
-        /*}*/
 
-        /*.rating:hover span:nth-child(3) {*/
-            /*transition-delay: 60ms;*/
-        /*}*/
+        .nav-item{
+            background-color: #1b4b72;
+            border-radius: 20px;
+            margin:0 0.5rem;
+            padding:0 0.5rem;
 
-        /*.rating:hover span:nth-child(4) {*/
-            /*transition-delay: 90ms;*/
-        /*}*/
+        }
+        .nav-item .nav-link{
+            color: white !important;
 
-        /*.rating:hover span:nth-child(5) {*/
-            /*transition-delay: 120ms;*/
-        /*}*/
-
+        }
         .custom-select{
             width: 13%;
             text-align: center;
