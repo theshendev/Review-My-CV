@@ -47,6 +47,7 @@ class LoginController extends Controller
                 $user = Reviewer::create([
                     'name' => $getInfo->name,
                     'company_email' => $getInfo->email,
+                    'image' => $getInfo->avatar_original,
                     'provider' => $provider,
                     'provider_id' => $getInfo->id
                 ]);

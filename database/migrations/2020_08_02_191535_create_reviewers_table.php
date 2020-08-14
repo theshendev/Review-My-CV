@@ -19,6 +19,7 @@ class CreateReviewersTable extends Migration
             $table->string('company_email')->unique();
             $table->string('phone')->nullable();
             $table->string('company')->nullable();
+            $table->string('image');
             $table->string('position')->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();

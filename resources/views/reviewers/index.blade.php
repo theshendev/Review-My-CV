@@ -2,7 +2,8 @@
 
 @section('content')
 
-    @if(commentsToCheck(auth()->user()))
+    {{--@if(commentsToCheck(auth()->user()))--}}
+    @if(false)
         <h3 class="text-center text-white">ابتدا ارزیابی های قبلی را چک کنید</h3>
         @elseif(count($reviewers)==0)
             <h3 class="text-center text-white">ارزیابی برای شما وجود ندارد</h3>
@@ -25,7 +26,7 @@
                                 <div class="col-3" style="position: relative">
                                     <img style="width: 200px;height: 200px;margin-top: 1rem;padding: 0.25rem;background-color: #f8fafc;border: 1px solid #dee2e6;"
                                          class="rounded-circle"
-                                         src="https://andrejgajdos.com/wp-content/uploads/2019/09/custom-select-dropdown-html-730x350.png?x80378"
+                                         src="{{$reviewer->image}}"
                                          alt="">
                                     <div style="position: absolute;bottom: 10px;left:78px;">
                                         <span class="fa fa-search"></span>
