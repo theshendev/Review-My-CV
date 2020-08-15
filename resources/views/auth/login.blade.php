@@ -93,8 +93,8 @@
                                                     <a class="btn btn-link" href="{{ route('login.reviewer') }}">
                                                         Login as reviewer
                                                     </a>
-                                                    <a class="btn btn-link" href="{{ route('login') }}">
-                                                        Login with email
+                                                    <a class="m-5" href="{{ route('google','google') }}">
+                                                        <img src="{{asset('images/btn_google_signin_dark_pressed_web@2x.png')}}" alt="">
                                                     </a>
                                                 @endisset
                                             </div>

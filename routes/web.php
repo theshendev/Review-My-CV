@@ -43,4 +43,5 @@ Route::post('/users/{user}/comment','CommentController@store')->name('comment.st
 
 
 Route::get('login/reviewer/{provider}', 'Auth\LoginController@redirectToProvider')->name('linkedin');
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('google');
 Route::get('callback/{provider}', 'Auth\LoginController@handleProviderCallback');

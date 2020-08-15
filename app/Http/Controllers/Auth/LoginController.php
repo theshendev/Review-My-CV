@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Reviewer;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,26 +33,41 @@ class LoginController extends Controller
             public function handleProviderCallback($provider)
             {
                 $getInfo = Socialite::driver($provider)->user();
+                $type = $provider=='linkedin' ? 'reviewer' : 'web';
                 $user = $this->createUser($getInfo,$provider);
-                Auth::guard('reviewer')->login($user);
-                return redirect()->to('/reviewer');
+                Auth::guard($type)->login($user);
+                return redirect()->to('/');
 
 //                dd($user->getName());
                 // $user->token;
             }
         protected function createUser($getInfo,$provider){
+            if ($provider=='linkedin'){
+                $user = Reviewer::where('provider_id', $getInfo->id)->first();
 
-            $user = Reviewer::where('provider_id', $getInfo->id)->first();
-
-            if (!$user) {
-                $user = Reviewer::create([
-                    'name' => $getInfo->name,
-                    'company_email' => $getInfo->email,
-                    'image' => $getInfo->avatar_original,
-                    'provider' => $provider,
-                    'provider_id' => $getInfo->id
-                ]);
+                if (!$user) {
+                    $user = Reviewer::create([
+                        'name' => $getInfo->name,
+                        'company_email' => $getInfo->email,
+                        'image' => $getInfo->avatar_original,
+                        'provider' => $provider,
+                        'provider_id' => $getInfo->id
+                    ]);
+                }
             }
+            else{
+                $user = User::where('provider_id', $getInfo->id)->first();
+                if (!$user) {
+                    $user = User::create([
+                        'name' => $getInfo->name,
+                        'email' => $getInfo->email,
+                        'image' => $getInfo->avatar_original,
+                        'provider' => $provider,
+                        'provider_id' => $getInfo->id
+                    ]);
+                }
+            }
+
             return $user;
         }
             use AuthenticatesUsers;

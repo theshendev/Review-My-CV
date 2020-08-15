@@ -39,6 +39,7 @@ class CreateReviewersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('allowed_reviewers');
         Schema::dropIfExists('reviewers');
     }
 }
