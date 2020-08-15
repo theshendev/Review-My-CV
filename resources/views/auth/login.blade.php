@@ -86,9 +86,15 @@
                                                     <a class="btn btn-link" href="{{ route('login') }}">
                                                         Login as user
                                                     </a>
+                                                    <a class="m-5" href="{{ route('linkedin','linkedin') }}">
+                                                        <img src="{{asset('images/Sign-In-Small---Active.png')}}" alt="">
+                                                    </a>
                                                     @else
                                                     <a class="btn btn-link" href="{{ route('login.reviewer') }}">
                                                         Login as reviewer
+                                                    </a>
+                                                    <a class="btn btn-link" href="{{ route('login') }}">
+                                                        Login with email
                                                     </a>
                                                 @endisset
                                             </div>

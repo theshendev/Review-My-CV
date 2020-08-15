@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/user/profile', 'UserController@profile')->name('home');
+Route::get('/user/profile', 'UserController@profile')->name('profile');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
@@ -42,5 +42,5 @@ Route::get('/users/{user}/download_cv/{reviewer}','UserController@download_cv')-
 Route::post('/users/{user}/comment','CommentController@store')->name('comment.store');
 
 
-Route::get('login/reviewer/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/reviewer/{provider}', 'Auth\LoginController@redirectToProvider')->name('linkedin');
 Route::get('callback/{provider}', 'Auth\LoginController@handleProviderCallback');

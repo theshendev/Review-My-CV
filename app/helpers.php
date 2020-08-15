@@ -12,3 +12,11 @@ function relationExists(User $user,Reviewer $reviewer){
 function commentsToCheck(User $user){
     return ($user->comments()->where('is_checked','==','0')->exists());
 }
+
+function getGuard(){
+    $guard = 'web';
+    if (auth('reviewer')->check()){
+        $guard = 'reviewer';
+    }
+    return $guard;
+}
