@@ -86,15 +86,21 @@
                                                     <a class="btn btn-link" href="{{ route('login') }}">
                                                         Login as user
                                                     </a>
-                                                    <a class="m-5" href="{{ route('linkedin','linkedin') }}">
+                                                    <a class="m-5" href="{{ route('reviewer.social','linkedin') }}">
                                                         <img src="{{asset('images/Sign-In-Small---Active.png')}}" alt="">
+                                                    </a>
+                                                    <a class="m-5" href="{{ route('reviewer.social','google') }}">
+                                                        <img src="{{asset('images/btn_google_signin_dark_pressed_web@2x.png')}}" alt="">
                                                     </a>
                                                     @else
                                                     <a class="btn btn-link" href="{{ route('login.reviewer') }}">
                                                         Login as reviewer
                                                     </a>
-                                                    <a class="m-5" href="{{ route('google','google') }}">
+                                                    <a class="m-5" href="{{ route('user.social','google') }}">
                                                         <img src="{{asset('images/btn_google_signin_dark_pressed_web@2x.png')}}" alt="">
+                                                    </a>
+                                                    <a class="m-5" href="{{ route('user.social','linkedin') }}">
+                                                        <img src="{{asset('images/Sign-In-Small---Active.png')}}" alt="">
                                                     </a>
                                                 @endisset
                                             </div>

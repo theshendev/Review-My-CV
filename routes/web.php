@@ -46,6 +46,6 @@ Route::get('/users/{user}/download_cv/{reviewer}','UserController@download_cv')-
 Route::post('/users/{user}/comment','CommentController@store')->name('comment.store');
 
 
-Route::get('login/reviewer/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('linkedin');
-Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('google');
+Route::get('login/reviewer/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('reviewer.social');
+Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('user.social');
 Route::get('callback/{provider}', 'Auth\SocialiteController@handleProviderCallback');
