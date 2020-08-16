@@ -11,7 +11,8 @@
 
                     <div class="card-body">
                         @isset($url)
-                            <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
+                            <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}"  enctype="multipart/form-data">
+
                                 @else
                                     <form method="POST" action="{{ route('register') }}"
                                           aria-label="{{ __('Register') }}" enctype="multipart/form-data">
@@ -22,6 +23,21 @@
                                             @includeWhen(!isset($url),'partials.auth.register.user')
 
                                         @else
+                                            <div class="avatar-upload">
+                                                <div class="avatar-edit">
+                                                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                                    @error('image')
+                                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                    @enderror
+                                                    <label for="imageUpload"></label>
+                                                </div>
+                                                <div class="avatar-preview">
+                                                    <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group row">
                                                 <label for="name"
                                                        class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -162,6 +178,20 @@
     }
     });
 
+    function readURL(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+    $('#imagePreview').hide();
+    $('#imagePreview').fadeIn(650);
+    }
+    reader.readAsDataURL(input.files[0]);
+    }
+    }
+    $("#imageUpload").change(function() {
+    readURL(this);
+    });
     });
 
 @endsection

@@ -78,6 +78,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers'],
             'phone' => ['regex:/(09)[0-9]{9}/','unique:users','unique:reviewers'],
             'cv' => ['required','mimes:pdf,docx'],
+            'image' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -89,6 +90,7 @@ class RegisterController extends Controller
             'phone' => ['regex:/(09)[0-9]{9}/','unique:reviewers','unique:users'],
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
+            'image' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -100,6 +102,8 @@ class RegisterController extends Controller
      */
     protected function setData(Request $request)
     {
+        $request['provider'] = null;
+        $request['provider_id'] = null;
         if (session()->exists('user')) {
             $data = session('user');
             $request['name'] = $data['name'];
@@ -114,12 +118,25 @@ class RegisterController extends Controller
 
     }
 
+    protected function uploadImage($image)
+    {
+        $uniqueFileName = uniqid() . $image->getClientOriginalName();
+        $image->storeAs('public/images/profiles/', $uniqueFileName);
+        $path = url('/storage/images/profiles/'.$uniqueFileName);
+        return $path;
+
+    }
+
     protected function create(array $data)
     {
         session()->forget('user');
         $cv =$data['cv'];
         $uniqueFileName = uniqid() . $cv->getClientOriginalName();
         $cv->storeAs('public/users_cv', $uniqueFileName);
+        if (is_file($data['image'])){
+            $data['image'] = $this->uploadImage($data['image']);
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -133,23 +150,29 @@ class RegisterController extends Controller
     }
     protected function createReviewer(Request $request)
     {
+
         if(session()->exists('user')) {
             $data = session('user');
             $request['name'] = $data['name'];
             $request['email'] = $data['email'];
-            $request['image'] = $data['image'];
+            $path = $data['image'];
             $request['provider'] = $data['provider'];
             $request['provider_id'] = $data['provider_id'];
             $request['password'] =  Str::random(8);
             $request['password_confirmation'] =  $request['password'];
 
         }
+        else{
+            $request['provider'] = null;
+            $request['provider_id'] = null;
+            $path =$this->uploadImage($request['image']);
+        }
         $this->reviewerValidator($request->all())->validate();
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'phone' => $request['phone'],
-            'image' => $request['image'],
+            'image' => $path,
             'company' => $request['company'],
             'position' => $request['position'],
             'provider' => $request['provider'],
