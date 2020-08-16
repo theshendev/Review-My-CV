@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['download_cv','show']);
+        $this->middleware('auth')->except(['download_cv','show','index']);
     }
 
     public function index()
@@ -38,7 +38,7 @@ class UserController extends Controller
     public function allow_reviewer(User $user,Reviewer $reviewer)
     {
         if (relationExists($user,$reviewer)){
-//            $user->allowed_reviewers()->updateExistingPivot($reviewer->id,['expires_at' => now()->addDays(5)]);
+            $user->allowed_reviewers()->updateExistingPivot($reviewer->id,['expires_at' => now()->addDays(5)]);
                 return back();
         }
         else{

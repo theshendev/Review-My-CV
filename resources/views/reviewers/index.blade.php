@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-2 align-self-center">
                             <a class="btn btn-warning mb-2 w-75"
-                               href="{{route('allow_reviewer',['user'=>1,'reviewer'=>$reviewer->id])}}">
+                               href="{{route('allow_reviewer',['user'=>auth()->id(),'reviewer'=>$reviewer->id])}}">
                                 انتخاب ارزیاب
                             </a>
                             <br>

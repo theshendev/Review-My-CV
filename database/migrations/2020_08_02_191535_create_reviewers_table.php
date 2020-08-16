@@ -16,9 +16,9 @@ class CreateReviewersTable extends Migration
         Schema::create('reviewers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('company_email')->unique();
+            $table->string('email')->unique();
             $table->string('phone')->nullable();
-            $table->string('company')->nullable();
+            $table->string('company');
             $table->string('image');
             $table->string('position')->nullable();
             $table->string('provider')->nullable();

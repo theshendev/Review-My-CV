@@ -1,51 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
-@font-face {
-  font-family: "iransans";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/iransans/eot/IRANSansWeb.eot");
-  src: url("../fonts/iransans/eot/IRANSansWeb.eot?&#iefix") format("embedded-opentype"), url("../fonts/iransans/woff/IRANSansWeb.woff") format("woff"), url("../fonts/iransans/woff2/IRANSansWeb.woff2") format("woff2"), url("../fonts/iransans/ttf/IRANSansWeb.ttf") format("truetype");
-}
-@font-face {
-  font-family: "iransans";
-  font-style: normal;
-  font-weight: bold;
-  src: url("../fonts/iransans/eot/IRANSansWeb_Bold.eot");
-  src: url("../fonts/iransans/eot/IRANSansWeb_Bold.eot?&#iefix") format("embedded-opentype"), url("../fonts/iransans/woff/IRANSansWeb_Bold.woff") format("woff"), url("../fonts/iransans/woff2/IRANSansWeb_Bold.woff2") format("woff2"), url("../fonts/iransans/ttf/IRANSansWeb_Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "iransans";
-  font-style: normal;
-  font-weight: 800;
-  src: url("../fonts/iransans/eot/IRANSansWeb_Black.eot");
-  src: url("../fonts/iransans/eot/IRANSansWeb_Black.eot?&#iefix") format("embedded-opentype"), url("../fonts/iransans/woff/IRANSansWeb_Black.woff") format("woff"), url("../fonts/iransans/woff2/IRANSansWeb_Black.woff2") format("woff2"), url("../fonts/iransans/ttf/IRANSansWeb_Black.ttf") format("truetype");
-}
-@font-face {
-  font-family: "iransans";
-  font-style: normal;
-  font-weight: 500;
-  src: url("../fonts/iransans/eot/IRANSansWeb_Medium.eot");
-  src: url("../fonts/iransans/eot/IRANSansWeb_Medium.eot?&#iefix") format("embedded-opentype"), url("../fonts/iransans/woff/IRANSansWeb_Medium.woff") format("woff"), url("../fonts/iransans/woff2/IRANSansWeb_Medium.woff2") format("woff2"), url("../fonts/iransans/ttf/IRANSansWeb_Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "iransans";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/iransans/eot/IRANSansWeb_Light.eot");
-  src: url("../fonts/iransans/eot/IRANSansWeb_Light.eot?&#iefix") format("embedded-opentype"), url("../fonts/iransans/woff/IRANSansWeb_Light.woff") format("woff"), url("../fonts/iransans/woff2/IRANSansWeb_Light.woff2") format("woff2"), url("../fonts/iransans/ttf/IRANSansWeb_Light.ttf") format("truetype");
-}
-@font-face {
-  font-family: "iransans";
-  font-style: normal;
-  font-weight: 200;
-  src: url("../fonts/iransans/eot/IRANSansWeb_UltraLight.eot");
-  src: url("../fonts/iransans/eot/IRANSansWeb_UltraLight.eot?&#iefix") format("embedded-opentype"), url("../fonts/iransans/woff/IRANSansWeb_UltraLight.woff") format("woff"), url("../fonts/iransans/woff2/IRANSansWeb_UltraLight.woff2") format("woff2"), url("../fonts/iransans/ttf/IRANSansWeb_UltraLight.ttf") format("truetype");
-}
+
 /*!
- * Bootstrap v4.5.0 (https://getbootstrap.com/)
+ * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
 :root {
@@ -107,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "iransans", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -221,12 +180,12 @@ a:hover {
   text-decoration: underline;
 }
 
-a:not([href]) {
+a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
 }
 
-a:not([href]):hover {
+a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
@@ -613,38 +572,7 @@ pre code {
   overflow-y: scroll;
 }
 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
+.container,
 .container-fluid,
 .container-xl,
 .container-lg,
@@ -788,7 +716,6 @@ pre code {
 .col {
   flex-basis: 0;
   flex-grow: 1;
-  min-width: 0;
   max-width: 100%;
 }
 
@@ -996,7 +923,6 @@ pre code {
   .col-sm {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -1209,7 +1135,6 @@ pre code {
   .col-md {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -1422,7 +1347,6 @@ pre code {
   .col-lg {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -1635,7 +1559,6 @@ pre code {
   .col-xl {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -2411,6 +2334,7 @@ textarea.form-control {
 .valid-tooltip {
   position: absolute;
   top: 100%;
+  left: 0;
   z-index: 5;
   display: none;
   max-width: 100%;
@@ -2525,6 +2449,7 @@ textarea.form-control.is-valid {
 .invalid-tooltip {
   position: absolute;
   top: 100%;
+  left: 0;
   z-index: 5;
   display: none;
   max-width: 100%;
@@ -4015,6 +3940,7 @@ input[type=button].btn-block {
 
 .custom-control {
   position: relative;
+  z-index: 1;
   display: block;
   min-height: 1.44rem;
   padding-left: 1.5rem;
@@ -4550,11 +4476,13 @@ input[type=button].btn-block {
   background-color: #3490dc;
 }
 
+.nav-fill > .nav-link,
 .nav-fill .nav-item {
   flex: 1 1 auto;
   text-align: center;
 }
 
+.nav-justified > .nav-link,
 .nav-justified .nav-item {
   flex-basis: 0;
   flex-grow: 1;
@@ -5041,6 +4969,11 @@ input[type=button].btn-block {
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
+.card > .card-header + .list-group,
+.card > .list-group + .card-footer {
+  border-top: 0;
+}
+
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
@@ -5079,10 +5012,6 @@ input[type=button].btn-block {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
-.card-header + .list-group .list-group-item:first-child {
-  border-top: 0;
-}
-
 .card-footer {
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
@@ -5112,6 +5041,7 @@ input[type=button].btn-block {
   bottom: 0;
   left: 0;
   padding: 1.25rem;
+  border-radius: calc(0.25rem - 1px);
 }
 
 .card-img,
@@ -5222,6 +5152,10 @@ input[type=button].btn-block {
     display: inline-block;
     width: 100%;
   }
+}
+
+.accordion {
+  overflow-anchor: none;
 }
 
 .accordion > .card {
@@ -6174,15 +6108,13 @@ a.close.disabled {
 }
 
 .toast {
+  flex-basis: 350px;
   max-width: 350px;
-  overflow: hidden;
   font-size: 0.875rem;
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
   opacity: 0;
   border-radius: 0.25rem;
 }
@@ -6212,6 +6144,8 @@ a.close.disabled {
   background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
 }
 
 .toast-body {
@@ -10856,7 +10790,8 @@ a.text-dark:focus {
 }
 
 .text-break {
-  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .text-reset {
@@ -10967,5 +10902,55 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.file-drop-area {
+  direction: rtl;
+  background-color: gray;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 450px;
+  max-width: 100%;
+  padding: 25px;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+.file-drop-area.is-active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.fake-btn {
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 8px 15px;
+  margin-right: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.file-msg {
+  font-size: small;
+  font-weight: 300;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.file-input:focus {
+  outline: none;
 }
 

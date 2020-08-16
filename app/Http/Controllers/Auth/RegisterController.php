@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -49,6 +50,21 @@ class RegisterController extends Controller
     {
         return view('auth.register', ['url' => 'reviewer']);
     }
+    public function showSecondRegisterForm()
+    {
+        if (session()->exists('user')){
+            if (\request()->segment(2)=='reviewer') {
+                return view('auth.register', ['url' => 'reviewer', 'p' => '2']);
+            }
+            return view('auth.register', ['p'=>'2']);
+
+        }
+        else{
+            abort(404);
+        }
+
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -59,8 +75,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers,company_email'],
-            'phone' => ['required','regex:/(09)[0-9]{9}/','unique:users','unique:reviewers'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers'],
+            'phone' => ['regex:/(09)[0-9]{9}/','unique:users','unique:reviewers'],
             'cv' => ['required','mimes:pdf,docx'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -69,8 +85,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'company_email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users,email'],
-            'phone' => ['required','regex:/(09)[0-9]{9}/','unique:reviewers','unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users'],
+            'phone' => ['regex:/(09)[0-9]{9}/','unique:reviewers','unique:users'],
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -82,8 +98,25 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    protected function setData(Request $request)
+    {
+        if (session()->exists('user')) {
+            $data = session('user');
+            $request['name'] = $data['name'];
+            $request['email'] = $data['email'];
+            $request['image'] = $data['image'];
+            $request['provider'] = $data['provider'];
+            $request['provider_id'] = $data['provider_id'];
+            $request['password'] = Str::random(8);
+            $request['password_confirmation'] = $request['password'];
+        }
+            $this->register($request);
+
+    }
+
     protected function create(array $data)
     {
+        session()->forget('user');
         $cv =$data['cv'];
         $uniqueFileName = uniqid() . $cv->getClientOriginalName();
         $cv->storeAs('public/users_cv', $uniqueFileName);
@@ -91,24 +124,41 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'image' => $data['image'],
+            'provider' => $data['provider'],
+            'provider_id' => $data['provider_id'],
             'cv' =>$uniqueFileName,
             'password' => Hash::make($data['password']),
         ]);
     }
     protected function createReviewer(Request $request)
     {
+        if(session()->exists('user')) {
+            $data = session('user');
+            $request['name'] = $data['name'];
+            $request['email'] = $data['email'];
+            $request['image'] = $data['image'];
+            $request['provider'] = $data['provider'];
+            $request['provider_id'] = $data['provider_id'];
+            $request['password'] =  Str::random(8);
+            $request['password_confirmation'] =  $request['password'];
 
+        }
         $this->reviewerValidator($request->all())->validate();
         $user = Reviewer::create([
             'name' => $request['name'],
-            'company_email' => $request['company_email'],
+            'email' => $request['email'],
             'phone' => $request['phone'],
+            'image' => $request['image'],
             'company' => $request['company'],
             'position' => $request['position'],
+            'provider' => $request['provider'],
+            'provider_id' => $request['provider_id'],
             'password' => Hash::make($request['password']),
         ]);
+        session()->forget('user');
         Auth::guard('reviewer')->login($user);
-        return redirect()->intended('/reviewer');
+        return redirect()->to('/reviewer');
 
     }
 }

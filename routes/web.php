@@ -23,6 +23,10 @@ Route::get('/user/profile', 'UserController@profile')->name('profile');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
+Route::get('/register/reviewer/p2', 'Auth\RegisterController@showSecondRegisterForm');
+Route::get('/register/p2', 'Auth\RegisterController@showSecondRegisterForm');
+
+Route::post('/register', 'Auth\RegisterController@setData');
 
 Route::post('/login/reviewer', 'Auth\LoginController@reviewerLogin')->name('login.reviewer');
 Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->name('register.reviewer');
@@ -42,6 +46,6 @@ Route::get('/users/{user}/download_cv/{reviewer}','UserController@download_cv')-
 Route::post('/users/{user}/comment','CommentController@store')->name('comment.store');
 
 
-Route::get('login/reviewer/{provider}', 'Auth\LoginController@redirectToProvider')->name('linkedin');
-Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')->name('google');
-Route::get('callback/{provider}', 'Auth\LoginController@handleProviderCallback');
+Route::get('login/reviewer/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('linkedin');
+Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('google');
+Route::get('callback/{provider}', 'Auth\SocialiteController@handleProviderCallback');
