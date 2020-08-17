@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/user/profile', 'UserController@profile')->name('profile');
+Route::get('/user/profile', 'UserController@profile')->name('profile')->middleware('verified');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
