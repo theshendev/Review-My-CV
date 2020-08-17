@@ -1,13 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="row">
+    <div class="container text-white text-right">
+        <div class="row justify-content-start mt-5" dir="rtl">
+            <h2 class="text-right text-white">
+                {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}
+            </h2>
+        </div>
+        <div class="row border-right">
             <div class="col-md-6">
                 <img width="100%" src="{{asset('images/490748-PH5A0U-472.jpg')}}" alt="">
             </div>
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
 
                     <div class="card-body">
                         @isset($url)
@@ -31,17 +34,18 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                                     @enderror
-                                                    <label for="imageUpload"></label>
+                                                    <label for="imageUpload"><span class="fa fa-plus"></span>
+                                                    </label>
                                                 </div>
                                                 <div class="avatar-preview">
                                                     <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
+                                            <div class="form-group">
                                                 <label for="name"
-                                                       class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-                                                <div class="col-md-6">
+                                                       class="col-form-label text-md-right">{{ __('Name') }}</label>
+                                                <div class="">
                                                     <input id="name" type="text"
                                                            class="form-control @error('name') is-invalid @enderror"
                                                            name="name" value="{{ old('name') }}" required
@@ -55,11 +59,11 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group ">
                                                 <label for="email"
-                                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                                       class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                                                <div class="col-md-6">
+                                                <div class="">
                                                     <input id="email" type="email"
                                                            class="form-control @error('email') is-invalid @enderror"
                                                            name="email" value="{{ old('email') }}" required
@@ -72,11 +76,11 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
+                                            <div class="form-group ">
                                                 <label for="phone"
-                                                       class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                                                       class="col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
-                                                <div class="col-md-6">
+                                                <div class="">
                                                     <input id="phone" type="text"
                                                            class="form-control @error('phone') is-invalid @enderror"
                                                            name="phone" value="{{ old('phone') }}" required
@@ -93,11 +97,11 @@
                                             @includeWhen(isset($url),'partials.auth.register.reviewer')
                                                 @includeWhen(!isset($url),'partials.auth.register.user')
 
-                                            <div class="form-group row">
+                                            <div class="form-group ">
                                                 <label for="password"
-                                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                                       class="col-form-label text-md-right">{{ __('Password') }}</label>
 
-                                                <div class="col-md-6">
+                                                <div class="">
                                                     <input id="password" type="password"
                                                            class="form-control @error('password') is-invalid @enderror"
                                                            name="password" required autocomplete="new-password">
@@ -110,11 +114,11 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group ">
                                                 <label for="password-confirm"
-                                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                                       class="col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                                                <div class="col-md-6">
+                                                <div class="">
                                                     <input id="password-confirm" type="password" class="form-control"
                                                            name="password_confirmation" required
                                                            autocomplete="new-password">
@@ -123,8 +127,8 @@
 
 
                                         @endisset
-                                        <div class="form-group row mb-0">
-                                            <div class="col-md-6 offset-md-4">
+                                        <div class="form-group  mb-0">
+                                            <div class=" offset-md-4">
                                                 <button type="submit" class="btn btn-primary">
                                                     {{ __('Register') }}
                                                 </button>
@@ -142,7 +146,6 @@
                         @endisset
 
                     </div>
-                </div>
             </div>
         </div>
     </div>

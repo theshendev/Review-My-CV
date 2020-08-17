@@ -25,6 +25,7 @@ class SocialiteController extends Controller
     {
         $getInfo = Socialite::driver($provider)->user();
 
+
         $type = session()->pull('type');
         if ($type == 'reviewer') {
             $user = Reviewer::where('provider_id', $getInfo->id)->first();

@@ -1,8 +1,8 @@
-<div class="form-group row">
+<div class="form-group">
     <label for="company"
-           class="col-md-4 col-form-label text-md-right">{{ __('Company') }}</label>
+           class="col-form-label text-md-right">{{ __('Company') }}</label>
 
-    <div class="col-md-6">
+    <div class="">
         <input id="company" type="text"
                class="form-control @error('company') is-invalid @enderror"
                name="company" value="{{ old('company') }}" required
@@ -16,11 +16,11 @@
     </div>
 
 </div>
-<div class="form-group row">
+<div class="form-group">
     <label for="position"
-           class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
+           class="col-form-label text-md-right">{{ __('Position') }}</label>
 
-    <div class="col-md-6">
+    <div class="">
         <input id="position" type="text"
                class="form-control @error('position') is-invalid @enderror"
                name="position" value="{{ old('position') }}" required
@@ -35,11 +35,11 @@
 
 </div>
 @isset($p)
-    <div class="form-group row">
+    <div class="form-group">
         <label for="phone"
-               class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+               class="col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
-        <div class="col-md-6">
+        <div class="">
             <input id="phone" type="text"
                    class="form-control @error('phone') is-invalid @enderror"
                    name="phone" value="{{ old('phone') }}" required

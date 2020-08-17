@@ -1,9 +1,9 @@
 
-<div class="form-group row">
+<div class="form-group">
     <label for="cv"
-           class="col-md-4 col-form-label text-md-right">{{ __('Upload CV') }}</label>
+           class="col-form-label text-md-right">{{ __('Upload CV') }}</label>
 
-    <div class="col-md-6">
+    <div class="">
         <div class="file-drop-area">
             <span class="fake-btn">بارگذاری</span>
             <span class="file-msg">هیچ فایلی انتخاب نشده است.</span>

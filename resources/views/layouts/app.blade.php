@@ -26,6 +26,7 @@
             crossorigin="anonymous"></script>
     <script src="{{asset('js/star-rating.min.js')}}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <style>
         .nav-item{
             background-color: #1b4b72;
@@ -82,7 +83,7 @@
             width: 80%;
             margin-right: 10px;
             margin-left: -100%;
-            border-top: 1px solid black;
+            border-top: 1px solid white;
         }
     </style>
 </head>
