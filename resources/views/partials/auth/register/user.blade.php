@@ -7,7 +7,7 @@
         <div class="file-drop-area">
             <span class="fake-btn">بارگذاری</span>
             <span class="file-msg">هیچ فایلی انتخاب نشده است.</span>
-            <input class="file-input @error('cv') is-invalid @enderror" type="file" name="cv">
+            <input class="file-input @error('cv') is-invalid @enderror" type="file" name="cv" accept=".pdf,.docx">
             @error('cv')
             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

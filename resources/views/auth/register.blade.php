@@ -1,13 +1,14 @@
 @extends('layouts.app')
 @section('content')
+    <section class="register">
     <div class="container text-white text-right">
         <div class="row justify-content-start mt-5" dir="rtl">
-            <h2 class="text-right text-white">
+            <h2 class="heading text-right text-white">
                 {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام"}}
             </h2>
         </div>
         <div class="row border-right">
-            <div class="col-md-7">
+            <div class="col-md-7 register-image">
                 <img width="100%" src="{{asset('images/Reviewmycv.png')}}" alt="">
             </div>
             <div class="col-md-5">
@@ -151,6 +152,7 @@
                     </div>
             </div>
     </div>
+    </section>
 @endsection
 @section('scripts')
     $(document).ready(function(){
