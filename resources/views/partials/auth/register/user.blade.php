@@ -1,7 +1,7 @@
 
 <div class="form-group">
     <label for="cv"
-           class="col-form-label text-md-right">{{ __('Upload CV') }}</label>
+           class="col-form-label text-md-right">رزومه</label>
 
     <div class="">
         <div class="file-drop-area">

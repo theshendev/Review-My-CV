@@ -3,17 +3,15 @@
     <div class="container text-white text-right">
         <div class="row justify-content-start mt-5" dir="rtl">
             <h2 class="text-right text-white">
-                {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}
+                {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام"}}
             </h2>
         </div>
         <div class="row border-right">
-            <div class="col-md-6">
-                <img width="100%" src="{{asset('images/490748-PH5A0U-472.jpg')}}" alt="">
+            <div class="col-md-7">
+                <img width="100%" src="{{asset('images/Reviewmycv.png')}}" alt="">
             </div>
-            <div class="col-md-6">
-
-                    <div class="card-body">
-                        @isset($url)
+            <div class="col-md-5">
+                 @isset($url)
                             <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}"  enctype="multipart/form-data">
 
                                 @else
@@ -44,7 +42,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="name"
-                                                       class="col-form-label text-md-right">{{ __('Name') }}</label>
+                                                       class="col-form-label text-md-right">نام و نام خانوادگی</label>
                                                 <div class="">
                                                     <input id="name" type="text"
                                                            class="form-control @error('name') is-invalid @enderror"
@@ -61,7 +59,7 @@
 
                                             <div class="form-group ">
                                                 <label for="email"
-                                                       class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                                       class="col-form-label text-md-right">ایمیل</label>
 
                                                 <div class="">
                                                     <input id="email" type="email"
@@ -77,16 +75,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group ">
-                                                <label for="phone"
-                                                       class="col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                                                <label for="linkedin"
+                                                       class="col-form-label text-md-right">اکانت لینکدین</label>
 
                                                 <div class="">
-                                                    <input id="phone" type="text"
-                                                           class="form-control @error('phone') is-invalid @enderror"
-                                                           name="phone" value="{{ old('phone') }}" required
-                                                           autocomplete="phone">
+                                                    <input id="linkedin" type="text"
+                                                           class="form-control @error('linkedin') is-invalid @enderror"
+                                                           name="linkedin" value="{{ old('linkedin') }}" required
+                                                           autocomplete="linkedin">
 
-                                                    @error('phone')
+                                                    @error('linkedin')
                                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -99,7 +97,7 @@
 
                                             <div class="form-group ">
                                                 <label for="password"
-                                                       class="col-form-label text-md-right">{{ __('Password') }}</label>
+                                                       class="col-form-label text-md-right">رمز عبور</label>
 
                                                 <div class="">
                                                     <input id="password" type="password"
@@ -116,7 +114,7 @@
 
                                             <div class="form-group ">
                                                 <label for="password-confirm"
-                                                       class="col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                                       class="col-form-label text-md-right">تکرار رمز عبور</label>
 
                                                 <div class="">
                                                     <input id="password-confirm" type="password" class="form-control"
@@ -130,7 +128,7 @@
                                         <div class="form-group  mb-0">
                                             <div class=" offset-md-4">
                                                 <button type="submit" class="btn btn-primary">
-                                                    {{ __('Register') }}
+                                                    ثبت نام
                                                 </button>
                                             </div>
                                         </div>
@@ -147,7 +145,6 @@
 
                     </div>
             </div>
-        </div>
     </div>
 @endsection
 @section('scripts')

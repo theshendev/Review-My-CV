@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="company"
-           class="col-form-label text-md-right">{{ __('Company') }}</label>
+           class="col-form-label text-md-right">سازمان</label>
 
     <div class="">
         <input id="company" type="text"
@@ -18,7 +18,7 @@
 </div>
 <div class="form-group">
     <label for="position"
-           class="col-form-label text-md-right">{{ __('Position') }}</label>
+           class="col-form-label text-md-right">موقعیت شغلی</label>
 
     <div class="">
         <input id="position" type="text"
