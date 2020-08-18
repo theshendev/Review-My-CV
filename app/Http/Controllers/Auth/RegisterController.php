@@ -76,7 +76,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers'],
-            'linkedin' => ['unique:users','unique:reviewers'],
+            'linkedin' => ['required','unique:users','unique:reviewers'],
             'cv' => ['required','mimes:pdf,docx'],
             'image' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -87,7 +87,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users'],
-            'linkedin' => ['unique:reviewers','unique:users'],
+            'linkedin' => ['required','unique:reviewers','unique:users'],
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
             'image' => ['required'],
@@ -141,7 +141,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'linkedin' => $data['linkedin'],
+            'linkedin' =>  'https://www.linkedin.com/in/'.$data['linkedin'],
             'image' => $data['image'],
             'provider' => $data['provider'],
             'provider_id' => $data['provider_id'],
@@ -172,7 +172,7 @@ class RegisterController extends Controller
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'linkedin' => $request['linkedin'],
+            'linkedin' =>'https://www.linkedin.com/in/'.$request['linkedin'],
             'image' => $path,
             'company' => $request['company'],
             'position' => $request['position'],

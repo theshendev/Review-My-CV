@@ -22,17 +22,17 @@
 
 </div>
 @isset($p)
-    <div class="form-group row">
-        <label for="phone"
-               class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+    <div class="row">
+        <div class="col-5 align-self-center pr-0">
+            https://www.linkedin.com/in/
+        </div>
+        <div class="col-7">
+            <input id="linkedin" type="text"
+                   class="form-control @error('linkedin') is-invalid @enderror"
+                   name="linkedin" value="{{ old('linkedin') }}" required
+                   autocomplete="linkedin">
 
-        <div class="col-md-6">
-            <input id="phone" type="text"
-                   class="form-control @error('phone') is-invalid @enderror"
-                   name="phone" value="{{ old('phone') }}" required
-                   autocomplete="phone">
-
-            @error('phone')
+            @error('linkedin')
             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
