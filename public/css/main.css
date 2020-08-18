@@ -1,7 +1,4 @@
 /* Register Page */
-.register .container {
-  max-width: 1000px;
-}
 .register .heading:after {
   content: "";
   display: inline-block;

@@ -9,7 +9,7 @@
             <h3 class="text-center text-white">ارزیابی برای شما وجود ندارد</h3>
 
     @else
-        <div class="container">
+        <div class="container text-white">
             <div class="row justify-content-start my-5" dir="rtl">
                 <h2 class="text-right">
                     فهرست ارزیاب ها

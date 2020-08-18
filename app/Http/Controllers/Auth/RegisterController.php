@@ -168,12 +168,13 @@ class RegisterController extends Controller
             $request['provider_id'] = null;
             $path =$this->uploadImage($request['image']);
         }
+        $request['image']=$path;
         $this->reviewerValidator($request->all())->validate();
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'linkedin' =>'https://www.linkedin.com/in/'.$request['linkedin'],
-            'image' => $path,
+            'image' => $request['image'],
             'company' => $request['company'],
             'position' => $request['position'],
             'provider' => $request['provider'],

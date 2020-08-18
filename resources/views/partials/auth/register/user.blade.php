@@ -22,21 +22,27 @@
 
 </div>
 @isset($p)
-    <div class="row">
-        <div class="col-5 align-self-center pr-0">
-            https://www.linkedin.com/in/
-        </div>
-        <div class="col-7">
-            <input id="linkedin" type="text"
-                   class="form-control @error('linkedin') is-invalid @enderror"
-                   name="linkedin" value="{{ old('linkedin') }}" required
-                   autocomplete="linkedin">
+    <div class="form-group ">
+        <label for="linkedin"
+               class="col-form-label text-md-right">اکانت لینکدین</label>
 
-            @error('linkedin')
-            <span class="invalid-feedback" role="alert">
+        <div class="row">
+            <div class="col-5 align-self-center pr-0">
+                https://www.linkedin.com/in/
+            </div>
+            <div class="col-7">
+                <input id="linkedin" type="text"
+                       class="form-control @error('linkedin') is-invalid @enderror"
+                       name="linkedin" value="{{ old('linkedin') }}" required
+                       autocomplete="linkedin">
+
+                @error('linkedin')
+                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-            @enderror
+                @enderror
+            </div>
         </div>
     </div>
+
 @endisset
