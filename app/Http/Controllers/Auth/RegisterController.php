@@ -76,7 +76,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers'],
-            'phone' => ['regex:/(09)[0-9]{9}/','unique:users','unique:reviewers'],
+            'linkedin' => ['unique:users','unique:reviewers'],
             'cv' => ['required','mimes:pdf,docx'],
             'image' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -87,19 +87,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users'],
-            'phone' => ['regex:/(09)[0-9]{9}/','unique:reviewers','unique:users'],
+            'linkedin' => ['unique:reviewers','unique:users'],
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
             'image' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
-    /**
-     * Create a new users instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
+
     protected function setData(Request $request)
     {
         $request['provider'] = null;
@@ -114,7 +109,7 @@ class RegisterController extends Controller
             $request['password'] = Str::random(8);
             $request['password_confirmation'] = $request['password'];
         }
-            $this->register($request);
+        $this->register($request);
 
     }
 
@@ -126,6 +121,12 @@ class RegisterController extends Controller
         return $path;
 
     }
+    /**
+     * Create a new users instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
 
     protected function create(array $data)
     {
@@ -140,7 +141,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'phone' => $data['phone'],
+            'linkedin' => $data['linkedin'],
             'image' => $data['image'],
             'provider' => $data['provider'],
             'provider_id' => $data['provider_id'],
@@ -171,7 +172,7 @@ class RegisterController extends Controller
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'phone' => $request['phone'],
+            'linkedin' => $request['linkedin'],
             'image' => $path,
             'company' => $request['company'],
             'position' => $request['position'],
