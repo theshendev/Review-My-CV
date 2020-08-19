@@ -103,3 +103,71 @@
 .register .form-control {
   border-radius: 20px;
 }
+
+/* Login Page */
+.login a {
+  color: #6db6af;
+}
+.login .container {
+  padding-top: 5rem;
+}
+.login .logo {
+  margin: 2rem 0;
+}
+.login .login-header {
+  text-align: right;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2.5rem;
+}
+.login .card {
+  background-color: rgba(7, 59, 76, 0.49);
+  border: 7px solid rgba(17, 138, 178, 0.34);
+  border-radius: 50px;
+  color: white;
+}
+.login .card .card-body {
+  padding: 0 2.5rem;
+}
+.login .card .card-body .form-control {
+  border-radius: 14px;
+}
+.login .card .card-body button {
+  background-color: #FFD166;
+  border-color: #FFD166;
+  border-radius: 14px;
+}
+.login .card .card-body button:hover {
+  background-color: #ffc53d;
+  border-color: #ffc233;
+}
+.login .card .card-body button:active {
+  background-color: #ffc233;
+  border-color: #ffbf29;
+}
+.login .card .card-body button:active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 224, 153, 0.5);
+}
+.login .card .card-body h3 {
+  width: 100%;
+  padding: 0.75rem 2.5rem;
+}
+.login .card .card-body h3:before {
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 50%;
+  margin-right: 10px;
+  margin-left: -100%;
+  border-top: 3px solid #118AB2;
+}
+.login .card .card-body h3:after {
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 50%;
+  margin-left: 10px;
+  margin-right: -100%;
+  border-top: 3px solid #118AB2;
+}

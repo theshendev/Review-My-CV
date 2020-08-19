@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('body_bg')
+    url("{{asset('images/index.jpg')}}") no-repeat center center fixed
+
+@endsection
 @section('content')
     <div class="container text-center">
         <div class="row justify-content-center">

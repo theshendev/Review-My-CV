@@ -28,6 +28,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <style>
+        body{
+            background: @yield('body_bg','#073B4C');
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
         .nav-item{
             background-color: #1b4b72;
             border-radius: 20px;
@@ -87,9 +94,9 @@
         }
     </style>
 </head>
-<body style="background: url(http://127.0.0.1:8000/images/index.jpg) center/cover no-repeat">
+<body>
     <div id="app">
-        @include('partials.nav')
+        @includeWhen(!\Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Request::path(),'login'),'partials.nav')
         <main class="py-4">
             @yield('content')
         </main>
