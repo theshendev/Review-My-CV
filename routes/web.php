@@ -25,6 +25,7 @@ Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
 Route::get('/register/reviewer/p2', 'Auth\RegisterController@showSecondRegisterForm');
 Route::get('/register/p2', 'Auth\RegisterController@showSecondRegisterForm');
+//Route::get('/reviewer/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('reviewer.verify');
 
 Route::post('/register', 'Auth\RegisterController@setData');
 
@@ -34,7 +35,7 @@ Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->nam
 Route::get('/reviewers', 'ReviewerController@index')->name('reviewers.index');
 Route::get('/reviewers/{reviewer}', 'ReviewerController@show')->name('reviewer.show');
 Route::post('/{reviewer}/{comment}/score','ReviewerController@add_score')->name('reviewer.score');
-Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer')->name('reviewer');
+Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer','verified')->name('reviewer');
 
 
 Route::get('/users','UserController@index')->name('users.index');

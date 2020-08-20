@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ReviewerController extends Controller
 {
+
     public function index()
     {
         $reviewers = Reviewer::all()->where('is_available','==','1');

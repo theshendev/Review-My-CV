@@ -198,6 +198,7 @@ class RegisterController extends Controller
 
             $user->markEmailAsVerified();
         }
+        $user->sendEmailVerificationNotification();
 
             session()->forget('user');
         Auth::guard('reviewer')->login($user);
