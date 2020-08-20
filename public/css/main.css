@@ -108,6 +108,9 @@
 .login a {
   color: #6db6af;
 }
+.login .social {
+  min-width: 30px;
+}
 .login .container {
   padding-top: 5rem;
 }

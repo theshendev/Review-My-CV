@@ -141,20 +141,20 @@
 
                                             @else
                                                 <div class="row mb-4">
-                                                    <div class="col-md-8 text-left align-self-center">
+                                                    <div class="col-8 text-left align-self-center">
                                                         <a href="{{ route('login.reviewer') }}">
                                                             ورود به عنوان ارزیاب
                                                         </a>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <a href="{{ route('user.social','linkedin') }}">
-                                                            <img width="100%" src="{{asset('images/nextpng2.com.png')}}"
+                                                            <img class="social" width="100%" src="{{asset('images/nextpng2.com.png')}}"
                                                                  alt="">
                                                         </a>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <a href="{{ route('user.social','google') }}">
-                                                            <img width="100%"
+                                                            <img class="social" width="100%"
                                                                  src="{{asset('images/btn_google_light_normal_ios.png')}}"
                                                                  alt="">
                                                         </a>

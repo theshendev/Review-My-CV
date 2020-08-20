@@ -31,9 +31,15 @@ class RegisterController extends Controller
     /**
      * Where to redirect users after registration.
      *
-     * @var string
+     * @return  string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo()
+    {
+        if (getGuard() == 'reviewer') {
+            return '/reviewer/profile';
+        }
+        return '/user/profile';
+    }
 
     /**
      * Create a new controller instance.
@@ -109,7 +115,7 @@ class RegisterController extends Controller
             $request['password'] = Str::random(8);
             $request['password_confirmation'] = $request['password'];
         }
-        $this->register($request);
+        return $this->register($request);
 
     }
 
@@ -130,7 +136,6 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        session()->forget('user');
         $cv =$data['cv'];
         $uniqueFileName = uniqid() . $cv->getClientOriginalName();
         $cv->storeAs('public/users_cv', $uniqueFileName);
@@ -138,7 +143,7 @@ class RegisterController extends Controller
             $data['image'] = $this->uploadImage($data['image']);
         }
 
-        return User::create([
+         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'linkedin' =>  'https://www.linkedin.com/in/'.$data['linkedin'],
@@ -148,7 +153,15 @@ class RegisterController extends Controller
             'cv' =>$uniqueFileName,
             'password' => Hash::make($data['password']),
         ]);
+
+        if(session()->exists('user')) {
+
+            $user->markEmailAsVerified();
+        }
+        session()->forget('user');
+        return $user;
     }
+
     protected function createReviewer(Request $request)
     {
 
@@ -181,7 +194,12 @@ class RegisterController extends Controller
             'provider_id' => $request['provider_id'],
             'password' => Hash::make($request['password']),
         ]);
-        session()->forget('user');
+        if(session()->exists('user')) {
+
+            $user->markEmailAsVerified();
+        }
+
+            session()->forget('user');
         Auth::guard('reviewer')->login($user);
         return redirect()->to('/reviewer');
 
