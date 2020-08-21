@@ -13,12 +13,11 @@
                     @auth('reviewer')
                         @php
                             $commentExists = @auth('reviewer')->user()->comments()->exists();
-                            $reviewer_id = @auth('reviewer')->id()
                         @endphp
                         <div class="col-md-4">
-                            @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',$reviewer_id)->exists())
+                            @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',auth('reviewer')->id())->exists())
                                 <a class="btn btn-primary"
-                                   href="{{route('cv_download',['user'=>$user->id,'reviewer'=> $reviewer_id])}}">
+                                   href="{{route('cv_download',['user'=>$user->id,'reviewer'=> auth('reviewer')->id()])}}">
                                     Review CV
                                 </a>
                             @else
@@ -30,7 +29,7 @@
                 </div>
             </div>
         </div>
-        @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',$reviewer_id)->exists() and !$commentExists)
+        @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',auth('reviewer')->id())->exists() and !$commentExists)
             <div class="row col-8 mt-3">
                 <form action="{{route('comment.store',['user'=>$user->id])}}" method="post">
                     @csrf

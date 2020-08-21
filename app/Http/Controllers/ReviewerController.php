@@ -11,7 +11,7 @@ class ReviewerController extends Controller
 
     public function index()
     {
-        $reviewers = Reviewer::all()->where('is_available','==','1');
+        $reviewers = Reviewer::available()->get();
         foreach ($reviewers as $key=>$reviewer){
             if (relationExists(auth()->user(),$reviewer)){
                 $reviewers->forget($key);

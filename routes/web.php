@@ -37,13 +37,15 @@ Route::post('/{reviewer}/{comment}/score','ReviewerController@add_score')->name(
 Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer','verified')->name('reviewer');
 
 
-Route::get('/users','UserController@index')->name('users.index');
-Route::get('/users/{user}','UserController@show')->name('user.show');
-Route::get('/users/{user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
-Route::get('/users/{user}/forbid_reviewer/{reviewer}','UserController@forbid_reviewer')->name('forbid_reviewer');
-Route::get('/users/{user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
+Route::prefix('users')->group(function (){
+    Route::get('/','UserController@index')->name('users.index');
+    Route::get('/{user}','UserController@show')->name('user.show');
+    Route::get('/user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
+    Route::get('/{user}/forbid_reviewer/{reviewer}','UserController@forbid_reviewer')->name('forbid_reviewer');
+    Route::get('/user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
+    Route::post('/{user}/comment','CommentController@store')->name('comment.store');
 
-Route::post('/users/{user}/comment','CommentController@store')->name('comment.store');
+});
 
 
 Route::get('login/reviewer/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('reviewer.social');
