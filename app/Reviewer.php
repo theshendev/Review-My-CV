@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Notifications\CustomResetPasswordNotification;
 use App\Notifications\VerifyEmailNotification;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -15,7 +16,10 @@ class Reviewer extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new VerifyEmailNotification());
     }
-
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomResetPasswordNotification($token));
+    }
     protected $guard = 'reviewer';
 
     protected $fillable = [
