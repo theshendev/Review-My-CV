@@ -27,7 +27,7 @@
                                         @else
                                             <div class="avatar-upload">
                                                 <div class="avatar-edit">
-                                                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" required/>
                                                     @error('image')
                                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

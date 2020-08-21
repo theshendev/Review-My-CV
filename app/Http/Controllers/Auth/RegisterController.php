@@ -169,7 +169,7 @@ class RegisterController extends Controller
             $data = session('user');
             $request['name'] = $data['name'];
             $request['email'] = $data['email'];
-            $path = $data['image'];
+            $request['image'] = $path = $data['image'];
             $request['provider'] = $data['provider'];
             $request['provider_id'] = $data['provider_id'];
             $request['password'] =  Str::random(8);
@@ -179,15 +179,16 @@ class RegisterController extends Controller
         else{
             $request['provider'] = null;
             $request['provider_id'] = null;
+        }
+        $this->reviewerValidator($request->all())->validate();
+        if (is_file($request['image'])){
             $path =$this->uploadImage($request['image']);
         }
-        $request['image']=$path;
-        $this->reviewerValidator($request->all())->validate();
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'linkedin' =>'https://www.linkedin.com/in/'.$request['linkedin'],
-            'image' => $request['image'],
+            'image' => $path,
             'company' => $request['company'],
             'position' => $request['position'],
             'provider' => $request['provider'],
@@ -198,7 +199,9 @@ class RegisterController extends Controller
 
             $user->markEmailAsVerified();
         }
-        $user->sendEmailVerificationNotification();
+        else{
+            $user->sendEmailVerificationNotification();
+        }
 
             session()->forget('user');
         Auth::guard('reviewer')->login($user);
