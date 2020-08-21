@@ -107,6 +107,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'reviewers' => [
+            'provider' => 'reviewers',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*

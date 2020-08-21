@@ -25,7 +25,6 @@ Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
 Route::get('/register/reviewer/p2', 'Auth\RegisterController@showSecondRegisterForm');
 Route::get('/register/p2', 'Auth\RegisterController@showSecondRegisterForm');
-//Route::get('/reviewer/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('reviewer.verify');
 
 Route::post('/register', 'Auth\RegisterController@setData');
 

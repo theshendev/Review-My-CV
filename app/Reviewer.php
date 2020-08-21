@@ -3,13 +3,14 @@
 namespace App;
 
 use App\Notifications\VerifyEmailNotification;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Reviewer extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable,CanResetPassword;
     public function sendEmailVerificationNotification()
     {
         $this->notify(new VerifyEmailNotification());
