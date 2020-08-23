@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ReviewerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:web,reviewer');
+    }
 
     public function index()
     {
