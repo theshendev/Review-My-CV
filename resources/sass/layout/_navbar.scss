@@ -1,0 +1,58 @@
+.navbar{
+  background-color: $main-yellow;
+  border-radius: 50px;
+  .navbar-nav.ml-auto{
+    direction: rtl;
+    padding: 0;
+  }
+  .nav-item{
+    &.nav-item_bg{
+      .nav-link{
+        color: white;
+      }
+      background-color: rgba(7, 59, 76, 0.89);
+    }
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 20px;
+    &:first-child{
+      margin-right:1.5rem;
+
+    }
+    margin:0.75rem 0.5rem;
+    padding:0 0.5rem;
+    .nav-link{
+      padding: 0.5rem 1rem;
+      color: #204948;
+
+    }
+    .dropdown-menu{
+      width: 100%;
+      background-color:#073B4C ;
+      border: 2px solid $main-yellow;
+      .dropdown-item{
+        color: white;
+        margin: 0.5rem 2rem;
+        &:hover{
+          background-color: initial;
+        }
+      }
+      &_image{
+        border: 1px solid white;
+        border-radius: 50%;
+        width:134px;
+        height:134px;
+      }
+    }
+  }
+
+.container{
+  padding: 0;
+}
+.typo-logo{
+  font-size: 1.7rem;
+  color: #073B4C !important;
+  padding-left: 0 !important;
+  padding-top: 0.75rem;
+}
+}

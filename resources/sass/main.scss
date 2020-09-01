@@ -1,6 +1,27 @@
+// Variables
+@import 'variables';
+
+.container{
+  max-width: 1500px;
+}
+.btn{
+  border-radius: 50px;
+
+ &-custom{
+   background-color: white;
+   font-size: 1.3rem;
+   //color: rgba($m);
+ }
+}
+
+/* Header styles */
+@import "layout/navbar";
 
 /* Register Page */
 @import "pages/register";
 
 /* Login Page */
 @import "pages/login";
+
+/* Reviewers Page */
+@import "pages/reviewers";

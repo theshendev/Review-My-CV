@@ -8,10 +8,10 @@
             </h2>
         </div>
         <div class="row border-right">
-            <div class="col-md-7 register-image">
-                <img width="100%" src="{{asset('images/Reviewmycv.png')}}" alt="">
+            <div class="col-md-6 register-image">
+                <img width="100%" src="/images/{{isset($url) ? "reviewer-register.png" : "user-register.png"}}" alt="">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4 offset-md-1">
                  @isset($url)
                             <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}"  enctype="multipart/form-data">
 
@@ -33,7 +33,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                                     @enderror
-                                                    <label for="imageUpload"><span class="fa fa-plus"></span>
+                                                    <label for="imageUpload"><span class="fal fa-plus"></span>
                                                     </label>
                                                 </div>
                                                 <div class="avatar-preview">
@@ -44,11 +44,13 @@
                                             <div class="form-group">
                                                 <label for="name"
                                                        class="col-form-label text-md-right">نام و نام خانوادگی</label>
-                                                <div class="">
+                                                <div class="input-field">
+                                                    {{--<span class="input-field_icon icon-right"><i class="fa fa-search"></i></span>--}}
                                                     <input id="name" type="text"
                                                            class="form-control @error('name') is-invalid @enderror"
                                                            name="name" value="{{ old('name') }}" required
                                                            autocomplete="name" autofocus>
+                                                    <span class="input-field_icon icon-right"><i class="fa fa-search"></i></span>
 
                                                     @error('name')
                                                     <span class="invalid-feedback" role="alert">
@@ -62,11 +64,12 @@
                                                 <label for="email"
                                                        class="col-form-label text-md-right">ایمیل</label>
 
-                                                <div class="">
+                                                <div class="input-field">
                                                     <input id="email" type="email"
                                                            class="form-control @error('email') is-invalid @enderror"
                                                            name="email" value="{{ old('email') }}" required
                                                            autocomplete="email">
+                                                    <span class="input-field_icon icon-left"><i class="fa fa-mailbox"></i></span>
 
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -79,11 +82,11 @@
                                                 <label for="linkedin"
                                                        class="col-form-label text-md-right">اکانت لینکدین</label>
 
-                                                <div class="row">
-                                                    <div class="col-5 align-self-center pr-0">
+                                                <div class="input-field">
+                                                    <div class="align-self-center pr-1">
                                                         https://www.linkedin.com/in/
                                                     </div>
-                                                    <div class="col-7">
+                                                    <div class="w-100">
                                                     <input id="linkedin" type="text"
                                                            class="form-control @error('linkedin') is-invalid @enderror"
                                                            name="linkedin" value="{{ old('linkedin') }}" required
@@ -105,7 +108,7 @@
                                                 <label for="password"
                                                        class="col-form-label text-md-right">رمز عبور</label>
 
-                                                <div class="">
+                                                <div class="input-field">
                                                     <input id="password" type="password"
                                                            class="form-control @error('password') is-invalid @enderror"
                                                            name="password" required autocomplete="new-password">
@@ -122,7 +125,7 @@
                                                 <label for="password-confirm"
                                                        class="col-form-label text-md-right">تکرار رمز عبور</label>
 
-                                                <div class="">
+                                                <div class="input-field">
                                                     <input id="password-confirm" type="password" class="form-control"
                                                            name="password_confirmation" required
                                                            autocomplete="new-password">
@@ -131,23 +134,54 @@
 
 
                                         @endisset
-                                        <div class="form-group  mb-0">
-                                            <div class=" offset-md-4">
-                                                <button type="submit" class="btn btn-primary">
+                                        <div class="row">
+                                            <div class="col-md-5 text-left">
+                                                <button type="submit" class="btn btn-custom">
                                                     ثبت نام
                                                 </button>
                                             </div>
+                                            <div class="col-md-7 align-self-center">
+                                            @isset($url)
+                                                <a href="{{ route('register') }}">
+                                                    ثبت نام به عنوان کاربر
+                                                </a>
+                                                    <div class="mt-2">
+                                                <span>
+                                                    اکانت دارید؟
+                                                </span>
+                                                        <a href="{{ route('login.reviewer') }}">
+                                                            ورود
+                                                        </a>
+                                                    </div>
+                                            @else
+                                                <a href="{{ route('register.reviewer') }}">
+                                                    ثبت نام به عنوان ارزیاب
+                                                </a>
+                                                <div class="mt-2">
+                                                <span>
+                                                    اکانت دارید؟
+                                            </span>
+                                                    <a href="{{ route('login') }}">
+                                                        ورود
+                                                    </a>
+                                            </div>
+                                            @endisset
+                                            </div>
                                         </div>
                                     </form>
-                                    @isset($url)
-                                        <a class="btn btn-link" href="{{ route('register') }}">
-                                            Register as user
-                                        </a>
-                                    @else
-                                        <a class="btn btn-link" href="{{ route('register.reviewer') }}">
-                                            Register as reviewer
-                                        </a>
-                        @endisset
+                     <div class="row mt-3">
+                         <div class="col-md-6 text-left">
+                             <a class="btn btn-social google">
+                                 <img style="max-width: 33px" src="{{asset('images/google-logo-9808.png')}}" alt=""> Google
+                                 {{--<span class="fab fa-google" style="font-size: 2rem">ورود با گوگل</span>--}}
+                             </a>
+                         </div>
+                         <div class="col-md-6 text-right">
+                             <a href="{{route(isset($url) ? "reviewer.social" : "user.social",['provider'=>'linkedin'])}}" class="btn btn-social linkedin">
+                                 <img style="max-width: 33px" src="{{asset('images/nextpng2.com.png')}}" alt=""> Linkedin
+                             </a>
+                         </div>
+                     </div>
 
                     </div>
             </div>

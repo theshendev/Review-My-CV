@@ -20,7 +20,7 @@
                                       method="post">
                                     @csrf
                                     <input type="text" onchange="this.form.submit()" id="input-1" name="score"
-                                           class="rating" data-min="0" data-max="5" data-step="0.1" value="2"
+                                           class="rating" data-min="0" data-max="5" data-step="0.5" value="2.5"
                                            data-size="sm">
                                 </form>
 

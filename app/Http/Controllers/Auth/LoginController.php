@@ -54,9 +54,7 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
         $credentials = $request->only('email', 'password');
-//        if (Auth::guard('reviewer')->attempt(['company_email' => $request->company_email, 'password' => $request->password], $request->get('remember'))) {
         if (Auth::guard('reviewer')->attempt($credentials)) {
-//            return redirect()->intended('/reviewer');
             return redirect('/reviewer');
         }
 

@@ -40,9 +40,9 @@ Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer','verified')->na
 Route::prefix('users')->group(function (){
     Route::get('/','UserController@index')->name('users.index');
     Route::get('/{user}','UserController@show')->name('user.show');
-    Route::get('/user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
+    Route::get('/{user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
     Route::get('/{user}/forbid_reviewer/{reviewer}','UserController@forbid_reviewer')->name('forbid_reviewer');
-    Route::get('/user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
+    Route::get('/{user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
     Route::post('/{user}/comment','CommentController@store')->name('comment.store');
 
 });

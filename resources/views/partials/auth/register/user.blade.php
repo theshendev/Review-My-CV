@@ -3,7 +3,7 @@
     <label for="cv"
            class="col-form-label text-md-right">رزومه</label>
 
-    <div class="">
+    <div class="input-field">
         <div class="file-drop-area">
             <span class="fake-btn">بارگذاری</span>
             <span class="file-msg">هیچ فایلی انتخاب نشده است.</span>

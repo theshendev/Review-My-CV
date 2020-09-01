@@ -15,12 +15,12 @@ class ReviewerController extends Controller
 
     public function index()
     {
+        anyRelationExists(auth()->user());
         $reviewers = Reviewer::available()->get();
         foreach ($reviewers as $key=>$reviewer){
             if (relationExists(auth()->user(),$reviewer)){
                 $reviewers->forget($key);
             }
-
         }
         return view('reviewers.index',compact('reviewers'));
     }

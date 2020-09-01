@@ -1,6 +1,29 @@
 
 .register {
+  //a{
+  //  color: #6db6af;
+  //}
+  .offset-md-1{
+    margin-left: 13%;
+  }
+  .btn{
+    padding: 0.5rem 3rem;
+    &-social{
+      border: 2px solid white;
+      color: white;
+      width: 100%;
+      padding: 0.5rem 2rem;
+      &.google:hover{
+        background-color: #fff;
+        color: black;
 
+      }
+      &.linkedin:hover{
+        background-color: #0072B1;
+      }
+
+    }
+  }
   .heading{
     &:after {
       content:"";
@@ -14,11 +37,11 @@
     }
   }
   &-image{
-    margin-top: 10rem;
+    margin-top: 5rem;
   }
   .file-drop-area {
     direction: rtl;
-    background-color: #f4f4f4;
+    background-color: rgba(255, 255, 255, 0.2);
     position: relative;
     display: flex;
     align-items: center;
@@ -47,7 +70,7 @@
   }
 
   .file-msg {
-    color: #681416;
+    color: white;
     line-height: 1.4;
     white-space: nowrap;
   }
@@ -69,7 +92,7 @@
   .avatar-upload {
     position: relative;
     max-width: 205px;
-    margin: 50px auto;
+    margin:auto;
 
     .avatar-edit {
       position: absolute;
@@ -86,7 +109,7 @@
           height: 34px;
           margin-bottom: 0;
           border-radius: 100%;
-          background: yellow;
+          background: $main-yellow;
           border: 1px solid transparent;
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
           cursor: pointer;
@@ -94,10 +117,8 @@
           transition: all .2s ease-in-out;
           justify-content: center;
           align-items: center;
-
-          &:hover {
-            background: #f1f1f1;
-            border-color: #d6d6d6;
+          .fa-plus{
+            font-size: 1.5rem;
           }
 
         }
@@ -105,11 +126,12 @@
     }
 
     .avatar-preview {
-      width: 192px;
-      height: 192px;
+      width: 150px;
+      height: 150px;
       position: relative;
+      margin: auto;
       border-radius: 100%;
-      border: 6px solid #F8F8F8;
+      border: 3px solid #F8F8F8;
       box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
 
       > div {
@@ -122,10 +144,38 @@
       }
     }
   }
+.input-field {
+  display: flex;
+  &_icon{
+    align-self: center;
+    position: absolute;
+    &.icon-right{
+      right: 5%;
+    }
+    &.icon-left{
+      left: 5%;
+    }
+  }
+  input {
+    padding:0 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    height: 48px;
+    &:focus{
+      background-color: white;
+      color: black;
+     & + .input-field_icon{
+        color: black;
+      }
+    }
+  }
+
 
   .form-control {
     //background-color: #BFCCD2;
     //color: #5A5A5A;
+    border: 0;
     border-radius: 20px;
   }
+}
 }

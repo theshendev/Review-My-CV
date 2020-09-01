@@ -1,0 +1,48 @@
+.reviewers-list{
+  .container{
+    max-width: 1140px;
+  }
+  h2{
+    width: 100%;
+  }
+  h2:after {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: bottom;
+    width: 80%;
+    margin-right: 10px;
+    margin-left: -100%;
+    border-top: 1px solid white;
+  }
+  .reviewer{
+    background-color: rgba(white , 10%);
+    border-radius: 50px;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    &-image{
+      width: 134px;
+      height: 134px;
+      margin: 2rem;
+      padding: 0.15rem;
+      background-color: gray;
+      border: 1px solid #dee2e6;
+      &-container{
+        position: relative;
+
+      }
+    }
+    &-score-icons{
+      position: absolute;
+      bottom: 45px;
+      left:95px;
+      direction: ltr;
+      .fa-search{
+        font-size: 0.7rem;
+        &.full{
+          color: $main-yellow;
+        }
+      }
+    }
+  }
+}

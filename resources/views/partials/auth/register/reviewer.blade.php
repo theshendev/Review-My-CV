@@ -2,7 +2,7 @@
     <label for="company"
            class="col-form-label text-md-right">سازمان</label>
 
-    <div class="">
+    <div class="input-field">
         <input id="company" type="text"
                class="form-control @error('company') is-invalid @enderror"
                name="company" value="{{ old('company') }}" required
@@ -20,7 +20,7 @@
     <label for="position"
            class="col-form-label text-md-right">موقعیت شغلی</label>
 
-    <div class="">
+    <div class="input-field">
         <input id="position" type="text"
                class="form-control @error('position') is-invalid @enderror"
                name="position" value="{{ old('position') }}" required
