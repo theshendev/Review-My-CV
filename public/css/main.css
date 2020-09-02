@@ -1,7 +1,3 @@
-.container {
-  max-width: 1500px;
-}
-
 .btn {
   border-radius: 50px;
 }
@@ -10,57 +6,67 @@
   font-size: 1.3rem;
 }
 
+.user-image {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 134px;
+  height: 134px;
+}
+
 /* Header styles */
-.navbar {
+header .container {
+  max-width: 1500px;
+}
+header .navbar {
   background-color: #FAC12A;
   border-radius: 50px;
 }
-.navbar .navbar-nav.ml-auto {
+header .navbar .navbar-nav.ml-auto {
   direction: rtl;
   padding: 0;
 }
-.navbar .nav-item {
+header .navbar .nav-item {
   font-weight: bold;
   font-size: 1.1rem;
   border-radius: 20px;
   margin: 0.75rem 0.5rem;
   padding: 0 0.5rem;
 }
-.navbar .nav-item.nav-item_bg {
+header .navbar .nav-item.nav-item_bg {
   background-color: rgba(7, 59, 76, 0.89);
 }
-.navbar .nav-item.nav-item_bg .nav-link {
+header .navbar .nav-item.nav-item_bg .nav-link {
   color: white;
 }
-.navbar .nav-item:first-child {
+header .navbar .nav-item:first-child {
   margin-right: 1.5rem;
 }
-.navbar .nav-item .nav-link {
+header .navbar .nav-item .nav-link {
   padding: 0.5rem 1rem;
   color: #204948;
 }
-.navbar .nav-item .dropdown-menu {
+header .navbar .nav-item .dropdown-menu {
   width: 100%;
   background-color: #073B4C;
   border: 2px solid #FAC12A;
 }
-.navbar .nav-item .dropdown-menu .dropdown-item {
+header .navbar .nav-item .dropdown-menu .dropdown-item {
   color: white;
   margin: 0.5rem 2rem;
 }
-.navbar .nav-item .dropdown-menu .dropdown-item:hover {
+header .navbar .nav-item .dropdown-menu .dropdown-item:hover {
   background-color: initial;
 }
-.navbar .nav-item .dropdown-menu_image {
+header .navbar .nav-item .dropdown-menu_image {
   border: 1px solid white;
   border-radius: 50%;
   width: 134px;
   height: 134px;
 }
-.navbar .container {
+header .navbar .container {
   padding: 0;
 }
-.navbar .typo-logo {
+header .navbar .typo-logo {
   font-size: 1.7rem;
   color: #073B4C !important;
   padding-left: 0 !important;
@@ -70,6 +76,9 @@
 /* Register Page */
 .register .offset-md-1 {
   margin-left: 13%;
+}
+.register .container {
+  max-width: 1500px;
 }
 .register .btn {
   padding: 0.5rem 3rem;
@@ -99,45 +108,6 @@
 }
 .register-image {
   margin-top: 5rem;
-}
-.register .file-drop-area {
-  direction: rtl;
-  background-color: rgba(255, 255, 255, 0.2);
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 10px;
-  border: 1px dashed rgba(255, 255, 255, 0.4);
-  border-radius: 3px;
-  border-radius: 20px;
-  transition: 0.2s;
-}
-.register .fake-btn {
-  color: #243168;
-  background-color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 5px 40px;
-  margin: 0 10px;
-  font-size: 12px;
-}
-.register .file-msg {
-  color: white;
-  line-height: 1.4;
-  white-space: nowrap;
-}
-.register .file-input {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  opacity: 0;
-}
-.register .file-input:focus {
-  outline: none;
 }
 .register .avatar-upload {
   position: relative;
@@ -188,35 +158,78 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.register .input-field {
+
+.input-field {
   display: flex;
 }
-.register .input-field_icon {
+.input-field_icon {
   align-self: center;
   position: absolute;
 }
-.register .input-field_icon.icon-right {
+.input-field_icon.icon-right {
   right: 5%;
 }
-.register .input-field_icon.icon-left {
+.input-field_icon.icon-left {
   left: 5%;
 }
-.register .input-field input {
+.input-field input {
   padding: 0 30px;
   background-color: rgba(255, 255, 255, 0.2);
   color: white;
   height: 48px;
 }
-.register .input-field input:focus {
+.input-field input:focus {
   background-color: white;
   color: black;
 }
-.register .input-field input:focus + .input-field_icon {
+.input-field input:focus + .input-field_icon {
   color: black;
 }
-.register .input-field .form-control {
+.input-field .form-control {
   border: 0;
   border-radius: 20px;
+}
+
+.file-drop-area {
+  direction: rtl;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.fake-btn {
+  color: #243168;
+  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 5px 40px;
+  margin: 0 10px;
+  font-size: 12px;
+}
+
+.file-msg {
+  color: white;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+.file-input:focus {
+  outline: none;
 }
 
 /* Login Page */
@@ -228,7 +241,6 @@
 }
 .login .container {
   padding-top: 5rem;
-  max-width: 1140px;
 }
 .login .logo {
   margin: 2rem 0;
@@ -336,4 +348,63 @@
 }
 .reviewers-list .reviewer-score-icons .fa-search.full {
   color: #FAC12A;
+}
+
+/* Profile Page */
+.profile {
+  direction: rtl;
+}
+.profile-heading {
+  border-bottom: 4px deepskyblue solid;
+  width: 8%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+.profile-information {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  text-align: right;
+}
+.profile-information .form-group {
+  width: 80%;
+  margin: 3rem auto;
+}
+.profile-information .form-group.col-md-6 {
+  width: 100%;
+  margin: auto;
+  padding: 0;
+}
+.profile-information .form-group.col-md-6:first-child {
+  padding-left: 2rem;
+}
+.profile-information .form-group.col-md-6 input {
+  direction: ltr;
+}
+.profile-information .form-group .cv-download {
+  margin-right: auto;
+  color: white;
+  font-size: 1.2rem;
+}
+.profile-information .form-group .cv-download:hover {
+  color: #FAC12A;
+}
+.profile-information .form-group input {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.profile-information .form-group input:focus {
+  background-color: white;
+}
+.profile-information .form-group label, .profile-information .form-group h4 {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+.profile-information .form-group label:before, .profile-information .form-group h4:before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  content: "";
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
 }

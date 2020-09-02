@@ -54,6 +54,7 @@
 
     <script>
         $("#input-id").rating();
+
         @yield('scripts')
 </script>
 </body>

@@ -1,9 +1,6 @@
 // Variables
 @import 'variables';
 
-.container{
-  max-width: 1500px;
-}
 .btn{
   border-radius: 50px;
 
@@ -13,7 +10,12 @@
    //color: rgba($m);
  }
 }
-
+.user-image{
+  border: 1px solid white;
+  border-radius: 50%;
+  width:134px;
+  height:134px;
+}
 /* Header styles */
 @import "layout/navbar";
 
@@ -25,3 +27,6 @@
 
 /* Reviewers Page */
 @import "pages/reviewers";
+
+/* Profile Page */
+@import "pages/profile";
