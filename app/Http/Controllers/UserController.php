@@ -32,8 +32,18 @@ class UserController extends Controller
     }
 
 
-
-
+    public function update(Request $request,User $user)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', "unique:users,email,$user->id",'unique:reviewers'],
+            'linkedin' => ['required',"unique:users,linkedin,$user->id",'unique:reviewers'],
+            'cv' => ['mimes:pdf,docx'],
+//            'image' => ['required'],
+        ]);
+        $user->update($request->all());
+        return back();
+    }
 
     public function allow_reviewer(User $user,Reviewer $reviewer)
     {

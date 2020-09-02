@@ -11,6 +11,7 @@ class ReviewerController extends Controller
     public function __construct()
     {
         $this->middleware('auth:web,reviewer');
+        $this->middleware('auth:reviewer,verified')->only('update,profile');
     }
 
     public function index()
@@ -35,6 +36,21 @@ class ReviewerController extends Controller
         $user = auth('reviewer')->user();
         $comments = auth()->user()->comments->where('is_checked','==',0);
         return view('reviewers.profile',compact('user','comments'));
+    }
+
+    public function update(Request $request, Reviewer $reviewer)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', "unique:reviewers,email,$reviewer->id",'unique:users'],
+            'linkedin' => ['required', "unique:reviewers,linkedin,$reviewer->id",'unique:users'],
+            'company' => ['required', 'string'],
+            'position' => ['required', 'string'],
+//            'image' => ['required'],
+        ]);
+//        dd($request->all());
+        $reviewer->update($request->all());
+        return back();
     }
 
     public function add_score(Request $request,Reviewer $reviewer,Comment $comment)

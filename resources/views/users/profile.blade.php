@@ -11,15 +11,14 @@
                 <span class="file-msg">{{$user->cv}}</span>
                 <input class="file-input @error('cv') is-invalid @enderror" type="file" name="cv"
                        accept=".pdf,.docx">
-                <a href="{{asset("storage/users_cv/$user->cv")}}" class="cv-download" style="z-index: 22">
-                    <span class="fa fa-download"></span>
-                </a>
                 @error('cv')
                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                 @enderror
-
+                <a href="{{asset("storage/users_cv/$user->cv")}}" class="cv-download" style="z-index: 22">
+                    <span class="fa fa-download"></span>
+                </a>
             </div>
 
         </div>

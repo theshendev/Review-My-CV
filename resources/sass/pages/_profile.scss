@@ -7,9 +7,13 @@
     padding-bottom: 0.5rem;
   }
   &-information{
+
     background-color: rgba(white,5%);
     padding: 2rem;
     text-align: right;
+    .input-field {
+      display: block;
+    }
     & .form-group{
       width: 80%;
       margin: 2rem auto;

@@ -2,17 +2,30 @@
 @section('content')
     <section class="profile text-white mt-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <img class="user-image" src="{{$user->image}}" alt="">
-            </div>
+            <div class="avatar-upload">
+                <div class="avatar-edit">
+                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" required/>
+                    @error('image')
+                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
+                    <label for="imageUpload"><span class="fal fa-plus"></span>
+                    </label>
+                </div>
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url({{$user->image}});">
+                    </div>
+                    </div>
+                </div>
             <div class="row justify-content-center mt-5">
                 <h3 class="profile-heading">پروفایل</h3>
             </div>
 
             <div class="profile-information">
-                <form action="" method="POST">
+                <form action="{{route(\Illuminate\Support\Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PATCH')
+                    @method('PUT')
                     <div class="form-group">
                         <label for="name"
                                class="col-form-label text-md-right">نام و نام خانوادگی</label>
@@ -44,6 +57,7 @@
                                     </span>
                                 @enderror
                             </div>
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="linkedin"
