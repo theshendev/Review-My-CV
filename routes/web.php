@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/user/profile', 'UserController@profile')->name('profile')->middleware('verified');
+Route::get('/user/profile', 'UserController@profile')->name('user.profile')->middleware('verified');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
@@ -34,7 +34,7 @@ Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->nam
 Route::get('/reviewers', 'ReviewerController@index')->name('reviewers.index');
 Route::get('/reviewers/{reviewer}', 'ReviewerController@show')->name('reviewer.show');
 Route::post('/{reviewer}/{comment}/score','ReviewerController@add_score')->name('reviewer.score');
-Route::view('/reviewer', 'reviewer')->middleware('auth:reviewer','verified')->name('reviewer');
+Route::get('/reviewer/profile', 'ReviewerController@profile')->middleware('auth:reviewer','verified')->name('reviewer.profile');
 
 
 Route::prefix('users')->group(function (){

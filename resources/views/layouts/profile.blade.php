@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="email"
+                            <label for="linkedin"
                                    class="col-form-label text-md-right">لینکدین</label>
                             <div class="input-field">
                                 <input id="linkedin" type="text"
@@ -61,31 +61,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="cv"
-                               class="col-form-label text-md-right">رزومه</label>
-
-                        <div class="input-field">
-                            <div class="file-drop-area">
-                                <span class="fake-btn">بارگذاری</span>
-                                <span class="file-msg">{{$user->cv}}</span>
-                                <input class="file-input @error('cv') is-invalid @enderror" type="file" name="cv"
-                                       accept=".pdf,.docx">
-                                <a href="{{asset("storage/users_cv/$user->cv")}}" class="cv-download" style="z-index: 22">
-                                    <span class="fa fa-download"></span>
-                                </a>
-                                @error('cv')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                        @yield('fields')
                     <div class="form-group text-center">
                         <button type="submit" class="btn btn-success">
                             ذخیره کردن تغییرات

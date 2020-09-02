@@ -50,7 +50,7 @@
                                         <div class="text-center my-3">
                                         <img class="dropdown-menu_image" src="{{auth(getGuard())->user()->image}}" alt="">
                                         </div>
-                                            <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'profile' : 'reviewer' ) }}"><span class="fa fa-user"></span> پروفایل</a>
+                                            <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span class="fa fa-user"></span> پروفایل</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

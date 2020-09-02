@@ -30,6 +30,12 @@ class ReviewerController extends Controller
         return view('reviewers.show',compact('reviewer'));
 
     }
+    public function profile()
+    {
+        $user = auth('reviewer')->user();
+        $comments = auth()->user()->comments->where('is_checked','==',0);
+        return view('reviewers.profile',compact('user','comments'));
+    }
 
     public function add_score(Request $request,Reviewer $reviewer,Comment $comment)
     {

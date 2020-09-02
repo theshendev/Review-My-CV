@@ -367,11 +367,10 @@ header .navbar .typo-logo {
 }
 .profile-information .form-group {
   width: 80%;
-  margin: 3rem auto;
+  margin: 2rem auto;
 }
 .profile-information .form-group.col-md-6 {
   width: 100%;
-  margin: auto;
   padding: 0;
 }
 .profile-information .form-group.col-md-6:first-child {
