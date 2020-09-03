@@ -121,7 +121,8 @@ class RegisterController extends Controller
 
     protected function uploadImage($image)
     {
-        $uniqueFileName = uniqid() . $image->getClientOriginalName();
+        $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
+        $uniqueFileName = str_replace(' ', '', $uniqueFileName);;
         $image->storeAs('public/images/profiles/', $uniqueFileName);
         $path = url('/storage/images/profiles/'.$uniqueFileName);
         return $path;

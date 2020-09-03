@@ -1,10 +1,15 @@
 @extends('layouts.app')
 @section('content')
     <section class="profile text-white mt-5">
+
         <div class="container">
-            <div class="avatar-upload">
+            <form action="{{route(\Illuminate\Support\Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <div class="avatar-upload">
                 <div class="avatar-edit">
-                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" required/>
+                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
                     @error('image')
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -23,9 +28,7 @@
             </div>
 
             <div class="profile-information">
-                <form action="{{route(\Illuminate\Support\Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
+
                     <div class="form-group">
                         <label for="name"
                                class="col-form-label text-md-right">نام و نام خانوادگی</label>
@@ -77,12 +80,12 @@
                     </div>
                         @yield('fields')
                     <div class="form-group text-center">
-                        <button type="submit" class="btn btn-success">
+                        <button class="btn btn-success" onclick="console.log(this.form.submit())">
                             ذخیره کردن تغییرات
                         </button>
                     </div>
-                </form>
             </div>
+            </form>
             <div class="row justify-content-center mt-5">
                 <h3 class="profile-heading">تغییر رمز عبور</h3>
             </div>

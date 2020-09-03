@@ -39,7 +39,7 @@ class SocialiteController extends Controller
             }
         }
         if (!$user) {
-            $this->createUser($getInfo, $provider, $type);
+            $this->createUser($getInfo, $provider);
             if ($type=='reviewer'){
 
                 return redirect('register/reviewer/p2');
