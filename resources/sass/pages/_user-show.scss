@@ -1,0 +1,41 @@
+.user-show{
+  margin-top:7rem ;
+  .user-show_information{
+    h4{
+      margin-top: 1rem;
+      color: white;
+    }
+    .contact-info{
+      margin-top: 5rem;
+      text-align: right;
+      direction: rtl;
+      h4 {
+        font-size: 1.25rem;
+        font-weight: 300;
+
+        &:before {
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 0.5rem;
+          content: "";
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background-color: white;
+        }
+      }
+      &_box{
+        margin-top: 1rem;
+        border-radius: 7px;
+        text-align: left;
+        padding: 2rem;
+        direction: ltr;
+        background-color: rgba(white,7%);
+        a,span{
+          color: white;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

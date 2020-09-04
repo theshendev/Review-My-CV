@@ -171,7 +171,7 @@
                                     </form>
                      <div class="row mt-3">
                          <div class="col-md-6 text-left">
-                             <a class="btn btn-social google">
+                             <a href="{{route(isset($url) ? "reviewer.social" : "user.social",['provider'=>'google'])}}" class="btn btn-social google">
                                  <img style="max-width: 33px" src="{{asset('images/google-logo-9808.png')}}" alt=""> Google
                                  {{--<span class="fab fa-google" style="font-size: 2rem">ورود با گوگل</span>--}}
                              </a>

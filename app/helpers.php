@@ -8,6 +8,10 @@ function relationExists(User $user,Reviewer $reviewer){
     return ($user->allowed_reviewers()->where('allowed_reviewer_id',$reviewer->id)->exists());
 
 }
+function isRelationExpired(User $user,Reviewer $reviewer){
+    return !($user->allowed_reviewers()->where('allowed_reviewer_id',$reviewer->id)->where('expires_at','>',now())->exists());
+
+    }
 function anyRelationExists(User $user){
     return ($user->allowed_reviewers()->where('expires_at','>',now())->exists());
 

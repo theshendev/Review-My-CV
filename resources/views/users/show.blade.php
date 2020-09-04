@@ -1,47 +1,63 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">
-                {{$user->name}}
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-8 align-self-center">
-                        Review CV
+    <section class="user-show">
+        <div class="container">
+            <div class="user-show_information">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <img class="user-image" src="{{$user->image}}" alt="">
                     </div>
-                    @auth('reviewer')
-                        @php
-                            $commentExists = @auth('reviewer')->user()->comments()->exists();
-                        @endphp
-                        <div class="col-md-4">
-                            @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',auth('reviewer')->id())->exists())
-                                <a class="btn btn-primary"
-                                   href="{{route('cv_download',['user'=>$user->id,'reviewer'=> auth('reviewer')->id()])}}">
-                                    Review CV
-                                </a>
+                        <h4>{{$user->name}}</h4>
+                    @if($user->getTable()=='reviewers')
+                        <h6 class="col-12 text-center text-white" dir="rtl">
+                            {{$user->position}} در شرکت {{$user->company}}
+                        </h6>
+                        @else
+                        @if(!relationExists($user,auth('reviewer')->user()) or isRelationExpired($user,auth('reviewer')->user()))
+                            <h6 class="col-12 text-center text-white">
+                                شما مجاز به دیدن رزومه نیستید
+                            </h6>
                             @else
-                                <strong>You are not allowed to see CV</strong>
-                            @endif
+                            <div class="col-12 text-center">
+                            <a class="btn btn-primary" href="sss">دانلود رزومه</a>
+                            </div>
+                                @endif
+                    @endif
+                </div>
+                <div class="contact-info">
+                    <div class="row">
+                    <h4>
+                        اطلاعات تماس
+                    </h4>
+                    </div>
+                    <div class="contact-info_box row">
+                        <div class="col-md-7">
+                            <span class="fab fa-google">
+                            </span>
+                            <a href="mailto:{{$user->email}}">{{$user->email}}</a>
                         </div>
-
-                    @endauth
+                        <div class="col-md-5">
+                            <span class="fab fa-linkedin-in">
+                            </span>
+                            <a href="{{$user->linkedin}}">{{basename($user->linkedin)}}</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            {{--@if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',auth('reviewer')->id())->exists() and !$commentExists)--}}
+                {{--<div class="row col-8 mt-3">--}}
+                    {{--<form action="{{route('comment.store',['user'=>$user->id])}}" method="post">--}}
+                        {{--@csrf--}}
+                        {{--<div class="form-group">--}}
+                            {{--<label for="body">Comment Body</label>--}}
+                            {{--<textarea class="form-control" name="body" id="body" rows="3"></textarea>--}}
+                        {{--</div>--}}
+                        {{--<button class="btn btn-success">--}}
+                            {{--Submit--}}
+                        {{--</button>--}}
+                    {{--</form>--}}
+                {{--</div>--}}
+            {{--@endif--}}
         </div>
-        @if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',auth('reviewer')->id())->exists() and !$commentExists)
-            <div class="row col-8 mt-3">
-                <form action="{{route('comment.store',['user'=>$user->id])}}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <label for="body">Comment Body</label>
-                        <textarea class="form-control" name="body" id="body" rows="3"></textarea>
-                    </div>
-                    <button class="btn btn-success">
-                        Submit
-                    </button>
-                </form>
-            </div>
-        @endif
-    </div>
+    </section>
 @endsection

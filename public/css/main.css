@@ -411,3 +411,43 @@ header .navbar .typo-logo {
   border-radius: 50%;
   background-color: white;
 }
+
+/* User Show Page */
+.user-show {
+  margin-top: 7rem;
+}
+.user-show .user-show_information h4 {
+  margin-top: 1rem;
+  color: white;
+}
+.user-show .user-show_information .contact-info {
+  margin-top: 5rem;
+  text-align: right;
+  direction: rtl;
+}
+.user-show .user-show_information .contact-info h4 {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+.user-show .user-show_information .contact-info h4:before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  content: "";
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
+}
+.user-show .user-show_information .contact-info_box {
+  margin-top: 1rem;
+  border-radius: 7px;
+  text-align: left;
+  padding: 2rem;
+  direction: ltr;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+.user-show .user-show_information .contact-info_box a, .user-show .user-show_information .contact-info_box span {
+  color: white;
+  font-size: 1.5rem;
+}
