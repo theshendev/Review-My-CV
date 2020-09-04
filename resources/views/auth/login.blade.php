@@ -10,7 +10,7 @@
 
         <div class="container">
             <div class="row logo justify-content-center">
-                <div class="col-md-5">
+                <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
                     <a href="/">
                     <img width="100%" src="{{asset('images/logo.png')}}" alt="logo">
 
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-5">
+                <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
                     <div class="card">
                         <div class="login-header">
                             <h3>
@@ -93,12 +93,12 @@
                                                 {{--</div>--}}
                                             {{--</div>--}}
                                             <div class="row my-4">
-                                                    <div class="col-md-5 text-left">
+                                                    <div class="col-sm-5 text-center text-sm-left">
                                                         <button type="submit" class="btn">
                                                             ورود به سایت
                                                         </button>
                                                     </div>
-                                                <div class="col-md-7 text-right align-self-center">
+                                                <div class="col-sm-7 text-center text-sm-right align-self-center mt-2 mt-sm-0">
                                                 @if (Route::has('password.request'))
                                                     <a href="{{ route('password.request') }}">
                                                         <small>
@@ -117,18 +117,18 @@
 
                                             @isset($url)
                                                 <div class="row mb-4">
-                                                    <div class="col-md-8 text-left align-self-center">
+                                                    <div class="col-8 text-left align-self-center">
                                                         <a href="{{ route('login') }}">
                                                             ورود به عنوان کاربر
                                                         </a>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <a href="{{ route('reviewer.social','linkedin') }}">
                                                             <img width="100%" src="{{asset('images/nextpng2.com.png')}}"
                                                                  alt="">
                                                         </a>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-2">
                                                         <a href="{{ route('reviewer.social','google') }}">
                                                             <img width="100%"
                                                                  src="{{asset('images/btn_google_light_normal_ios.png')}}"

@@ -297,14 +297,13 @@ header .navbar .typo-logo {
 }
 .login .card .card-body h3 {
   width: 100%;
-  padding: 0.75rem 2.5rem;
 }
 .login .card .card-body h3:before {
   content: "";
   display: inline-block;
   height: 0.5em;
   vertical-align: bottom;
-  width: 50%;
+  width: 40%;
   margin-right: 10px;
   margin-left: -100%;
   border-top: 3px solid #118AB2;
@@ -314,7 +313,7 @@ header .navbar .typo-logo {
   display: inline-block;
   height: 0.5em;
   vertical-align: bottom;
-  width: 50%;
+  width: 40%;
   margin-left: 10px;
   margin-right: -100%;
   border-top: 3px solid #118AB2;
