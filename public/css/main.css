@@ -458,15 +458,72 @@ header .navbar .typo-logo {
 .about {
   margin-top: 4rem;
 }
+.about .buy-coffee_heading {
+  text-align: center;
+  font-size: 3.25rem;
+  font-weight: 300;
+}
+.about .buy-coffee_caption {
+  width: 80%;
+  margin: 2rem auto;
+  font-size: 1.12rem;
+  text-align: center;
+}
+.about .buy-coffee_payment {
+  background-color: white;
+  width: 70%;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 40px;
+}
+.about .buy-coffee_payment .price {
+  font-size: 2rem;
+  color: #FAC12A;
+}
+.about .buy-coffee_payment .quantity {
+  align-self: center;
+  border-radius: 20px;
+  display: flex;
+}
+.about .buy-coffee_payment .quantity span {
+  color: white;
+  font-size: 2rem;
+  background-color: #1b4b72;
+  padding: 0.5rem 1rem;
+}
+.about .buy-coffee_payment .quantity span.fal {
+  background-color: #1d68a7;
+}
+.about .heading-line {
+  overflow: hidden;
+}
 .about .heading-line::after {
-  width: 90%;
+  width: 100%;
 }
 .about-text {
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
   border-radius: 30px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   color: white;
+  direction: rtl;
+  text-align: justify;
+}
+.about-title {
+  color: white;
+  text-align: right;
+  margin-bottom: 2rem;
 }
 .about-website {
   margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.about-us {
+  margin-top: 5rem;
+}
+.about-us .developer {
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+}
+.about-us .developer:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
 }

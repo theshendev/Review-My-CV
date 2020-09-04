@@ -1,17 +1,74 @@
 .about{
   margin-top: 4rem;
+  .buy-coffee{
+    &_heading{
+      text-align: center;
+      font-size: 3.25rem;
+      font-weight: 300;
+    }
+    &_caption{
+      width: 80%;
+      margin: 2rem auto;
+      font-size: 1.12rem;
+      text-align: center;
+    }
+    &_payment{
+      background-color: white;
+      width: 70%;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 40px;
+      .price{
+        font-size: 2rem;
+        color: $main-yellow;
+      }
+      .quantity{
+        align-self: center;
+        border-radius: 20px;
+        display: flex;
+        span{
+          color: white;
+          font-size: 2rem;
+          background-color: #1b4b72;
+          padding: 0.5rem 1rem;
+          &.fal{
+            background-color:#1d68a7 ;
+          }
+        }
+      }
+    }
+  }
   .heading-line {
+    overflow: hidden;
     &::after {
-      width: 90%;
+      width: 100%;
     }
   }
   &-text{
-    padding: 2rem 1rem;
+    padding: 3rem 2rem;
     border-radius: 30px;
-    background-color: rgba(white,10%);
+    background-color: rgba(white,8%);
     color: white;
+    direction: rtl;
+    text-align: justify;
+  }
+  &-title{
+    color: white;
+    text-align: right;
+    margin-bottom: 2rem;
   }
   &-website{
     margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+  &-us{
+    margin-top: 5rem;
+    .developer{
+      margin-top: 5rem;
+      padding-bottom: 5rem;
+      &:not(:last-child){
+        border-bottom: 1px solid rgba(white,65%);
+      }
+    }
   }
 }
