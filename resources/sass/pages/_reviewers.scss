@@ -2,19 +2,6 @@
   .container{
     max-width: 1140px;
   }
-  h2{
-    width: 100%;
-  }
-  h2:after {
-    content:"";
-    display: inline-block;
-    height: 0.5em;
-    vertical-align: bottom;
-    width: 80%;
-    margin-right: 10px;
-    margin-left: -100%;
-    border-top: 1px solid white;
-  }
   .reviewer{
     background-color: rgba(white , 10%);
     border-radius: 50px;

@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'PageController@index');
+Route::get('/about', 'PageController@about');
 
 Auth::routes(['verify' => true]);
 

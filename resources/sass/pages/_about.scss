@@ -1,0 +1,17 @@
+.about{
+  margin-top: 4rem;
+  .heading-line {
+    &::after {
+      width: 90%;
+    }
+  }
+  &-text{
+    padding: 2rem 1rem;
+    border-radius: 30px;
+    background-color: rgba(white,10%);
+    color: white;
+  }
+  &-website{
+    margin-top: 5rem;
+  }
+}

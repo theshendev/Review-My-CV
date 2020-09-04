@@ -13,6 +13,22 @@
   height: 134px;
 }
 
+.heading-line {
+  width: 100%;
+  direction: rtl;
+}
+
+.heading-line:after {
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 80%;
+  margin-right: 10px;
+  margin-left: -100%;
+  border-top: 1px solid white;
+}
+
 /* Header styles */
 header .container {
   max-width: 1500px;
@@ -308,19 +324,6 @@ header .navbar .typo-logo {
 .reviewers-list .container {
   max-width: 1140px;
 }
-.reviewers-list h2 {
-  width: 100%;
-}
-.reviewers-list h2:after {
-  content: "";
-  display: inline-block;
-  height: 0.5em;
-  vertical-align: bottom;
-  width: 80%;
-  margin-right: 10px;
-  margin-left: -100%;
-  border-top: 1px solid white;
-}
 .reviewers-list .reviewer {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
@@ -450,4 +453,21 @@ header .navbar .typo-logo {
 .user-show .user-show_information .contact-info_box a, .user-show .user-show_information .contact-info_box span {
   color: white;
   font-size: 1.5rem;
+}
+
+/* About Page */
+.about {
+  margin-top: 4rem;
+}
+.about .heading-line::after {
+  width: 90%;
+}
+.about-text {
+  padding: 2rem 1rem;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.about-website {
+  margin-top: 5rem;
 }

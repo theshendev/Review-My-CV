@@ -11,7 +11,7 @@
         <div class="container text-white">
             <div class="row justify-content-start my-5" dir="rtl">
 
-                <h2 class="text-right">
+                <h2 class="text-right heading-line">
                     فهرست ارزیاب ها
 
                 </h2>
