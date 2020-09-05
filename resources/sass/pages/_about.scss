@@ -1,6 +1,7 @@
 .about{
   margin-top: 4rem;
   .buy-coffee{
+    margin-bottom: 5rem;
     &_heading{
       text-align: center;
       font-size: 3.25rem;
@@ -23,16 +24,22 @@
         color: $main-yellow;
       }
       .quantity{
+        padding: 0;
         align-self: center;
         border-radius: 20px;
-        display: flex;
+        overflow: hidden;
         span{
           color: white;
           font-size: 2rem;
           background-color: #1b4b72;
-          padding: 0.5rem 1rem;
+          //padding: 0.5rem 1rem;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          text-align: center;
           &.fal{
             background-color:#1d68a7 ;
+            padding: 0.5rem 0;
           }
         }
       }

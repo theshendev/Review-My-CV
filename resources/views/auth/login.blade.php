@@ -94,7 +94,7 @@
                                             {{--</div>--}}
                                             <div class="row my-4">
                                                     <div class="col-sm-5 text-center text-sm-left">
-                                                        <button type="submit" class="btn">
+                                                        <button type="submit" class="btn btn-yellow-secondary">
                                                             ورود به سایت
                                                         </button>
                                                     </div>

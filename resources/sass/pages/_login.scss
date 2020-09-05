@@ -28,22 +28,6 @@
         border-radius: 14px;
       }
 
-      button {
-        background-color: #FFD166;
-        border-color:#FFD166 ;
-        border-radius: 14px;
-        &:hover{
-          background-color: darken(#FFD166,8%);
-          border-color: darken(#FFD166,10%);
-        }
-        &:active{
-          background-color: darken(#FFD166,10%);
-          border-color: darken(#FFD166,12%);
-          &:focus{
-            box-shadow: 0 0 0 0.2rem rgba(lighten(#FFD166,10%), 0.5);
-          }
-          }
-        }
 
       h3 {
         width: 100%;
