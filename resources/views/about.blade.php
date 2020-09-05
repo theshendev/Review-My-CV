@@ -12,6 +12,8 @@
                             این پلتفرم رایگان است و رایگان خواهد ماند. جهت حمایت مالی از نگه‌داشت و توسعه‌ی این پلتفرم
                             خستگی ما را به در کنید :)
                         </p>
+                        <form action="{{route('payment')}}" method="post">
+                            @csrf
                         <div class="buy-coffee_payment">
                             <div class="row">
                                 <div class="quantity col-6 row no-gutters">
@@ -21,7 +23,7 @@
                                         </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <span>x ۱</span>
+                                        <span>x 1</span>
                                     </div>
                                     <div class="col-md-4">
                                         <a href="javascript:void()">
@@ -30,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="price col-6">
-                                    ۱۲,۰۰۰ تومن
+                                    12,000 تومن
                                 </div>
 
                             </div>
@@ -41,6 +43,7 @@
                                 خرید
                             </button>
                         </div>
+                        </form>
                     </div>
                     <div class="col-md-4">
                         <img width="100%" src="{{asset('images/coffee.png')}}" alt="">
