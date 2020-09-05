@@ -73,12 +73,14 @@ class RegisterController extends Controller
 
     /**
      * Get a validator for an incoming registration request.
-     *
+     *|
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
+        $data['linkedin']='https://www.linkedin.com/in/'.$data['linkedin'];
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users','unique:reviewers'],
@@ -90,6 +92,8 @@ class RegisterController extends Controller
     }
     protected function reviewerValidator(array $data)
     {
+        $data['linkedin']='https://www.linkedin.com/in/'.$data['linkedin'];
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users'],
@@ -165,7 +169,6 @@ class RegisterController extends Controller
 
     protected function createReviewer(Request $request)
     {
-
         if(session()->exists('user')) {
             $data = session('user');
             $request['name'] = $data['name'];
@@ -188,7 +191,7 @@ class RegisterController extends Controller
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'linkedin' =>'https://www.linkedin.com/in/'.$request['linkedin'],
+            'linkedin' =>$request['linkedin'],
             'image' => $path,
             'company' => $request['company'],
             'position' => $request['position'],
@@ -206,7 +209,7 @@ class RegisterController extends Controller
 
             session()->forget('user');
         Auth::guard('reviewer')->login($user);
-        return redirect()->to('/reviewer');
+        return redirect()->to($this->redirectTo());
 
     }
 }

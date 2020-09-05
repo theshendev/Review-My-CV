@@ -112,12 +112,16 @@ header .navbar .typo-logo {
 .register .btn-social.linkedin:hover {
   background-color: #0072B1;
 }
+.register .heading {
+  width: 45%;
+  overflow: hidden;
+}
 .register .heading:after {
   content: "";
   display: inline-block;
   height: 0.5em;
   vertical-align: bottom;
-  width: 41.66%;
+  width: 100%;
   margin-right: 10px;
   margin-left: -100%;
   border-top: 1px solid white;

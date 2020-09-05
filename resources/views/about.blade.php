@@ -142,7 +142,7 @@
                     </div>
                     <div class="col-md-7 offset-md-1 p-0">
                         <h5 class="about-title">
-                            محمد شندآبادی (چاقال اختصاصی)
+                            محمد شندآبادی (طراح)
                         </h5>
                         <div class="about-text">
                             <p>

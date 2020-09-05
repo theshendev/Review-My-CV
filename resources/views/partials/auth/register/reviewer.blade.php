@@ -23,8 +23,7 @@
     <div class="input-field">
         <input id="position" type="text"
                class="form-control @error('position') is-invalid @enderror"
-               name="position" value="{{ old('position') }}" required
-        >
+               name="position" value="{{ old('position') }}" required>
 
         @error('position')
         <span class="invalid-feedback" role="alert">
@@ -39,23 +38,23 @@
         <label for="linkedin"
                class="col-form-label text-md-right">اکانت لینکدین</label>
 
-        <div class="row">
-            <div class="col-5 align-self-center pr-0">
+        <div class="input-field  @error('linkedin') is-invalid @enderror">
+            <div class="align-self-center pr-1">
                 https://www.linkedin.com/in/
             </div>
-            <div class="col-7">
+            <div class="w-100">
                 <input id="linkedin" type="text"
                        class="form-control @error('linkedin') is-invalid @enderror"
                        name="linkedin" value="{{ old('linkedin') }}" required
                        autocomplete="linkedin">
-
-                @error('linkedin')
-                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                @enderror
             </div>
         </div>
+
+        @error('linkedin')
+        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+        @enderror
     </div>
 
 @endisset

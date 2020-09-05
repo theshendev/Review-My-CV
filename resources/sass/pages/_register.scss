@@ -28,12 +28,14 @@
     }
   }
   .heading{
+    width: 45%;
+    overflow: hidden;
     &:after {
       content:"";
       display: inline-block;
       height: 0.5em;
       vertical-align: bottom;
-      width: 41.66%;
+      width: 100%;
       margin-right: 10px;
       margin-left: -100%;
       border-top: 1px solid white;

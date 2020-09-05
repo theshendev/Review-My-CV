@@ -25,14 +25,10 @@
                                             @includeWhen(!isset($url),'partials.auth.register.user')
 
                                         @else
-                                            <div class="avatar-upload">
+                                            <div class="avatar-upload @error('image') is-invalid @enderror">
                                                 <div class="avatar-edit">
-                                                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" required/>
-                                                    @error('image')
-                                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                    @enderror
+                                                    <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
+
                                                     <label for="imageUpload"><span class="fal fa-plus"></span>
                                                     </label>
                                                 </div>
@@ -40,7 +36,13 @@
                                                     <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
                                                     </div>
                                                 </div>
+
                                             </div>
+                                            @error('image')
+                                            <span class="invalid-feedback text-center" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                            @enderror
                                             <div class="form-group">
                                                 <label for="name"
                                                        class="col-form-label text-md-right">نام و نام خانوادگی</label>
@@ -64,25 +66,25 @@
                                                 <label for="email"
                                                        class="col-form-label text-md-right">ایمیل</label>
 
-                                                <div class="input-field">
+                                                <div class="input-field @error('email') is-invalid @enderror">
                                                     <input id="email" type="email"
                                                            class="form-control @error('email') is-invalid @enderror"
                                                            name="email" value="{{ old('email') }}" required
                                                            autocomplete="email">
                                                     <span class="input-field_icon icon-left"><i class="fa fa-mailbox"></i></span>
 
-                                                    @error('email')
-                                                    <span class="invalid-feedback" role="alert">
+                                                </div>
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ ucwords($message) }}</strong>
                                     </span>
-                                                    @enderror
-                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group ">
                                                 <label for="linkedin"
                                                        class="col-form-label text-md-right">اکانت لینکدین</label>
 
-                                                <div class="input-field">
+                                                <div class="input-field  @error('linkedin') is-invalid @enderror">
                                                     <div class="align-self-center pr-1">
                                                         https://www.linkedin.com/in/
                                                     </div>
@@ -91,14 +93,14 @@
                                                            class="form-control @error('linkedin') is-invalid @enderror"
                                                            name="linkedin" value="{{ old('linkedin') }}" required
                                                            autocomplete="linkedin">
-
-                                                    @error('linkedin')
-                                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                                    @enderror
                                                     </div>
                                                 </div>
+
+                                                @error('linkedin')
+                                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                                @enderror
                                             </div>
 
                                             @includeWhen(isset($url),'partials.auth.register.reviewer')
@@ -108,17 +110,18 @@
                                                 <label for="password"
                                                        class="col-form-label text-md-right">رمز عبور</label>
 
-                                                <div class="input-field">
+                                                <div class="input-field @error('password') is-invalid @enderror">
                                                     <input id="password" type="password"
                                                            class="form-control @error('password') is-invalid @enderror"
-                                                           name="password" required autocomplete="new-password">
+                                                           name="password" required>
 
-                                                    @error('password')
-                                                    <span class="invalid-feedback" role="alert">
+
+                                                </div>
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                                    @enderror
-                                                </div>
+                                                @enderror
                                             </div>
 
                                             <div class="form-group ">
@@ -127,20 +130,20 @@
 
                                                 <div class="input-field">
                                                     <input id="password-confirm" type="password" class="form-control"
-                                                           name="password_confirmation" required
-                                                           autocomplete="new-password">
+                                                           name="password_confirmation" required>
                                                 </div>
                                             </div>
 
 
                                         @endisset
                                         <div class="row">
-                                            <div class="col-md-5 text-left">
+                                            <div class="@isset($p) col-md-12 text-center @else col-md-5  text-left @endisset">
                                                 <button type="submit" class="btn btn-custom">
                                                     ثبت نام
                                                 </button>
                                             </div>
                                             <div class="col-md-7 align-self-center">
+                                                @if(!isset($p))
                                             @isset($url)
                                                 <a href="{{ route('register') }}">
                                                     ثبت نام به عنوان کاربر
@@ -166,14 +169,15 @@
                                                     </a>
                                             </div>
                                             @endisset
+                                                    @endif
                                             </div>
                                         </div>
                                     </form>
+                                @if(!isset($p))
                      <div class="row mt-3">
                          <div class="col-md-6 text-left">
                              <a href="{{route(isset($url) ? "reviewer.social" : "user.social",['provider'=>'google'])}}" class="btn btn-social google">
                                  <img style="max-width: 33px" src="{{asset('images/google-logo-9808.png')}}" alt=""> Google
-                                 {{--<span class="fab fa-google" style="font-size: 2rem">ورود با گوگل</span>--}}
                              </a>
                          </div>
                          <div class="col-md-6 text-right">
@@ -182,7 +186,7 @@
                              </a>
                          </div>
                      </div>
-
+                        @endif
                     </div>
             </div>
     </div>
