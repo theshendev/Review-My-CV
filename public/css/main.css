@@ -500,7 +500,7 @@ header .navbar .typo-logo {
   border-radius: 20px;
   overflow: hidden;
 }
-.about .buy-coffee_payment .quantity span {
+.about .buy-coffee_payment .quantity > .col-md-4 > span {
   color: white;
   font-size: 2rem;
   background-color: #1b4b72;
@@ -509,7 +509,8 @@ header .navbar .typo-logo {
   height: 100%;
   text-align: center;
 }
-.about .buy-coffee_payment .quantity span.fal {
+.about .buy-coffee_payment .quantity > .col-md-4 > span.fal {
+  cursor: pointer;
   background-color: #1d68a7;
   padding: 0.5rem 0;
 }

@@ -14,35 +14,40 @@
                         </p>
                         <form action="{{route('payment')}}" method="post">
                             @csrf
-                        <div class="buy-coffee_payment">
-                            <div class="row">
-                                <div class="quantity col-6 row no-gutters">
-                                    <div class="col-md-4">
-                                        <a href="javascript:void()">
+                            <div class="buy-coffee_payment">
+                                <div class="row">
+                                    <div class="quantity col-6 row no-gutters">
+                                        <div class="col-md-4">
                                             <span class="fal fa-plus"></span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <span>x 1</span>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="javascript:void()">
+                                        </div>
+                                        <div class="col-md-4">
+                                        <span>
+                                            <span>x</span>
+                                            <span id="qty">1</span>
+
+                                        </span>
+                                        </div>
+                                        <div class="col-md-4">
                                             <span class="fal fa-minus"></span>
-                                        </a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="price col-6">
-                                    12,000 تومن
+                                    <div class="price col-6">
+                                        <span id="price">
+                                            12,000
+                                        </span>
+                                        <span>
+                                            تومن
+                                        </span>
+                                    </div>
+
                                 </div>
 
                             </div>
-
-                        </div>
-                        <div class="row justify-content-center mt-3">
-                            <button class="btn btn-yellow-primary">
-                                خرید
-                            </button>
-                        </div>
+                            <div class="row justify-content-center mt-3">
+                                <button class="btn btn-yellow-primary">
+                                    خرید
+                                </button>
+                            </div>
                         </form>
                     </div>
                     <div class="col-md-4">
@@ -200,4 +205,33 @@
         </div>
 
     </section>
+@endsection
+@section('scripts')
+    $(document).ready(function(){
+    let price = 12000;
+    let qty = $('#qty');
+    let qty_value,final_price,index;
+    $('.fal').click(function(){
+    qty_value = parseInt(qty.text());
+    if($(this).hasClass('fa-plus')){
+    qty_value++;
+    }
+    else if($(this).hasClass('fa-minus')){
+        if(qty_value<=1){
+        return false;
+    }
+    qty_value--;
+    }
+    qty.text(qty_value);
+    final_price = String(qty_value*price);
+    index = final_price.length-3;
+    arr_final_price = final_price.split("");
+    arr_final_price[index] = ',0';
+    if(final_price.length==7){
+    arr_final_price[index-3] = ',0';
+    }
+    edited_final_price = arr_final_price.join("");
+    $('#price').text(edited_final_price);
+    });
+    });
 @endsection

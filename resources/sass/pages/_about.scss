@@ -28,7 +28,7 @@
         align-self: center;
         border-radius: 20px;
         overflow: hidden;
-        span{
+        & > .col-md-4 >span{
           color: white;
           font-size: 2rem;
           background-color: #1b4b72;
@@ -38,6 +38,7 @@
           height: 100%;
           text-align: center;
           &.fal{
+            cursor: pointer;
             background-color:#1d68a7 ;
             padding: 0.5rem 0;
           }
