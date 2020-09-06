@@ -28,14 +28,14 @@ class SocialiteController extends Controller
 
         $type = session()->pull('type');
         if ($type == 'reviewer') {
-            $user = Reviewer::where('provider_id', $getInfo->id)->first();
+            $user = Reviewer::where('email', $getInfo->email)->first();
             if ( User::where('email', $getInfo->email)->exists()){
-                return redirect('/register/reviewer')->with('status','There is a user registered with this email');
+                return redirect('/register/reviewer')->with('status','یک کاربر با این اکانت ثبت شده است، از صفحه‌ی ورود کاربر وارد شوید.');
     }
         } else {
-            $user = User::where('provider_id', $getInfo->id)->first();
+            $user = User::where('email', $getInfo->email)->first();
             if ( Reviewer::where('email', $getInfo->email)->exists()){
-                return redirect('/register')->with('status','There is a reviewer registered with this email');
+                return redirect('/register')->with('status','یک ارزیاب با این اکانت ثبت شده است. از صفحه‌ی ورود ارزیاب وارد شوید.');
             }
         }
         if (!$user) {
@@ -52,9 +52,7 @@ class SocialiteController extends Controller
             return redirect()->to('/');
 
         }
-
-//                dd($user->getName());
-        // $user->token;
+        
     }
 
     protected function createUser($info, $provider)
