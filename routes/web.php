@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index');
-Route::get('/about', 'PageController@about');
+Route::get('/about', 'PageController@about')->name('about');
 Route::post('/payment', 'PaymentController@checkout')->name('payment');
+Route::get('/payment/verify', 'PaymentController@verify')->name('verify');
 
 Auth::routes(['verify' => true]);
 

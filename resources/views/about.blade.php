@@ -2,6 +2,18 @@
 @section('content')
     <section class="about">
         <div class="container">
+            @if (session('status'))
+                @if(session('status.success'))
+                    <div class="alert alert-success">
+                        {{ session('status.success') }}
+                    </div>
+                @else
+                    <div class="alert alert-danger">
+                        {{ session('status.failure') }}
+                    </div>
+                @endif
+
+            @endif
             <section class="buy-coffee">
                 <div class="row about-text">
                     <div class="col-md-8">
@@ -12,8 +24,9 @@
                             این پلتفرم رایگان است و رایگان خواهد ماند. جهت حمایت مالی از نگه‌داشت و توسعه‌ی این پلتفرم
                             خستگی ما را به در کنید :)
                         </p>
-                        <form action="{{route('payment')}}" method="post">
+                        <form id="coffee-form" action="{{route('payment')}}" method="post">
                             @csrf
+                            <input type="hidden" name="amount" id="amount">
                             <div class="buy-coffee_payment">
                                 <div class="row">
                                     <div class="quantity col-6 row no-gutters">
@@ -232,6 +245,10 @@
     }
     edited_final_price = arr_final_price.join("");
     $('#price').text(edited_final_price);
+    });
+    $('#coffee-form').submit(function(){
+
+    $('#amount').val($('#price').text().replace(',',''));
     });
     });
 @endsection
