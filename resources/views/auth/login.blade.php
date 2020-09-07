@@ -124,15 +124,15 @@
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('reviewer.social','linkedin') }}">
-                                                            <img width="100%" src="{{asset('images/nextpng2.com.png')}}"
-                                                                 alt="">
+                                                            <img class="social" width="100%" src="{{asset('images/nextpng2.com.png')}}"
+                                                                 alt="linkedin">
                                                         </a>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('reviewer.social','google') }}">
-                                                            <img width="100%"
+                                                            <img class="social" width="100%"
                                                                  src="{{asset('images/btn_google_light_normal_ios.png')}}"
-                                                                 alt="">
+                                                                 alt="google">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -149,14 +149,14 @@
                                                     <div class="col-2">
                                                         <a href="{{ route('user.social','linkedin') }}">
                                                             <img class="social" width="100%" src="{{asset('images/nextpng2.com.png')}}"
-                                                                 alt="">
+                                                                 alt="linkedin">
                                                         </a>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('user.social','google') }}">
                                                             <img class="social" width="100%"
                                                                  src="{{asset('images/btn_google_light_normal_ios.png')}}"
-                                                                 alt="">
+                                                                 alt="google">
                                                         </a>
                                                     </div>
                                                 </div>

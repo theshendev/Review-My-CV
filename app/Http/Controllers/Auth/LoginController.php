@@ -55,7 +55,7 @@ class LoginController extends Controller
         ]);
         $credentials = $request->only('email', 'password');
         if (Auth::guard('reviewer')->attempt($credentials)) {
-            return redirect('/reviewer');
+            return redirect($this->redirectTo);
         }
 
         return back()->withInput($request->only('email', 'remember'));

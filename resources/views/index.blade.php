@@ -7,7 +7,7 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <svg height="210" width="350">
-                <line x1="44%" y1="0" x2="44%" y2="100%" style="stroke:#23699b;stroke-width:2"/>
+                <line x1="50%" y1="0" x2="50%" y2="100%" style="stroke:#23699b;stroke-width:2"/>
             </svg>
         </div>
         <div class="row justify-content-center">
@@ -43,7 +43,7 @@
             </div>
             <div class="col-sm-4">
             <svg height="210" width="100%">
-                <line y1="0" y2="100%" style="stroke: rgb(255, 209, 102); stroke-width: 2px;" x1="44%" x2="44%"></line>
+                <line y1="0" y2="100%" style="stroke: rgb(255, 209, 102); stroke-width: 2px;" x1="50%" x2="50%"></line>
             </svg>
             </div>
             <div style="text-align: left;align-self: center;" class="col-sm-4">
