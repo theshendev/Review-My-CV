@@ -39,7 +39,7 @@
                class="col-form-label text-md-right">اکانت لینکدین</label>
 
         <div class="input-field  @error('linkedin') is-invalid @enderror">
-            <div class="align-self-center pr-1">
+            <div class="align-self-center pr-1 linkedin-url">
                 https://www.linkedin.com/in/
             </div>
             <div class="w-100">
@@ -56,5 +56,4 @@
                                     </span>
         @enderror
     </div>
-
 @endisset

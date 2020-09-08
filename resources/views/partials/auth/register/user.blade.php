@@ -6,7 +6,7 @@
     <div class="input-field @error('cv') is-invalid @enderror">
         <div class="file-drop-area">
             <span class="fake-btn">بارگذاری</span>
-            <span class="file-msg">هیچ فایلی انتخاب نشده است.</span>
+            <span class="file-msg">فایلی انتخاب نشده است.</span>
             <input class="file-input @error('cv') is-invalid @enderror" type="file" name="cv" accept=".pdf,.docx">
 
         </div>
@@ -24,7 +24,7 @@
                class="col-form-label text-md-right">اکانت لینکدین</label>
 
         <div class="input-field  @error('linkedin') is-invalid @enderror">
-            <div class="align-self-center pr-1">
+            <div class="align-self-center pr-1 linkedin-url">
                 https://www.linkedin.com/in/
             </div>
             <div class="w-100">
@@ -41,5 +41,4 @@
                                     </span>
         @enderror
     </div>
-
 @endisset

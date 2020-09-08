@@ -1,36 +1,45 @@
 
 .register {
-  //a{
-  //  color: #6db6af;
-  //}
-  .offset-md-1{
-    margin-left: 13%;
-  }
-  .container{
-    max-width: 1500px;
-  }
   .btn{
-    padding: 0.5rem 3rem;
-    &-social{
+    padding: 0.5rem 2rem;
+    &-social {
       border: 2px solid white;
       color: white;
       width: 100%;
-      padding: 0.5rem 2rem;
-      &.google:hover{
+
+      &.google:hover {
         background-color: #fff;
         color: black;
 
       }
-      &.linkedin:hover{
+
+      &.linkedin{
+        @media (max-width: 767px) {
+         margin-top: 0.75rem;
+        }
+      &:hover {
         background-color: #0072B1;
       }
+    }
 
     }
   }
   .heading{
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+    @media (max-width: 575px) {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    text-align: right;
     width: 45%;
     overflow: hidden;
     &:after {
+      @media (max-width: 575px) {
+        display: none;
+        text-align: center;
+      }
       content:"";
       display: inline-block;
       height: 0.5em;
@@ -44,9 +53,40 @@
   &-image{
     margin-top: 5rem;
   }
+  .register-form-container{
+    @media (max-width: 991px) {
+      margin: auto;
+    }
+    form{
+      .btn-custom{
+        @media (max-width: 387px) {
+          padding: 0.5rem 1rem;
+        }
+      }
+      display: flex;
+      flex-direction: column;
+      .form-group{
+        &:nth-of-type(1) { order: 1; }
+        &:nth-of-type(2) { order: 2; }
+        &:nth-of-type(3) { order: 4; }
+        &:nth-of-type(4) { order: 5; }
+        &:nth-of-type(5) { order: 5; }
+        &:nth-of-type(6) { order: 6; }
+        &:nth-of-type(7) { order: 7; }
+        &:nth-of-type(8) { order: 8; }
+      }
 
+    }
+
+
+  }
 }
 .input-field {
+  .linkedin-url{
+    @media (max-width: 380px) {
+        font-size: 0.8rem;
+    }
+  }
   display: flex;
   &_icon{
     align-self: center;
@@ -58,6 +98,7 @@
       left: 5%;
     }
   }
+
   input {
     padding:0 30px;
     background-color: rgba(255, 255, 255, 0.2);
@@ -114,6 +155,7 @@
   color: white;
   line-height: 1.4;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .file-input {
@@ -137,7 +179,7 @@
 
   .avatar-edit {
     position: absolute;
-    right: 30px;
+    right: 0;
     z-index: 1;
     bottom: 10px;
 

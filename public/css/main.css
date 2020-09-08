@@ -52,7 +52,7 @@
   border-top: 1px solid white;
 }
 
-/* Header styles */
+/* Header Styles */
 header .container {
   max-width: 1500px;
 }
@@ -112,32 +112,63 @@ header .navbar .typo-logo {
   padding-top: 0.75rem;
 }
 
+/* Home Page */
+.home .user-btn {
+  text-align: right;
+  align-self: center;
+}
+@media (max-width: 575px) {
+  .home .user-btn {
+    text-align: center;
+  }
+}
+.home .reviewer-btn {
+  text-align: left;
+  align-self: center;
+}
+@media (max-width: 575px) {
+  .home .reviewer-btn {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
 /* Register Page */
-.register .offset-md-1 {
-  margin-left: 13%;
-}
-.register .container {
-  max-width: 1500px;
-}
 .register .btn {
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 2rem;
 }
 .register .btn-social {
   border: 2px solid white;
   color: white;
   width: 100%;
-  padding: 0.5rem 2rem;
 }
 .register .btn-social.google:hover {
   background-color: #fff;
   color: black;
 }
+@media (max-width: 767px) {
+  .register .btn-social.linkedin {
+    margin-top: 0.75rem;
+  }
+}
 .register .btn-social.linkedin:hover {
   background-color: #0072B1;
 }
 .register .heading {
+  text-align: right;
   width: 45%;
   overflow: hidden;
+}
+@media (max-width: 991px) {
+  .register .heading {
+    width: 100%;
+  }
+}
+@media (max-width: 575px) {
+  .register .heading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 }
 .register .heading:after {
   content: "";
@@ -149,12 +180,61 @@ header .navbar .typo-logo {
   margin-left: -100%;
   border-top: 1px solid white;
 }
+@media (max-width: 575px) {
+  .register .heading:after {
+    display: none;
+    text-align: center;
+  }
+}
 .register-image {
   margin-top: 5rem;
+}
+@media (max-width: 991px) {
+  .register .register-form-container {
+    margin: auto;
+  }
+}
+.register .register-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 387px) {
+  .register .register-form-container form .btn-custom {
+    padding: 0.5rem 1rem;
+  }
+}
+.register .register-form-container form .form-group:nth-of-type(1) {
+  order: 1;
+}
+.register .register-form-container form .form-group:nth-of-type(2) {
+  order: 2;
+}
+.register .register-form-container form .form-group:nth-of-type(3) {
+  order: 4;
+}
+.register .register-form-container form .form-group:nth-of-type(4) {
+  order: 5;
+}
+.register .register-form-container form .form-group:nth-of-type(5) {
+  order: 5;
+}
+.register .register-form-container form .form-group:nth-of-type(6) {
+  order: 6;
+}
+.register .register-form-container form .form-group:nth-of-type(7) {
+  order: 7;
+}
+.register .register-form-container form .form-group:nth-of-type(8) {
+  order: 8;
 }
 
 .input-field {
   display: flex;
+}
+@media (max-width: 380px) {
+  .input-field .linkedin-url {
+    font-size: 0.8rem;
+  }
 }
 .input-field_icon {
   align-self: center;
@@ -211,6 +291,7 @@ header .navbar .typo-logo {
   color: white;
   line-height: 1.4;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .file-input {
@@ -233,7 +314,7 @@ header .navbar .typo-logo {
 }
 .avatar-upload .avatar-edit {
   position: absolute;
-  right: 30px;
+  right: 0;
   z-index: 1;
   bottom: 10px;
 }

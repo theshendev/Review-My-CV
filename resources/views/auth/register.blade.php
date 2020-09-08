@@ -8,16 +8,16 @@
                 </div>
             @endif
             <div class="row justify-content-start mt-5" dir="rtl">
-                <h2 class="heading text-right text-white">
+                <h2 class="heading text-white">
                     {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام"}}
                 </h2>
             </div>
             <div class="row border-right">
-                <div class="col-md-6 register-image">
+                <div @isset($p) style="margin-top:0 " @endisset class="col-lg-6 register-image d-none d-lg-block">
                     <img width="100%" src="/images/{{isset($url) ? "reviewer-register.png" : "user-register.png"}}"
                          alt="">
                 </div>
-                <div class="col-md-4 offset-md-1">
+                <div class="col-sm-10 col-md-9 col-lg-5 ml-lg-auto register-form-container">
                     @isset($url)
                         <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}"
                               enctype="multipart/form-data">
@@ -42,7 +42,7 @@
                                             </div>
                                             <div class="avatar-preview">
                                                 <div id="imagePreview"
-                                                     style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                                                     style="background-image: url();">
                                                 </div>
                                             </div>
 
@@ -73,30 +73,11 @@
                                         </div>
 
                                         <div class="form-group ">
-                                            <label for="email"
-                                                   class="col-form-label text-md-right">ایمیل</label>
-
-                                            <div class="input-field @error('email') is-invalid @enderror">
-                                                <input id="email" type="email"
-                                                       class="form-control @error('email') is-invalid @enderror"
-                                                       name="email" value="{{ old('email') }}" required
-                                                       autocomplete="email">
-                                                <span class="input-field_icon icon-left"><i
-                                                            class="fa fa-mailbox"></i></span>
-
-                                            </div>
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ ucwords($message) }}</strong>
-                                    </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group ">
                                             <label for="linkedin"
                                                    class="col-form-label text-md-right">اکانت لینکدین</label>
 
                                             <div class="input-field  @error('linkedin') is-invalid @enderror">
-                                                <div class="align-self-center pr-1">
+                                                <div class="align-self-center pr-1 linkedin-url">
                                                     https://www.linkedin.com/in/
                                                 </div>
                                                 <div class="w-100">
@@ -116,6 +97,25 @@
 
                                         @includeWhen(isset($url),'partials.auth.register.reviewer')
                                         @includeWhen(!isset($url),'partials.auth.register.user')
+                                        <div class="form-group" style="order: 2">
+                                            <label for="email"
+                                                   class="col-form-label text-md-right">ایمیل</label>
+
+                                            <div class="input-field @error('email') is-invalid @enderror">
+                                                <input id="email" type="email"
+                                                       class="form-control @error('email') is-invalid @enderror"
+                                                       name="email" value="{{ old('email') }}" required
+                                                       autocomplete="email">
+                                                <span class="input-field_icon icon-left"><i
+                                                            class="fa fa-mailbox"></i></span>
+
+                                            </div>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ ucwords($message) }}</strong>
+                                    </span>
+                                            @enderror
+                                        </div>
 
                                         <div class="form-group ">
                                             <label for="password"
@@ -147,13 +147,13 @@
 
 
                                     @endisset
-                                    <div class="row">
-                                        <div class="@isset($p) col-md-12 text-center @else col-md-5  text-left @endisset">
+                                    <div class="row" style="order: 8">
+                                        <div class="@isset($p) col-md-12 text-center @else col-5  text-left @endisset">
                                             <button type="submit" class="btn btn-custom">
                                                 ثبت نام
                                             </button>
                                         </div>
-                                        <div class="col-md-7 align-self-center">
+                                        <div class="col-7 align-self-center">
                                             @if(!isset($p))
                                                 @isset($url)
                                                     <a href="{{ route('register') }}">

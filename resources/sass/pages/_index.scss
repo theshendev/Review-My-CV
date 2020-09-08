@@ -1,0 +1,17 @@
+.home{
+  .user-btn{
+    text-align: right;
+    align-self: center;
+    @media (max-width: 575px) {
+      text-align: center;
+    }
+  }
+  .reviewer-btn{
+    text-align: left;
+    align-self: center;
+    @media (max-width: 575px) {
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
+}
