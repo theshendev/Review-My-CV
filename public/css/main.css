@@ -449,9 +449,13 @@ header .navbar .typo-logo {
 .profile {
   direction: rtl;
 }
+.profile form {
+  display: flex;
+  flex-direction: column;
+}
 .profile-heading {
   border-bottom: 4px deepskyblue solid;
-  width: 8%;
+  width: 110px;
   text-align: center;
   padding-bottom: 0.5rem;
 }
@@ -467,12 +471,22 @@ header .navbar .typo-logo {
   width: 80%;
   margin: 2rem auto;
 }
+@media (max-width: 767px) {
+  .profile-information .form-group {
+    width: 100%;
+  }
+}
 .profile-information .form-group.col-md-6 {
   width: 100%;
   padding: 0;
 }
 .profile-information .form-group.col-md-6:first-child {
   padding-left: 2rem;
+}
+@media (max-width: 767px) {
+  .profile-information .form-group.col-md-6:first-child {
+    padding-left: 0;
+  }
 }
 .profile-information .form-group.col-md-6 input {
   direction: ltr;
@@ -504,6 +518,15 @@ header .navbar .typo-logo {
   height: 22px;
   border-radius: 50%;
   background-color: white;
+}
+.profile .form-row {
+  width: 80%;
+  margin: auto;
+}
+@media (max-width: 767px) {
+  .profile .form-row {
+    width: 100%;
+  }
 }
 
 /* User Show Page */

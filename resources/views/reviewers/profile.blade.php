@@ -1,6 +1,6 @@
 @extends('layouts.profile')
 @section('fields')
-    <div class="form-row no-gutters" style="width: 80%;margin: auto">
+    <div class="form-row no-gutters">
         <div class="form-group col-md-6">
             <label for="company"
                    class="col-form-label text-md-right">سازمان</label>

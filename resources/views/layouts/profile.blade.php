@@ -45,7 +45,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="form-row no-gutters" style="width: 80%;margin: auto">
+                    <div class="form-row no-gutters">
                         <div class="form-group col-md-6">
                             <label for="email"
                                    class="col-form-label text-md-right">ایمیل</label>
