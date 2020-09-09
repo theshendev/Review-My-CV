@@ -16,7 +16,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                 @enderror
-                <a href="{{asset("storage/users_cv/$user->cv")}}" class="cv-download" style="z-index: 22">
+                <a href="{{asset("users_cv/$user->cv")}}" class="cv-download" style="z-index: 22">
                     <span class="fa fa-download"></span>
                 </a>
             </div>

@@ -47,17 +47,17 @@ class UserController extends Controller
         if ($request->hasFile('cv')){
             $cv =$request->cv;
             $uniqueFileName = uniqid() . $cv->getClientOriginalName();
-            $cv->storeAs('public/users_cv', $uniqueFileName);
-            Storage::delete("/public/users_cv/$user->cv");
+            $cv->storeAs('users_cv', $uniqueFileName);
+            Storage::delete("users_cv/$user->cv");
             $user->cv=$uniqueFileName;
         }
         if ($request->hasFile('image')){
             $image=$request->image;
             $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
             $uniqueFileName = str_replace(' ', '', $uniqueFileName);;
-            $image->storeAs('public/images/profiles/', $uniqueFileName);
-            $path = url('/storage/images/profiles/'.$uniqueFileName);
-            Storage::delete("/public/images/profiles/".basename($user->image));
+            $image->storeAs('images/profiles/', $uniqueFileName);
+            $path = url('images/profiles/'.$uniqueFileName);
+            Storage::delete("images/profiles/".basename($user->image));
             $user->image=$path;
         }
 
@@ -94,7 +94,7 @@ class UserController extends Controller
     public function download_cv(User $user,Reviewer $reviewer)
     {
         if ($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',$reviewer->id)->exists()) {
-            return redirect(asset('storage/users_cv/'.$user->cv));
+            return redirect(asset('users_cv/'.$user->cv));
         }
         else{
             return back();

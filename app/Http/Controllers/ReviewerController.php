@@ -17,12 +17,18 @@ class ReviewerController extends Controller
 
     public function index()
     {
-        anyRelationExists(auth()->user());
-        $reviewers = Reviewer::available()->get();
-        foreach ($reviewers as $key => $reviewer) {
-            if (relationExists(auth()->user(), $reviewer)) {
-                $reviewers->forget($key);
+        if (getGuard()=='web') {
+            anyRelationExists(auth()->user());
+            $reviewers = Reviewer::available()->get();
+            foreach ($reviewers as $key => $reviewer) {
+                if (relationExists(auth()->user(), $reviewer)) {
+                    $reviewers->forget($key);
+                }
             }
+        }
+        else{
+            $reviewers = Reviewer::all();
+
         }
         return view('reviewers.index', compact('reviewers'));
     }
@@ -54,9 +60,10 @@ class ReviewerController extends Controller
             $image = $request->image;
             $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
             $uniqueFileName = str_replace(' ', '', $uniqueFileName);;
-            $image->storeAs('public/images/profiles/', $uniqueFileName);
-            $path = url('/storage/images/profiles/' . $uniqueFileName);
-            Storage::delete("/public/images/profiles/" . basename($reviewer->image));
+            $image->storeAs('images/profiles/', $uniqueFileName);
+            $path = url('/images/profiles/' . $uniqueFileName);
+            Storage::delete("images/profiles/" . basename($reviewer->image));
+
             $reviewer->image = $path;
         }
         $reviewer->name = $request->name;

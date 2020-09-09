@@ -127,8 +127,8 @@ class RegisterController extends Controller
     {
         $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
         $uniqueFileName = str_replace(' ', '', $uniqueFileName);;
-        $image->storeAs('public/images/profiles/', $uniqueFileName);
-        $path = url('/storage/images/profiles/'.$uniqueFileName);
+        $image->storeAs('images/profiles/', $uniqueFileName);
+        $path = url('images/profiles/'.$uniqueFileName);
         return $path;
 
     }
@@ -143,7 +143,7 @@ class RegisterController extends Controller
     {
         $cv =$data['cv'];
         $uniqueFileName = uniqid() . $cv->getClientOriginalName();
-        $cv->storeAs('public/users_cv', $uniqueFileName);
+        $cv->storeAs('users_cv', $uniqueFileName);
         if (is_file($data['image'])){
             $data['image'] = $this->uploadImage($data['image']);
         }
