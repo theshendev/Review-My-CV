@@ -94,18 +94,18 @@ class RegisterController extends Controller
     {
         $data['linkedin']='https://www.linkedin.com/in/'.$data['linkedin'];
 
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users'],
-            'linkedin' => ['required','unique:reviewers','unique:users'],
-            'company' => ['required', 'string'],
-            'position' => ['required', 'string'],
-            'image' => ['required'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+            return Validator::make($data, [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:reviewers','unique:users'],
+                'linkedin' => ['required','unique:reviewers','unique:users'],
+                'company' => ['required', 'string'],
+                'position' => ['required', 'string'],
+                'image' => ['required'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        }
 
-    protected function setData(Request $request)
+        protected function setData(Request $request)
     {
         $request['provider'] = null;
         $request['provider_id'] = null;
@@ -191,7 +191,7 @@ class RegisterController extends Controller
         $user = Reviewer::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'linkedin' =>$request['linkedin'],
+            'linkedin' =>  'https://www.linkedin.com/in/'.$request['linkedin'],
             'image' => $path,
             'company' => $request['company'],
             'position' => $request['position'],
