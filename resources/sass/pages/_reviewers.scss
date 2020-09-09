@@ -22,11 +22,12 @@
     &-score-icons{
       position: absolute;
       bottom: 45px;
-      left:95px;
+      left:90px;
       direction: ltr;
-      .fa-search{
+      .fa-star{
         font-size: 0.7rem;
-        &.full{
+        &.full, &-half-alt{
+          font-size: 0.7rem;
           color: $main-yellow;
         }
       }

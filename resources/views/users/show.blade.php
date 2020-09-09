@@ -10,7 +10,11 @@
                         <h4>{{$user->name}}</h4>
                     @if($user->getTable()=='reviewers')
                         <h6 class="col-12 text-center text-white" dir="rtl">
-                            {{$user->position}} در شرکت {{$user->company}}
+                            {{$user->position}}
+                        </h6>
+                        <h6 class="col-12 text-center text-white" dir="rtl">
+                            {{$user->company}}
+
                         </h6>
                         @else
                         @if(!relationExists($user,auth('reviewer')->user()) or isRelationExpired($user,auth('reviewer')->user()))

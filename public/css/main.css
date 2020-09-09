@@ -440,13 +440,14 @@ header .navbar .typo-logo {
 .reviewers-list .reviewer-score-icons {
   position: absolute;
   bottom: 45px;
-  left: 95px;
+  left: 90px;
   direction: ltr;
 }
-.reviewers-list .reviewer-score-icons .fa-search {
+.reviewers-list .reviewer-score-icons .fa-star {
   font-size: 0.7rem;
 }
-.reviewers-list .reviewer-score-icons .fa-search.full {
+.reviewers-list .reviewer-score-icons .fa-star.full, .reviewers-list .reviewer-score-icons .fa-star-half-alt {
+  font-size: 0.7rem;
   color: #FAC12A;
 }
 
