@@ -55,7 +55,7 @@
                                         <div class="form-group">
                                             <label for="name"
                                                    class="col-form-label text-md-right">نام و نام خانوادگی</label>
-                                            <div class="input-field">
+                                            <div class="input-field @error('name') is-invalid @enderror">
                                                 {{--<span class="input-field_icon icon-right"><i class="fa fa-search"></i></span>--}}
                                                 <input id="name" type="text"
                                                        class="form-control @error('name') is-invalid @enderror"
@@ -63,14 +63,14 @@
                                                        autocomplete="name" autofocus>
                                                 <span class="input-field_icon icon-right"><i
                                                             class="fa fa-search"></i></span>
-
-                                                @error('name')
-                                                <span class="invalid-feedback" role="alert">
+                                            </div>
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                                @enderror
-                                            </div>
+                                            @enderror
                                         </div>
+
 
                                         <div class="form-group ">
                                             <label for="linkedin"
