@@ -5,6 +5,10 @@ header{
   .navbar{
   background-color: $main-yellow;
   border-radius: 50px;
+    @media (min-width: 992px) {
+      padding: 0 1rem;
+
+    }
   .navbar-nav.ml-auto{
     direction: rtl;
     padding: 0;

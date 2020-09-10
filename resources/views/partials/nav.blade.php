@@ -2,12 +2,12 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-1 text-right">
-            <a style="position: relative;top: -4px" href="{{ url('/') }}">
-                    <img style="width: 80%" src="{{asset('images/main.png')}}" alt="{{ config('app.name', 'Laravel') }}">
+            <a style="position: relative;top: -10px" href="{{ url('/') }}">
+                    <img style="width: 75%;min-width: 55px" src="{{asset('images/main.png')}}" alt="{{ config('app.name', 'Laravel') }}">
             </a>
         </div>
         <div class="col-md-11 p-0">
-            <nav class="navbar navbar-expand-md navbar-light shadow-sm mx-auto">
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm mx-auto">
                 <div class="container">
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -51,9 +51,12 @@
                                         <img class="dropdown-menu_image" src="{{auth(getGuard())->user()->image}}" alt="">
                                         </div>
                                             <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span class="fa fa-user"></span> پروفایل</a>
+                                                <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span class="fa fa-receipt"></span> وضعیت درخواست ها</a>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                    <span class="fa fa-portal-exit"></span>
                                     خروج
                                 </a>
 
@@ -64,6 +67,11 @@
 
                     </div>
                     </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('reviewers.index')}}">
+                                        لیست ارزیاب ها
+                                    </a>
+                                </li>
                     @endguest
                             <li class="nav-item">
                                 <a class="nav-link" href="/about">درباره ما</a>

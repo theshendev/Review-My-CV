@@ -60,6 +60,11 @@ header .navbar {
   background-color: #FAC12A;
   border-radius: 50px;
 }
+@media (min-width: 992px) {
+  header .navbar {
+    padding: 0 1rem;
+  }
+}
 header .navbar .navbar-nav.ml-auto {
   direction: rtl;
   padding: 0;
