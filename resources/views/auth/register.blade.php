@@ -7,7 +7,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <div class="row justify-content-start mt-5" dir="rtl">
+            <div class="row justify-content-start" dir="rtl">
                 <h2 class="heading text-white">
                     {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام"}}
                 </h2>
