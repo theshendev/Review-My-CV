@@ -80,6 +80,14 @@ class ReviewerController extends Controller
         return back();
     }
 
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current-password' =>['required']
+        ]);
+
+    }
+
     public function add_score(Request $request, Reviewer $reviewer, Comment $comment)
     {
         $reviewer->score += $request->score;

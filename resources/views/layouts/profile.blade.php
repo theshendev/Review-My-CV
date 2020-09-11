@@ -3,7 +3,7 @@
     <section class="profile text-white mt-5">
 
         <div class="container">
-            <form action="{{route(\Illuminate\Support\Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route(Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -86,58 +86,118 @@
                     </div>
             </div>
             </form>
-            <div class="row justify-content-center mt-5">
-                <h3 class="profile-heading">تغییر رمز عبور</h3>
-            </div>
-            @if(!$comments->isEmpty())
-                <div class="card">
-                    <div class="card-header">
-                        {{$comments->first()->reviewer->name}}
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-8">
-                                {{$comments->first()->body}}
-                            </div>
-                            <div class="col-4">
-                                <div class="rating">
-                                    <form action="{{route('reviewer.score',['reviewer'=>$comments->first()->reviewer,'comment'=>$comments->first()])}}"
-                                          method="post">
-                                        @csrf
-                                        <input type="text" onchange="this.form.submit()" id="input-1" name="score"
-                                               class="rating" data-min="0" data-max="5" data-step="0.5" value="2.5"
-                                               data-size="sm">
-                                    </form>
 
-                                </div>
-                                {{--<div class="rating" dir="rtl">--}}
-                                {{--<span class="fal fa-star"></span>--}}
-                                {{--<span class="fal fa-star"></span>--}}
-                                {{--<span class="fal fa-star"></span>--}}
-                                {{--<span class="fal fa-star"></span>--}}
-                                {{--<span class="fal fa-star"></span>--}}
-                                {{--</div>--}}
+                <form action="{{route(Str::singular($user->getTable()).".password",$user)}}" method="POST">
+                    @csrf
+                    @method('PATCH')
+
+                    <div class="row justify-content-center mt-5 change-password">
+                        <h3 class="profile-heading">تغییر رمز عبور</h3>
+                    </div>
+                    <div class="profile-information">
+
+                        <div class="form-group">
+                            <label for="current-password"
+                                   class="col-form-label text-md-right">رمز عبور کنونی</label>
+
+                            <div class="input-field">
+                                <input id="current-password" type="password"
+                                       class="form-control @error('current-password') is-invalid @enderror"
+                                       name="current-password" required>
+                                @error('current-password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="new-password"
+                                   class="col-form-label text-md-right">رمز عبور جدید</label>
 
+                            <div class="input-field">
+                                <input id="new-password" type="password"
+                                       class="form-control @error('new-password') is-invalid @enderror"
+                                       name="new-password" required>
+                                @error('new-password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password-confirm"
+                                   class="col-form-label text-md-right">تکرار رمز عبور جدید</label>
+
+                            <div class="input-field">
+                                <input id="new-password-confirm" type="password"
+                                       class="form-control @error('new-password-confirm') is-invalid @enderror"
+                                       name="new-password_confirmation" required>
+                                @error('new-password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success" onclick="console.log(this.form.submit())">
+                                ذخیره کردن تغییرات
+                            </button>
+                        </div>
                     </div>
+                </form>
 
-                </div>
-                <div class="row justify-content-center">
-                    @if(count($user->comments)>1)
-                        Rate the first comment to see the other one(s).
-                    @endif
-                </div>
-            @else
-                <div class="row justify-content-center">
-                    There is no comment for your cv.
-                </div>
-            @endif
+{{--{{dd($errors)}}--}}
         </div>
 
     </section>
 
+    {{--@if(!$comments->isEmpty())--}}
+        {{--<div class="card">--}}
+            {{--<div class="card-header">--}}
+                {{--{{$comments->first()->reviewer->name}}--}}
+            {{--</div>--}}
+            {{--<div class="card-body">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-8">--}}
+                        {{--{{$comments->first()->body}}--}}
+                    {{--</div>--}}
+                    {{--<div class="col-4">--}}
+                        {{--<div class="rating">--}}
+                            {{--<form action="{{route('reviewer.score',['reviewer'=>$comments->first()->reviewer,'comment'=>$comments->first()])}}"--}}
+                                  {{--method="post">--}}
+                                {{--@csrf--}}
+                                {{--<input type="text" onchange="this.form.submit()" id="input-1" name="score"--}}
+                                       {{--class="rating" data-min="0" data-max="5" data-step="0.5" value="2.5"--}}
+                                       {{--data-size="sm">--}}
+                            {{--</form>--}}
 
+                        {{--</div>--}}
+                        {{--<div class="rating" dir="rtl">--}}
+                        {{--<span class="fal fa-star"></span>--}}
+                        {{--<span class="fal fa-star"></span>--}}
+                        {{--<span class="fal fa-star"></span>--}}
+                        {{--<span class="fal fa-star"></span>--}}
+                        {{--<span class="fal fa-star"></span>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+            {{--</div>--}}
+
+        {{--</div>--}}
+        {{--<div class="row justify-content-center">--}}
+            {{--@if(count($user->comments)>1)--}}
+                {{--Rate the first comment to see the other one(s).--}}
+            {{--@endif--}}
+        {{--</div>--}}
+    {{--@else--}}
+        {{--<div class="row justify-content-center">--}}
+            {{--There is no comment for your cv.--}}
+        {{--</div>--}}
+    {{--@endif--}}
 @endsection
 @section('scripts')
     $(document).ready(function(){

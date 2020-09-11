@@ -34,7 +34,7 @@ return [
     'date' => 'The :attribute is not a valid date.',
     'date_equals' => 'The :attribute must be a date equal to :date.',
     'date_format' => 'The :attribute does not match the format :format.',
-    'different' => 'The :attribute and :other must be different.',
+    'different' => ':attribute و :other باید متفاوت باشند.',
     'digits' => 'The :attribute must be :digits digits.',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
@@ -155,6 +155,8 @@ return [
         'email' => 'ایمیل',
         'linkedin' => 'اکانت لینکدین',
         'password' => 'رمز عبور',
+        'current-password' => 'رمز عبور کنونی',
+        'new-password' => 'رمز عبور جدید',
     ],
 
 ];

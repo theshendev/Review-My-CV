@@ -22,6 +22,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/user/profile', 'UserController@profile')->name('user.profile')->middleware('verified');
 Route::put('/users/{user}/update', 'UserController@update')->name('user.update');
+Route::patch('/users/{user}/password', 'UserController@ChangePassword')->name('user.password');
 
 Route::get('/login/reviewer', 'Auth\LoginController@showReviewerLoginForm');
 Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterForm');
@@ -36,6 +37,7 @@ Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->nam
 Route::get('/reviewers', 'ReviewerController@index')->name('reviewers.index');
 Route::get('/reviewers/{reviewer}', 'ReviewerController@show')->name('reviewer.show');
 Route::put('/reviewers/{reviewer}/update', 'ReviewerController@update')->name('reviewer.update');
+Route::patch('/reviewers/{reviewer}/password', 'ReviewerController@ChangePassword')->name('reviewer.password');
 Route::post('/{reviewer}/{comment}/score','ReviewerController@add_score')->name('reviewer.score');
 Route::get('/reviewer/profile', 'ReviewerController@profile')->name('reviewer.profile');
 

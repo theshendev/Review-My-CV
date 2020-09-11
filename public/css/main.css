@@ -543,6 +543,9 @@ header .navbar .typo-logo {
     width: 100%;
   }
 }
+.profile .change-password .profile-heading {
+  width: 150px;
+}
 
 /* User Show Page */
 .user-show {

@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Reviewer;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -70,6 +73,20 @@ class UserController extends Controller
         }
         $user->save();
         return back();
+    }
+    public function changePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(),[
+            'current-password' =>['required'],
+            'new-password' =>['required','string','min:8','confirmed','different:current-password'],
+        ]);
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+            $validator->getMessageBag()->add('current-password', 'رمز عبور کنونی اشتباه است.');
+        }
+            if (!$validator->errors()->isEmpty()){
+            return redirect()->back()->withErrors($validator);
+        }
+
     }
 
     public function allow_reviewer(User $user,Reviewer $reviewer)
