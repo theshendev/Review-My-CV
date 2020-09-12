@@ -3,7 +3,12 @@
     <section class="profile text-white mt-5">
 
         <div class="container">
-            <form action="{{route(Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
+            @if(session('status'))
+                <div class="alert alert-success text-right">
+                    {{ session('status') }}
+                </div>
+            @endif
+                <form action="{{route(Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

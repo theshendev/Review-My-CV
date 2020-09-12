@@ -76,16 +76,21 @@ class UserController extends Controller
     }
     public function changePassword(Request $request)
     {
+        $user = Auth::user();
         $validator = Validator::make($request->all(),[
             'current-password' =>['required'],
             'new-password' =>['required','string','min:8','confirmed','different:current-password'],
         ]);
-        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+
+        if (!(Hash::check($request->get('current-password'), $user->password))) {
             $validator->getMessageBag()->add('current-password', 'رمز عبور کنونی اشتباه است.');
         }
             if (!$validator->errors()->isEmpty()){
             return redirect()->back()->withErrors($validator);
         }
+            $user->password = Hash::make($request['new-password']);
+            $user->save();
+            return back()->with('status','تغییرات با موفقیت ذخیره شد.');
 
     }
 
