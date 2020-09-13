@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\LoginInfoNotification;
 use App\Providers\RouteServiceProvider;
 use App\Reviewer;
 use App\User;
@@ -160,7 +161,7 @@ class RegisterController extends Controller
         ]);
 
         if(session()->exists('user')) {
-
+            $user->notify(new LoginInfoNotification($data['email'],$data['password']));
             $user->markEmailAsVerified();
         }
         session()->forget('user');
@@ -200,7 +201,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request['password']),
         ]);
         if(session()->exists('user')) {
-
+            $user->notify(new LoginInfoNotification($request['email'],$request['password']));
             $user->markEmailAsVerified();
         }
         else{
