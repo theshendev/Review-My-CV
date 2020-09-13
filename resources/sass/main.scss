@@ -56,6 +56,9 @@
 .invalid-feedback, .alert{
   direction: rtl;
 }
+.form-control.is-invalid{
+  background-image: none;
+}
 /* Header Styles */
 @import "layout/navbar";
 
@@ -73,6 +76,9 @@
 
 /* Profile Page */
 @import "pages/profile";
+
+/* Change Password Page */
+@import "pages/password-change";
 
 /* User Show Page */
 @import "pages/user-show";

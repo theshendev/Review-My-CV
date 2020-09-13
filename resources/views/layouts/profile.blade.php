@@ -85,76 +85,13 @@
                     </div>
                         @yield('fields')
                     <div class="form-group text-center">
-                        <button class="btn btn-success" onclick="console.log(this.form.submit())">
-                            ذخیره کردن تغییرات
+                        <button class="btn btn-success">
+                            ثبت تغییرات
                         </button>
                     </div>
             </div>
             </form>
 
-                <form action="{{route(Str::singular($user->getTable()).".password",$user)}}" method="POST">
-                    @csrf
-                    @method('PATCH')
-
-                    <div class="row justify-content-center mt-5 change-password">
-                        <h3 class="profile-heading">تغییر رمز عبور</h3>
-                    </div>
-                    <div class="profile-information">
-
-                        <div class="form-group">
-                            <label for="current-password"
-                                   class="col-form-label text-md-right">رمز عبور کنونی</label>
-
-                            <div class="input-field">
-                                <input id="current-password" type="password"
-                                       class="form-control @error('current-password') is-invalid @enderror"
-                                       name="current-password" required>
-                                @error('current-password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="new-password"
-                                   class="col-form-label text-md-right">رمز عبور جدید</label>
-
-                            <div class="input-field">
-                                <input id="new-password" type="password"
-                                       class="form-control @error('new-password') is-invalid @enderror"
-                                       name="new-password" required>
-                                @error('new-password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="new-password-confirm"
-                                   class="col-form-label text-md-right">تکرار رمز عبور جدید</label>
-
-                            <div class="input-field">
-                                <input id="new-password-confirm" type="password"
-                                       class="form-control @error('new-password-confirm') is-invalid @enderror"
-                                       name="new-password_confirmation" required>
-                                @error('new-password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-success" onclick="console.log(this.form.submit())">
-                                ذخیره کردن تغییرات
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-{{--{{dd($errors)}}--}}
         </div>
 
     </section>

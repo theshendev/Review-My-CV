@@ -51,7 +51,9 @@
                                         <img class="dropdown-menu_image" src="{{auth(getGuard())->user()->image}}" alt="">
                                         </div>
                                             <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span class="fa fa-user"></span> پروفایل</a>
-                                                <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span class="fa fa-receipt"></span> وضعیت درخواست ها</a>
+                                            <a class="dropdown-item" href="{{route('password.change')}}"><span class="fa fa-slack-hash"></span> تغییر رمز عبور</a>
+
+                                        <a class="dropdown-item" href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span class="fa fa-receipt"></span> وضعیت درخواست ها</a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
