@@ -21,46 +21,55 @@
                 <label for="current-password"
                        class="col-form-label text-md-right">رمز عبور کنونی</label>
 
-                <div class="input-field">
+                <div class="input-field @error('current-password') is-invalid @enderror">
                     <input id="current-password" type="password"
                            class="form-control @error('current-password') is-invalid @enderror"
                            name="current-password" required>
-                    @error('current-password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="input-field_icon icon-right">
+                        <i class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                @error('current-password')
+                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                    @enderror
-                </div>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="new-password"
                        class="col-form-label text-md-right">رمز عبور جدید</label>
 
-                <div class="input-field">
+                <div class="input-field @error('new-password') is-invalid @enderror">
                     <input id="new-password" type="password"
                            class="form-control @error('new-password') is-invalid @enderror"
                            name="new-password" required>
-                    @error('new-password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="input-field_icon icon-right">
+                        <i class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                @error('new-password')
+                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                    @enderror
-                </div>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="new-password-confirm"
                        class="col-form-label text-md-right">تکرار رمز عبور جدید</label>
 
-                <div class="input-field">
+                <div class="input-field @error('new-password-confirm') is-invalid @enderror">
                     <input id="new-password-confirm" type="password"
                            class="form-control @error('new-password-confirm') is-invalid @enderror"
                            name="new-password_confirmation" required>
-                    @error('new-password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="input-field_icon icon-right">
+                        <i class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                @error('new-password')
+                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                    @enderror
-                </div>
+                @enderror
             </div>
             <div class="form-group text-center">
                 <button class="btn btn-success">
@@ -71,4 +80,19 @@
     </form>
     </div>
     </section>
+@endsection
+@section('scripts')
+    $(document).ready(function(){
+        $('.input-field_icon').click(function(){
+            if($(this).find('i').hasClass('fa-eye-slash')){
+                $(this).prev().prop('type','text')
+                $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+            else{
+                $(this).prev().prop('type','password')
+                $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+            }
+
+        });
+    });
 @endsection

@@ -574,7 +574,12 @@ header .navbar .typo-logo {
   margin-top: 2rem;
 }
 .change-password .input-field {
-  display: block;
+  position: relative;
+}
+.change-password .input-field_icon {
+  font-size: 1.2rem;
+  right: 2%;
+  cursor: pointer;
 }
 .change-password h3 {
   direction: rtl;
