@@ -44,7 +44,7 @@
 </head>
 <body>
     <div id="app">
-        @includeWhen(!\Illuminate\Support\Str::contains(\Illuminate\Support\Facades\Request::path(),'login'),'partials.nav')
+        @includeWhen(!Str::contains(Request::path(),'login'),'partials.nav')
         <main class="py-4">
             @yield('content')
         </main>

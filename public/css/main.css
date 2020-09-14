@@ -733,3 +733,43 @@ header .navbar .typo-logo {
 .about-us .developer:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.65);
 }
+
+/* Contact Page */
+.contact {
+  margin: auto;
+  margin-top: 4rem;
+  direction: rtl;
+  text-align: right;
+  color: white;
+  width: 65%;
+}
+@media (max-width: 767px) {
+  .contact {
+    width: 100%;
+  }
+}
+.contact .heading-line {
+  overflow: hidden;
+  font-weight: 300;
+}
+.contact .heading-line:after {
+  width: 90%;
+}
+.contact .heading-line ~ p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+.contact-fields_field {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px 30px;
+  color: white;
+  height: 48px;
+  border-radius: 20px;
+  direction: ltr;
+  text-align: left;
+  margin-top: 2rem;
+}
+.contact-fields_field a {
+  color: white;
+}

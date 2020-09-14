@@ -32,11 +32,11 @@
                             @guest(getGuard())
                                 @if (Route::has('register'))
                                     <li class="nav-item nav-item_bg">
-                                        <a class="nav-link" href="{{ route('register') }}">ثبت نام</a>
+                                        <a class="nav-link" href="{{ route('register') }}"> <span style="font-size: 1rem;" class="fa fa-user-plus"></span> ثبت نام</a>
                                     </li>
                                 @endif
                                     <li class="nav-item nav-item_bg">
-                                        <a class="nav-link" href="{{ route('login') }}">ورود</a>
+                                        <a class="nav-link" href="{{ route('login') }}"><span style="font-size: 1rem;vertical-align: middle" class="fa fa-portal-enter"></span> ورود</a>
                                     </li>
                             @else
                                 <li class="nav-item dropdown nav-item_bg">

@@ -1,0 +1,38 @@
+.contact{
+  margin: auto;
+  margin-top: 4rem;
+  direction: rtl;
+  text-align: right;
+  color: white;
+  width: 65%;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  .heading-line{
+    overflow: hidden;
+    font-weight: 300;
+    &:after{
+      width: 90%;
+    }
+    & ~ p{
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+  }
+  &-fields{
+    &_field {
+      background-color: rgba(white, 10%);
+      padding: 12px 30px;
+      color: white;
+      height: 48px;
+      border-radius: 20px;
+      direction: ltr;
+      text-align: left;
+      margin-top: 2rem;
+      a {
+        color: white;
+      }
+    }
+  }
+}

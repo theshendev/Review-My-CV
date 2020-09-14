@@ -56,13 +56,12 @@
                                             <label for="name"
                                                    class="col-form-label text-md-right">نام و نام خانوادگی</label>
                                             <div class="input-field @error('name') is-invalid @enderror">
-                                                {{--<span class="input-field_icon icon-right"><i class="fa fa-search"></i></span>--}}
                                                 <input id="name" type="text"
                                                        class="form-control @error('name') is-invalid @enderror"
                                                        name="name" value="{{ old('name') }}" required
                                                        autocomplete="name" autofocus>
                                                 <span class="input-field_icon icon-right"><i
-                                                            class="fa fa-search"></i></span>
+                                                            class="fal fa-user-alt"></i></span>
                                             </div>
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -107,7 +106,7 @@
                                                        name="email" value="{{ old('email') }}" required
                                                        autocomplete="email">
                                                 <span class="input-field_icon icon-left"><i
-                                                            class="fa fa-mailbox"></i></span>
+                                                            class="fal fa-envelope-open"></i></span>
 
                                             </div>
                                             @error('email')
