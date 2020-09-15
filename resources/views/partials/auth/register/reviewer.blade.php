@@ -7,7 +7,9 @@
                class="form-control @error('company') is-invalid @enderror"
                name="company" value="{{ old('company') }}" required
         >
-
+        <span class="input-field_icon icon-left">
+            <i class="icon-company"></i>
+        </span>
         @error('company')
         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

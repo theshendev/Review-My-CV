@@ -1,12 +1,12 @@
 .contact{
   margin: auto;
-  margin-top: 4rem;
+  margin-top: 3rem;
   direction: rtl;
   text-align: right;
   color: white;
   width: 65%;
   @media (max-width: 767px) {
-    width: 100%;
+    width: 95%;
   }
   .heading-line{
     overflow: hidden;
@@ -18,6 +18,9 @@
       margin-top: 1rem;
       font-size: 1.2rem;
       font-weight: 300;
+      @media (max-width: 575px) {
+        font-size: 1rem;
+      }
     }
   }
   &-fields{
@@ -25,14 +28,26 @@
       background-color: rgba(white, 10%);
       padding: 12px 30px;
       color: white;
-      height: 48px;
+      //height: 48px;
       border-radius: 20px;
       direction: ltr;
       text-align: left;
       margin-top: 2rem;
       a {
         color: white;
+        @media (max-width: 575px){
+          font-size: 0.75rem;
+        }
+      }
+      &.long{
+        @media (min-width: 1200px) and (max-width: 1250px){
+          padding: 12px 15px;
+        }
+        @media (min-width: 1250px) and (max-width: 1331px){
+          padding: 12px 20px;
+        }
       }
     }
   }
+
 }

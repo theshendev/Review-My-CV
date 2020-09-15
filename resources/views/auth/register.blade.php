@@ -124,7 +124,8 @@
                                                 <input id="password" type="password"
                                                        class="form-control @error('password') is-invalid @enderror"
                                                        name="password" required>
-
+                                                <span class="input-field_icon icon-left"><i
+                                                            class="icon-password"></i></span>
 
                                             </div>
                                             @error('password')
@@ -141,6 +142,8 @@
                                             <div class="input-field">
                                                 <input id="password-confirm" type="password" class="form-control"
                                                        name="password_confirmation" required>
+                                                <span class="input-field_icon icon-left"><i
+                                                            class="icon-password"></i></span>
                                             </div>
                                         </div>
 
