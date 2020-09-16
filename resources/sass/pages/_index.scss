@@ -1,4 +1,107 @@
 .home{
+  &-auth {
+    &_caption {
+      @media (max-width: 991px) {
+        margin-top: 3rem;
+      }
+      @media (max-width: 767px) {
+        order: 1;
+      }
+      //margin-top: 10rem;
+      align-self: end;
+      text-align: center;
+
+      h4 {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        color: white;
+        font-size: 2rem;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          height: 0.5em;
+          vertical-align: bottom;
+          width: 40%;
+          margin-left: 10px;
+          margin-right: -100%;
+          border-top: 3px solid white;
+        }
+
+        &:before {
+          content: "";
+          display: inline-block;
+          height: 0.5em;
+          vertical-align: bottom;
+          width: 40%;
+          margin-right: 10px;
+          margin-left: -100%;
+          border-top: 3px solid white;
+        }
+      }
+      p{
+        direction: rtl;
+        padding:1rem;
+        margin: auto;
+        margin-top: 1rem;
+        color: white;
+        width: 80%;
+        background-color: rgba(white,10%);
+        border-radius: 20px;
+      }
+      .btn-yellow-primary{
+        margin-top: 1rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+  &-guest {
+    margin-top: 5rem;
+    &_caption {
+      @media (max-width: 991px) {
+        margin-top: 3rem;
+        order: 1;
+
+      }
+
+      //margin-top: 10rem;
+      align-self: end;
+      text-align: center;
+
+      h4 {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        color: #FFD166;
+        white-space: pre-line;
+      }
+      p{
+        direction: rtl;
+        padding:1rem;
+        margin: auto;
+        color: white;
+        width: 90%;
+        @media (max-width:575px) {
+          width: 100%;
+        }
+      }
+      .btn-yellow-primary{
+        margin-top: 1rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+      h5{
+        color: white;
+      }
+      h5 ~ a{
+        width: 80px;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
   .user-btn{
     text-align: right;
     align-self: center;

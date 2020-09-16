@@ -6,7 +6,7 @@
             <h3 class="heading-line">تماس با ما</h3>
         </div>
         <div class="row">
-            <div class="col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6 mx-auto mt-3">
+            <div class="col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6 mx-auto mt-3 mb-4">
                 <img style="width: 100%" src="{{asset('images/1.png')}}" alt="">
             </div>
         </div>
@@ -89,7 +89,7 @@
             <h3 class="heading-line">تماس با طراح</h3>
             <p>جهت تماس با طراح و پیشنهادات و انتقادات از راه های زیر اقدام نمایید:</p>
         </div>
-        <div class="row contact-fields">
+        <div class="row contact-fields mb-4">
             <div class="col-lg-12">
                 <div class="contact-fields_field">
                     <span class="fab fa-linkedin-in"></span>

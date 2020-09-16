@@ -112,7 +112,7 @@
                                             <div class="row text-center">
                                                 <h3 class=" font-weight-bold">
                                                     یا
-                                                </h3>
+                                                </h3>\
                                             </div>
 
                                             @isset($url)
