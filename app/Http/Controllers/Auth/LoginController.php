@@ -57,7 +57,7 @@ class LoginController extends Controller
         if (Auth::guard('reviewer')->attempt($credentials)) {
             return redirect($this->redirectTo);
         }
+        return $this->sendFailedLoginResponse($request);
 
-        return back()->withInput($request->only('email', 'remember'));
     }
 }

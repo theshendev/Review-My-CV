@@ -23,6 +23,8 @@ Auth::routes(['verify' => true]);
 Route::get('/password/change', 'Auth\ChangePasswordController@showChangeForm')->name('password.change');
 Route::patch('/password/update', 'Auth\ChangePasswordController@update')->name('password.update');
 
+Route::get('/requests', 'RequestController@index')->name('requests.index');
+
 
 Route::get('/user/profile', 'UserController@profile')->name('user.profile')->middleware('verified');
 Route::put('/users/{user}/update', 'UserController@update')->name('user.update');

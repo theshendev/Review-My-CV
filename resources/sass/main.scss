@@ -42,6 +42,8 @@
 .heading-line{
   width: 100%;
   direction: rtl;
+  text-align: right;
+  color: white;
 }
 .heading-line:after {
   content:"";
@@ -79,6 +81,9 @@
 
 /* Change Password Page */
 @import "pages/password-change";
+
+/* Requests Page */
+@import "pages/requests";
 
 /* User Show Page */
 @import "pages/user-show";

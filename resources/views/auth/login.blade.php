@@ -78,27 +78,26 @@
                                     </span>
                                                     @enderror
                                                 </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="remember"
+                                                           id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                                    <label class="form-check-label" for="remember">
+                                                        مرا به خاطر بسپار
+                                                    </label>
+
+                                                </div>
                                             </div>
 
-                                            {{--<div class="form-group row">--}}
-                                                {{--<div class="col-md-6 offset-md-4">--}}
-                                                    {{--<div class="form-check">--}}
-                                                        {{--<input class="form-check-input" type="checkbox" name="remember"--}}
-                                                               {{--id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
 
-                                                        {{--<label class="form-check-label" for="remember">--}}
-                                                            {{--{{ __('Remember Me') }}--}}
-                                                        {{--</label>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
-                                            <div class="row my-4">
+                                            <div class="row mb-4">
                                                     <div class="col-sm-5 text-center text-sm-left">
                                                         <button type="submit" class="btn btn-yellow-secondary">
                                                             ورود به سایت
                                                         </button>
                                                     </div>
                                                 <div class="col-sm-7 text-center text-sm-right align-self-center mt-2 mt-sm-0">
+
                                                 @if (Route::has('password.request'))
                                                     <a href="{{ route('password.request') }}">
                                                         <small>
@@ -112,7 +111,7 @@
                                             <div class="row text-center">
                                                 <h3 class=" font-weight-bold">
                                                     یا
-                                                </h3>\
+                                                </h3>
                                             </div>
 
                                             @isset($url)

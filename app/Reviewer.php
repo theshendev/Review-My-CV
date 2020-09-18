@@ -39,6 +39,10 @@ class Reviewer extends Authenticatable implements MustVerifyEmail
     {
         return $query->where('is_available',1);
     }
+    public function requested_users()
+    {
+        return $this->belongsToMany('App\User', 'allowed_reviewers',  'allowed_reviewer_id','user_id');
+    }
     public function comments()
     {
         return $this->hasMany('App\Comment');

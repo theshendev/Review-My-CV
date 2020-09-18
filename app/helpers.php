@@ -19,6 +19,9 @@ function anyRelationExists(User $user){
 function commentsToCheck(User $user){
     return ($user->comments()->where('is_checked','==','0')->exists());
 }
+function reviewerCommented(User $user, Reviewer $reviewer){
+    return (!$user->comments->where('reviewer_id','==',$reviewer->id)->isEmpty());
+}
 
 function getGuard(){
     $guard = 'web';
