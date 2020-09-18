@@ -83,14 +83,16 @@ class ReviewerController extends Controller
         return back()->with('status','تغییرات با موفقیت ذخیره شد.');
     }
 
-    public function add_score(Request $request, Reviewer $reviewer, Comment $comment)
+    public function commentScore(Request $request, Reviewer $reviewer, Comment $comment)
     {
+        $request->validate([
+            'score'=>'required|numeric|min:0.5'
+        ]);
         $reviewer->score += $request->score;
         $reviewer->score /= 2;
         $reviewer->save();
         $comment->is_checked = true;
         $comment->save();
-        return back();
     }
 
 }

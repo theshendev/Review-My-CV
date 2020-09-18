@@ -24,7 +24,7 @@
                             <span class="font-weight-bold">
                                 @if(reviewerCommented(Auth::user(),$request))
                                     بررسی شد
-                                    <a href="">مشاهده</a>
+                                    <a href="{{route('comment.show',['user'=>Auth::user(),'comment'=> getComment(Auth::user(),$request)])}}">مشاهده</a>
                                 @else
                                     در انتظار بررسی
                                 @endif

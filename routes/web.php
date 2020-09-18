@@ -42,7 +42,7 @@ Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->nam
 Route::get('/reviewers', 'ReviewerController@index')->name('reviewers.index');
 Route::get('/reviewers/{reviewer}', 'ReviewerController@show')->name('reviewer.show');
 Route::put('/reviewers/{reviewer}/update', 'ReviewerController@update')->name('reviewer.update');
-Route::post('/{reviewer}/{comment}/score','ReviewerController@add_score')->name('reviewer.score');
+Route::post('/{reviewer}/{comment}/score','ReviewerController@commentScore')->name('reviewer.score');
 Route::get('/reviewer/profile', 'ReviewerController@profile')->name('reviewer.profile');
 
 
@@ -52,6 +52,7 @@ Route::prefix('users')->group(function (){
     Route::get('/{user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
     Route::get('/{user}/forbid_reviewer/{reviewer}','UserController@forbid_reviewer')->name('forbid_reviewer');
     Route::get('/{user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
+    Route::get('/{user}/comments/{comment}','CommentController@show')->name('comment.show');
     Route::post('/{user}/comment','CommentController@store')->name('comment.store');
 
 });

@@ -22,6 +22,9 @@ function commentsToCheck(User $user){
 function reviewerCommented(User $user, Reviewer $reviewer){
     return (!$user->comments->where('reviewer_id','==',$reviewer->id)->isEmpty());
 }
+function getComment(User $user, Reviewer $reviewer){
+    return $user->comments->where('reviewer_id','==',$reviewer->id)->first();
+}
 
 function getGuard(){
     $guard = 'web';

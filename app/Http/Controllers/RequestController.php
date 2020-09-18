@@ -25,4 +25,5 @@ class RequestController extends Controller
 
         return view("$group.requests",compact('requests'));
     }
+
 }

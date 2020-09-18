@@ -17,12 +17,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}">
-    {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />--}}
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    {{--<script src="{{asset('js/star-rating.min.js')}}"></script>--}}
-
+    @yield('head')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <style>
@@ -33,6 +30,28 @@
             -o-background-size: cover;
             background-size: cover;
         }
+        /*.rating > span:hover:before,*/
+        /*.rating > span:hover ~ span:before {*/
+        /*cursor: pointer;*/
+        /*transition: all 200ms;*/
+        /*color: gold;*/
+        /*content:"\f005";*/
+        /*}*/
+        /*.rating:hover span:nth-child(2) {*/
+        /*transition-delay: 30ms;*/
+        /*}*/
+
+        /*.rating:hover span:nth-child(3) {*/
+        /*transition-delay: 60ms;*/
+        /*}*/
+
+        /*.rating:hover span:nth-child(4) {*/
+        /*transition-delay: 90ms;*/
+        /*}*/
+
+        /*.rating:hover span:nth-child(5) {*/
+        /*transition-delay: 120ms;*/
+        /*}*/
 
         /*.custom-select{*/
             /*width: 13%;*/
@@ -51,8 +70,6 @@
     </div>
 
     <script>
-        // $("#input-id").rating();
-
         @yield('scripts')
 </script>
 </body>

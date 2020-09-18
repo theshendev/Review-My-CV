@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
+    public function show(User $user,Comment $comment)
+    {
+        return view('comments.show',compact('user','comment'));
+    }
     public function store(Request $request,User $user)
     {
         $reviewer =Auth::guard('reviewer')->user();
