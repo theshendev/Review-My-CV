@@ -9,9 +9,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
-{
+{   
+    public function __construct()
+    {
+        $this->middleware('verified');
+        $this->middleware('auth:web')->only('show');
+        $this->middleware('auth:reviewer')->only('store');
+    }
+
     public function show(User $user,Comment $comment)
     {
+        if ($comment->is_checked==1){
+            abort(404);
+        }
         return view('comments.show',compact('user','comment'));
     }
     public function store(Request $request,User $user)

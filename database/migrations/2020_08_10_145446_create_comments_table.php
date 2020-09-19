@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->boolean('is_checked')->default(false);
             $table->unsignedBigInteger('reviewer_id');
             $table->unsignedBigInteger('user_id');
+            $table->float('score',2,1)->nullable();
             $table->timestamps();
 
             $table->foreign('reviewer_id')

@@ -838,6 +838,9 @@ header .navbar .typo-logo {
   color: white;
   font-size: 1.5rem;
 }
+.user-show .note-editor {
+  background-color: white;
+}
 
 /* About Page */
 .about {

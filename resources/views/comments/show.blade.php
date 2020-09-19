@@ -6,6 +6,15 @@
 @endsection
 @section('content')
     <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-danger text-right">
+                <ul class="list-unstyled">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card">
             <div class="card-header">
                 {{$comment->reviewer->name}}
@@ -13,10 +22,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        {{$comment->body}}
+                        {!! $comment->body !!}
                     </div>
                     <div class="col-4">
-                        {{--<div class="rating-container">--}}
                             <form action="{{route('reviewer.score',['reviewer'=>$comment->reviewer,'comment'=>$comment])}}"
                                   method="post">
                                 @csrf
@@ -26,17 +34,11 @@
                                 <button id="submit" type="submit">ثبت امتیاز</button>
                             </form>
 
-                        {{--</div>--}}
                     </div>
                 </div>
 
             </div>
 
-        </div>
-        <div class="row justify-content-center">
-            @if(count($user->comments)>1)
-                Rate the first comment to see the other one(s).
-            @endif
         </div>
     </div>
 @endsection

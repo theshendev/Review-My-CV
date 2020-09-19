@@ -15,12 +15,12 @@ class ReviewerController extends Controller
     public function __construct()
     {
         $this->middleware('auth:web,reviewer');
-        $this->middleware('verified')->only(['update','profile']);
+        $this->middleware('verified')->only(['update', 'profile']);
     }
 
     public function index()
     {
-        if (getGuard()=='web') {
+        if (getGuard() == 'web') {
             anyRelationExists(auth()->user());
             $reviewers = Reviewer::available()->get();
             foreach ($reviewers as $key => $reviewer) {
@@ -28,8 +28,7 @@ class ReviewerController extends Controller
                     $reviewers->forget($key);
                 }
             }
-        }
-        else{
+        } else {
             $reviewers = Reviewer::all();
 
         }
@@ -75,24 +74,26 @@ class ReviewerController extends Controller
         $reviewer->company = $request->company;
         $reviewer->position = $request->position;
 
-        if ($reviewer->isDirty('email')){
+        if ($reviewer->isDirty('email')) {
             $reviewer->email_verified_at = null;
             $reviewer->sendEmailVerificationNotification();
         }
         $reviewer->save();
-        return back()->with('status','تغییرات با موفقیت ذخیره شد.');
+        return back()->with('status', 'تغییرات با موفقیت ذخیره شد.');
     }
 
     public function commentScore(Request $request, Reviewer $reviewer, Comment $comment)
     {
         $request->validate([
-            'score'=>'required|numeric|min:0.5'
+            'score' => 'required|numeric|min:0.5'
         ]);
         $reviewer->score += $request->score;
         $reviewer->score /= 2;
         $reviewer->save();
         $comment->is_checked = true;
+        $comment->score = $request->score;
         $comment->save();
+        return redirect('/requests');
     }
 
 }

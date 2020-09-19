@@ -6,8 +6,8 @@
 @section('content')
     <section class="home">
 
-        @includeWhen(Auth::check(getGuard()),'partials.index.auth')
-        @includeWhen(!Auth::check(getGuard()),'partials.index.guest')
+        @includeWhen(Auth::guard(getGuard())->check(),'partials.index.auth')
+        @includeWhen(!Auth::guard(getGuard())->check(),'partials.index.guest')
 
     </section>
 @endsection

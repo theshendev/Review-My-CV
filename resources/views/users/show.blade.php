@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('head')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    @endsection
 @section('content')
     <section class="user-show">
         <div class="container">
@@ -48,20 +51,28 @@
                     </div>
                 </div>
             </div>
-            {{--@if($user->allowed_reviewers()->where('expires_at','>',now())->where('allowed_reviewer_id',auth('reviewer')->id())->exists() and !$commentExists)--}}
-                {{--<div class="row col-8 mt-3">--}}
-                    {{--<form action="{{route('comment.store',['user'=>$user->id])}}" method="post">--}}
-                        {{--@csrf--}}
-                        {{--<div class="form-group">--}}
-                            {{--<label for="body">Comment Body</label>--}}
-                            {{--<textarea class="form-control" name="body" id="body" rows="3"></textarea>--}}
-                        {{--</div>--}}
-                        {{--<button class="btn btn-success">--}}
-                            {{--Submit--}}
-                        {{--</button>--}}
-                    {{--</form>--}}
-                {{--</div>--}}
-            {{--@endif--}}
+            @if(relationExists($user,auth('reviewer')->user()) and !isRelationExpired($user,auth('reviewer')->user()))
+                <div class="row mt-3">
+                    <form class="w-100" action="{{route('comment.store',['user'=>$user->id])}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="body">Comment Body</label>
+                            <textarea class="form-control" name="body" id="body" rows="3"></textarea>
+                        </div>
+                        <button class="btn btn-success">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            @endif
         </div>
     </section>
 @endsection
+@section('scripts')
+
+    $(document).ready(function() {
+    tinymce.init({
+    selector: '#body'
+    });
+    });
+    @endsection
