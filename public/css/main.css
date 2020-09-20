@@ -602,10 +602,11 @@ header .navbar .typo-logo {
   left: 90px;
   direction: ltr;
 }
-.reviewers-list .reviewer-score-icons .fa-star {
+
+.fa-star {
   font-size: 0.7rem;
 }
-.reviewers-list .reviewer-score-icons .fa-star.full, .reviewers-list .reviewer-score-icons .fa-star-half-alt {
+.fa-star.full, .fa-star-half-alt {
   font-size: 0.7rem;
   color: #FAC12A;
 }

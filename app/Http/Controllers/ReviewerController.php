@@ -38,7 +38,7 @@ class ReviewerController extends Controller
     public function show(Reviewer $reviewer)
     {
         $user = $reviewer;
-        return view('users.show', compact('user'));
+        return view('reviewers.show', compact('user'));
 
     }
 

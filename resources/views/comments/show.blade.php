@@ -24,6 +24,7 @@
                     <div class="col-8">
                         {!! $comment->body !!}
                     </div>
+                    @if(!$comment->is_checked)
                     <div class="col-4">
                             <form action="{{route('reviewer.score',['reviewer'=>$comment->reviewer,'comment'=>$comment])}}"
                                   method="post">
@@ -35,6 +36,17 @@
                             </form>
 
                     </div>
+                        @else
+                        <div class="col-4">
+                            <div class="reviewer-score-icons">
+                                <span class="fa fa-star{{$comment->score==0.5 ? "-half-alt" : ($comment->score>=1 ? " full" : "")}}"></span>
+                                <span class="fa fa-star{{$comment->score==1.5 ? "-half-alt" : ($comment->score>=2 ? " full" : "")}}"></span>
+                                <span class="fa fa-star{{$comment->score==2.5 ? "-half-alt" : ($comment->score>=3 ? " full" : "")}}"></span>
+                                <span class="fa fa-star{{$comment->score==3.5 ? "-half-alt" : ($comment->score>=4 ? " full" : "")}}"></span>
+                                <span class="fa fa-star{{$comment->score==4.5 ? "-half-alt" : ($comment->score>=5 ? " full" : "")}}"></span>
+                            </div>
+                        </div>
+                        @endif
                 </div>
 
             </div>

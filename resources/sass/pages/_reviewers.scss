@@ -24,13 +24,14 @@
       bottom: 45px;
       left:90px;
       direction: ltr;
-      .fa-star{
-        font-size: 0.7rem;
-        &.full, &-half-alt{
-          font-size: 0.7rem;
-          color: $main-yellow;
-        }
-      }
     }
+  }
+}
+.fa-star{
+
+  font-size: 0.7rem;
+  &.full, &-half-alt{
+    font-size: 0.7rem;
+    color: $main-yellow;
   }
 }

@@ -52,11 +52,12 @@ Route::prefix('users')->group(function (){
     Route::get('/{user}/allow_reviewer/{reviewer}','UserController@allow_reviewer')->name('allow_reviewer');
     Route::get('/{user}/forbid_reviewer/{reviewer}','UserController@forbid_reviewer')->name('forbid_reviewer');
     Route::get('/{user}/download_cv/{reviewer}','UserController@download_cv')->name('cv_download');
-    Route::get('/{user}/comments/{comment}','CommentController@show')->name('comment.show');
     Route::post('/{user}/comment','CommentController@store')->name('comment.store');
 
 });
 
+Route::get('/comments','CommentController@index')->name('comments.index');
+Route::get('/comments/{id}','CommentController@show')->name('comment.show');
 
 Route::get('login/reviewer/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('reviewer.social');
 Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')->name('user.social');

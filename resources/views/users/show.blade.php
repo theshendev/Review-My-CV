@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('head')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    @endsection
+
 @section('content')
     <section class="user-show">
         <div class="container">
@@ -11,15 +9,7 @@
                         <img class="user-image" src="{{$user->image}}" alt="">
                     </div>
                         <h4>{{$user->name}}</h4>
-                    @if($user->getTable()=='reviewers')
-                        <h6 class="col-12 text-center text-white" dir="rtl">
-                            {{$user->position}}
-                        </h6>
-                        <h6 class="col-12 text-center text-white" dir="rtl">
-                            {{$user->company}}
 
-                        </h6>
-                        @else
                         @if(!relationExists($user,auth('reviewer')->user()) or isRelationExpired($user,auth('reviewer')->user()))
                             <h6 class="col-12 text-center text-white">
                                 شما مجاز به دیدن رزومه نیستید
@@ -29,7 +19,6 @@
                             <a class="btn btn-primary" href="sss">دانلود رزومه</a>
                             </div>
                                 @endif
-                    @endif
                 </div>
                 <div class="contact-info">
                     <div class="row">
@@ -68,11 +57,15 @@
         </div>
     </section>
 @endsection
+@if(relationExists($user,auth('reviewer')->user()) and !isRelationExpired($user,auth('reviewer')->user()))
+    @section('head')
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        @endsection
 @section('scripts')
-
     $(document).ready(function() {
     tinymce.init({
     selector: '#body'
     });
     });
-    @endsection
+@endsection
+@endif

@@ -13,16 +13,19 @@ class CommentController extends Controller
     public function __construct()
     {
         $this->middleware('verified');
-        $this->middleware('auth:web')->only('show');
+        $this->middleware('auth:web')->only(['index','show']);
         $this->middleware('auth:reviewer')->only('store');
     }
 
-    public function show(User $user,Comment $comment)
+    public function index()
     {
-        if ($comment->is_checked==1){
-            abort(404);
-        }
-        return view('comments.show',compact('user','comment'));
+        $comments = Auth::user()->comments;
+        return view('comments.index',compact('comments'));
+    }
+    public function show($id)
+    {
+        $comment = Auth::user()->comments()->findOrFail($id);
+        return view('comments.show',compact('comment'));
     }
     public function store(Request $request,User $user)
     {
