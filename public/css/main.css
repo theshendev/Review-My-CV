@@ -89,6 +89,11 @@ header .navbar .nav-item {
 header .navbar .nav-item.nav-item_bg {
   background-color: rgba(7, 59, 76, 0.89);
 }
+@media (max-width: 767px) {
+  header .navbar .nav-item.nav-item_bg {
+    display: none;
+  }
+}
 header .navbar .nav-item.nav-item_bg .nav-link {
   color: white;
 }
@@ -125,6 +130,45 @@ header .navbar .typo-logo {
   color: #073B4C !important;
   padding-left: 0 !important;
   padding-top: 0.75rem;
+}
+header #menu {
+  direction: rtl;
+}
+header #menu .menu {
+  border: #FAC12A solid 2px;
+  padding: 1rem;
+  background-color: #073B4C;
+  color: white;
+}
+header #menu .menu:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -9px;
+  right: 40px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transform: rotate(1turn);
+  border-width: 0 10px 10px;
+  border-color: transparent transparent #073B4C;
+}
+header #menu .menu .menu-auth {
+  display: flex;
+  flex-direction: column;
+}
+header #menu .menu .menu-auth_item {
+  color: white;
+  margin: 0.5rem 0rem;
+}
+header #menu .menu .menu-auth_item:hover {
+  background-color: initial;
+}
+header #menu .menu li {
+  padding-top: 1rem;
+}
+header #menu .menu li a {
+  color: white;
 }
 
 /* Home Page */

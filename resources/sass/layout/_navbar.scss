@@ -15,6 +15,9 @@ header{
   }
   .nav-item{
     &.nav-item_bg{
+      @media (max-width: 767px) {
+        display: none;
+      }
       .nav-link{
         color: white;
       }
@@ -64,4 +67,46 @@ header{
   padding-top: 0.75rem;
 }
 }
+  #menu {
+    direction: rtl;
+    .menu {
+      border: $main-yellow solid 2px;
+      padding: 1rem;
+      background-color: #073B4C;
+      color: white;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -9px;
+        right: 40px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        -webkit-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        transform: rotate(1turn);
+        border-width: 0 10px 10px;
+        border-color: transparent transparent #073B4C;
+      }
+      .menu-auth{
+        display: flex;
+        flex-direction: column;
+        &_item{
+          color: white;
+          margin: 0.5rem 0rem;
+          &:hover{
+            background-color: initial;
+          }
+        }
+      }
+      li{
+        padding-top: 1rem;
+        a{
+          color: white;
+        }
+      }
+    }
+  }
 }
