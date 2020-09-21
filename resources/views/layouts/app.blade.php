@@ -70,6 +70,16 @@
     </div>
 
     <script>
+        $('.navbar-toggler').click(function () {
+            if ($(this).attr('data-target')=='#menu'){
+                $($(this).parent().prev().attr('data-target')).collapse('hide');
+            }
+            else{
+                $($(this).next().find('button').attr('data-target')).collapse('hide');
+
+            }
+        });
+
         @yield('scripts')
 </script>
 </body>
