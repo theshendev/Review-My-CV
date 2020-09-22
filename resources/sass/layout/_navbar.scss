@@ -60,6 +60,18 @@ header{
 .container{
   padding: 0;
 }
+    .navbar-toggler{
+      border: none;
+      max-width: 1.5em;
+      padding: 0.25rem 0.5rem;
+      outline: none !important;
+      &:last-child{
+        padding-right: 1.5rem;
+      }
+      .fa-user{
+        font-size: 1.5rem;
+      }
+    }
 .typo-logo{
   font-size: 1.7rem;
   color: #073B4C !important;
@@ -80,7 +92,7 @@ header{
         display: block;
         position: absolute;
         top: -9px;
-        right: 40px;
+        right: 35px;
         width: 0;
         height: 0;
         border-style: solid;

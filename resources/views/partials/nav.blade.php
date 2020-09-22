@@ -16,7 +16,14 @@
                                 aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                        <div class="ml-auto d-block d-md-none col-7 col-sm-5">
+                            <a href="{{ url('/') }}">
+                                <img  style="width: 100%;min-width: 55px" src="{{asset('images/LOGO123.png')}}"
+                                     alt="{{ config('app.name', 'Laravel') }}">
+                            </a>
+                        </div>
                         <div class="ml-auto d-block d-md-none">
+
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#menu" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -104,6 +111,7 @@
             </div>
         </div>
         <div class="row collapse text-right" id="menu">
+
             <div class="col-6 ml-auto">
                 <ul class="list-unstyled menu">
                     @guest(getGuard())

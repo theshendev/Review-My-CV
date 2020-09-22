@@ -30,28 +30,6 @@
             -o-background-size: cover;
             background-size: cover;
         }
-        /*.rating > span:hover:before,*/
-        /*.rating > span:hover ~ span:before {*/
-        /*cursor: pointer;*/
-        /*transition: all 200ms;*/
-        /*color: gold;*/
-        /*content:"\f005";*/
-        /*}*/
-        /*.rating:hover span:nth-child(2) {*/
-        /*transition-delay: 30ms;*/
-        /*}*/
-
-        /*.rating:hover span:nth-child(3) {*/
-        /*transition-delay: 60ms;*/
-        /*}*/
-
-        /*.rating:hover span:nth-child(4) {*/
-        /*transition-delay: 90ms;*/
-        /*}*/
-
-        /*.rating:hover span:nth-child(5) {*/
-        /*transition-delay: 120ms;*/
-        /*}*/
 
         /*.custom-select{*/
             /*width: 13%;*/
@@ -71,11 +49,11 @@
 
     <script>
         $('.navbar-toggler').click(function () {
-            if ($(this).attr('data-target')=='#menu'){
-                $($(this).parent().prev().attr('data-target')).collapse('hide');
+            if ($(this).data('target')==='#menu'){
+                $($(this).parent().prev().prev().data('target')).collapse('hide');
             }
             else{
-                $($(this).next().find('button').attr('data-target')).collapse('hide');
+                $($(this).next().next().find('button').data('target')).collapse('hide');
 
             }
         });

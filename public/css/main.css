@@ -125,6 +125,18 @@ header .navbar .nav-item .dropdown-menu_image {
 header .navbar .container {
   padding: 0;
 }
+header .navbar .navbar-toggler {
+  border: none;
+  max-width: 1.5em;
+  padding: 0.25rem 0.5rem;
+  outline: none !important;
+}
+header .navbar .navbar-toggler:last-child {
+  padding-right: 1.5rem;
+}
+header .navbar .navbar-toggler .fa-user {
+  font-size: 1.5rem;
+}
 header .navbar .typo-logo {
   font-size: 1.7rem;
   color: #073B4C !important;
@@ -145,7 +157,7 @@ header #menu .menu:before {
   display: block;
   position: absolute;
   top: -9px;
-  right: 40px;
+  right: 35px;
   width: 0;
   height: 0;
   border-style: solid;
@@ -1009,6 +1021,11 @@ header #menu .menu li a {
   direction: ltr;
   text-align: left;
   margin-top: 2rem;
+}
+@media (max-width: 575px) {
+  .contact-fields_field {
+    padding: 12px 20px;
+  }
 }
 .contact-fields_field a {
   color: white;

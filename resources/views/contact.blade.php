@@ -15,7 +15,7 @@
                 <div class="contact-fields_field">
                     <span class="fab fa-linkedin-in"></span>
                     <a href="https://www.linkedin.com/company/reviewmycv-ir">
-                        https://www.linkedin.com/company/reviewmycv-ir
+                        linkedin.com/company/reviewmycv-ir
                     </a>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="contact-fields_field">
                     <span class="fab fa-linkedin-in"></span>
                     <a href="https://www.linkedin.com/in/shendabadi">
-                        https://www.linkedin.com/in/shendabadi
+                        linkedin.com/in/shendabadi
                     </a>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="contact-fields_field">
                     <span class="fab fa-linkedin-in"></span>
                     <a href="https://www.linkedin.com/in/shendabadi-h">
-                        https://www.linkedin.com/in/shendabadi-h
+                        linkedin.com/in/shendabadi-h
                     </a>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="contact-fields_field">
                     <span class="fab fa-github"></span>
                     <a href="https://github.com/theshendeveloper">
-                        https://github.com/theshendeveloper
+                        github.com/theshendeveloper
                     </a>
 
                 </div>
@@ -93,8 +93,8 @@
             <div class="col-lg-12">
                 <div class="contact-fields_field">
                     <span class="fab fa-linkedin-in"></span>
-                    <a href="https://www.linkedin.com/in/mohamad-shendabadi">
-                        https://www.linkedin.com/in/mohamad-shendabadi
+                    <a href="https://www.linkedin.com/in/shendow">
+                        linkedin.com/in/shendow
                     </a>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 <div class="contact-fields_field">
                     <span class="fab fa-dribbble"></span>
                     <a href="https://dribbble.com/Shendow">
-                        https://dribbble.com/Shendow
+                        dribbble.com/Shendow
                     </a>
 
                 </div>

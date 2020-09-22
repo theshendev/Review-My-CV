@@ -28,11 +28,13 @@
       background-color: rgba(white, 10%);
       padding: 12px 30px;
       color: white;
-      //height: 48px;
       border-radius: 20px;
       direction: ltr;
       text-align: left;
       margin-top: 2rem;
+      @media (max-width: 575px){
+        padding: 12px 20px;
+      }
       a {
         color: white;
         @media (max-width: 575px){
