@@ -8,23 +8,23 @@
                     <div class="col-12 text-center">
                         <img class="user-image" src="{{$user->image}}" alt="">
                     </div>
-                        <h4>{{$user->name}}</h4>
+                    <h4>{{$user->name}}</h4>
 
-                        @if(!relationExists($user,auth('reviewer')->user()) or isRelationExpired($user,auth('reviewer')->user()))
-                            <h6 class="col-12 text-center text-white">
-                                شما مجاز به دیدن رزومه نیستید
-                            </h6>
-                            @else
-                            <div class="col-12 text-center">
+                    @if(!relationExists($user,auth('reviewer')->user()) or isRelationExpired($user,auth('reviewer')->user()))
+                        <h6 class="col-12 text-center text-white">
+                            شما مجاز به دیدن رزومه نیستید
+                        </h6>
+                    @else
+                        <div class="col-12 text-center">
                             <a class="btn btn-primary" href="sss">دانلود رزومه</a>
-                            </div>
-                                @endif
+                        </div>
+                    @endif
                 </div>
                 <div class="contact-info">
                     <div class="row">
-                    <h4>
-                        اطلاعات تماس
-                    </h4>
+                        <h4>
+                            اطلاعات تماس
+                        </h4>
                     </div>
                     <div class="contact-info_box row">
                         <div class="col-md-7">
@@ -58,13 +58,15 @@
     </section>
 @endsection
 @if(relationExists($user,auth('reviewer')->user()) and !isRelationExpired($user,auth('reviewer')->user()))
-    @section('head')
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        @endsection
+@section('head')
+    <script src="https://cdn.tiny.cloud/1/rr6lb7gurqghw4gvks7rjm25l2nr8p3talrvgtvkotcwpgyp/tinymce/5/tinymce.min.js"
+            referrerpolicy="origin"></script>
+@endsection
 @section('scripts')
     $(document).ready(function() {
     tinymce.init({
-    selector: '#body'
+    selector: '#body',
+    plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media table hr anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help quickbars emoticons',
     });
     });
 @endsection

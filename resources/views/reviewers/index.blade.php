@@ -20,14 +20,16 @@
                     {{--<option value="adasd">بالاترین رتبه</option>--}}
                     {{--</select>--}}
                     @foreach($reviewers as $reviewer)
-                        <div class="reviewer row no-gutters text-right w-100">
-                            <div class="col-md-10">
-                                <div class="row">
-                                    <div class="col-md-3 reviewer-image-container">
+                        <div class="reviewer row no-gutters w-100">
+                            <div class="col-md-8 col-lg-7 col-xl-8 offset-lg-2">
+                                <div class="row no-gutters">
+                                    <div class="col-md-5 col-lg-4 col-xl-3 reviewer-image-container">
+                                        <div class="reviewer-image-wrapper">
                                         <img
                                                 class="reviewer-image rounded-circle"
                                                 src="{{$reviewer->image}}"
                                                 alt="">
+                                        </div>
                                         <div class="reviewer-score-icons">
                                             <span class="fa fa-star{{$reviewer->score==0.5 ? "-half-alt" : ($reviewer->score>=1 ? " full" : "")}}"></span>
                                             <span class="fa fa-star{{$reviewer->score==1.5 ? "-half-alt" : ($reviewer->score>=2 ? " full" : "")}}"></span>
@@ -36,7 +38,7 @@
                                             <span class="fa fa-star{{$reviewer->score==4.5 ? "-half-alt" : ($reviewer->score>=5 ? " full" : "")}}"></span>
                                         </div>
                                     </div>
-                                    <div class="col-md-9 align-self-center text-right">
+                                    <div class="col-md-7 col-lg-8 col-xl-9 align-self-center text-center text-md-right">
                                         <p>
                                             {{$reviewer->name}}
                                         </p>
@@ -49,9 +51,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 align-self-center">
+                            <div class="col-md-4 col-lg-3 col-xl-2 align-self-center text-center text-xl-right my-3">
                                 @if(getGuard()=='web')
-                                    <a class="btn btn-warning mb-2 w-75"
+                                    <a class="btn btn-warning mb-2"
                                        href="{{route('allow_reviewer',['user'=>auth()->id(),'reviewer'=>$reviewer->id])}}">
                                         انتخاب ارزیاب
                                         <span class="fas fa-check mr-2" style="vertical-align: middle"></span>
@@ -59,7 +61,7 @@
                                     </a>
                                     <br>
                                 @endif
-                                <a class="btn btn-primary w-75"
+                                <a class="btn btn-primary"
                                    href="{{route('reviewer.show',['reviewer'=>$reviewer->id])}}">
                                     مشاهده پروفایل
                                     <span class="fas fa-chevron-left mr-2" style="vertical-align: middle"></span>

@@ -5,10 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{--<title>پیام دریافتی از قصر نیلی</title>--}}
+    <title>پیام دریافتی از ReviewMyCV</title>
     <style>
         body{
             direction: rtl;
+            background-color: #063443;
         }
         .container {
             width: 100%;

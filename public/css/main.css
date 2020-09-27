@@ -632,8 +632,8 @@ header #menu .menu li a {
 }
 
 /* Reviewers Page */
-.reviewers-list .container {
-  max-width: 1140px;
+.reviewers-list .heading-line {
+  overflow: hidden;
 }
 .reviewers-list .reviewer {
   background-color: rgba(255, 255, 255, 0.1);
@@ -644,7 +644,6 @@ header #menu .menu li a {
 .reviewers-list .reviewer-image {
   width: 134px;
   height: 134px;
-  margin: 2rem;
   padding: 0.15rem;
   background-color: gray;
   border: 1px solid #dee2e6;
@@ -652,11 +651,44 @@ header #menu .menu li a {
 .reviewers-list .reviewer-image-container {
   position: relative;
 }
+.reviewers-list .reviewer-image-wrapper {
+  width: 134px;
+  height: 134px;
+  margin: 2rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .reviewers-list .reviewer-image-wrapper {
+    margin: 2rem auto;
+  }
+}
+.reviewers-list .reviewer-image-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
 .reviewers-list .reviewer-score-icons {
   position: absolute;
   bottom: 45px;
-  left: 90px;
   direction: ltr;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .reviewers-list .reviewer-score-icons {
+    width: 106%;
+  }
+}
+.reviewers-list .btn {
+  width: 143px;
 }
 
 .fa-star {
