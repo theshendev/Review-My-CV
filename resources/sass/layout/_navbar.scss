@@ -5,7 +5,7 @@ header{
   .navbar{
   background-color: $main-yellow;
   border-radius: 50px;
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       padding: 0 1rem;
 
     }
@@ -20,6 +20,13 @@ header{
       }
       .nav-link{
         color: white;
+        &__name{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 160px;
+          display: inline-block;
+          vertical-align: middle;
+        }
       }
       background-color: rgba(7, 59, 76, 0.89);
     }
@@ -58,6 +65,14 @@ header{
   }
 
 .container{
+  .mobile-logo{
+    min-width: 150px;
+    max-width: 220px;
+    width: 100%;
+    @media (max-width: 576px){
+      max-width: 190px;
+    }
+  }
   padding: 0;
 }
     .navbar-toggler{

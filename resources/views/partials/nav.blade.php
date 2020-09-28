@@ -16,9 +16,9 @@
                                 aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="ml-auto d-block d-md-none col-7 col-sm-5">
+                        <div class="ml-auto text-center d-block d-md-none col-7 col-sm-5">
                             <a href="{{ url('/') }}">
-                                <img  style="width: 100%;min-width: 55px" src="{{asset('images/LOGO123.png')}}"
+                                <img class="mobile-logo" src="{{asset('images/LOGO123.png')}}"
                                      alt="{{ config('app.name', 'Laravel') }}">
                             </a>
                         </div>
@@ -59,8 +59,12 @@
                                 @else
                                     <li class="nav-item dropdown nav-item_bg">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ auth(getGuard())->user()->name }} <span class="caret"></span>
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="nav-link__name">
+                                            {{ auth(getGuard())->user()->name }}
+                                            </span>
+                                            <span class="caret"></span>
+
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right text-right"

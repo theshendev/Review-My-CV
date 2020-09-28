@@ -31,8 +31,8 @@
             </div>
 
         </div>
-        <div class="col-lg-6">
-            <img width="100%" src="{{asset('images/3.2.png')}}" alt="">
+        <div class="col-lg-6 text-center">
+            <img src="{{asset('images/3.2.png')}}" alt="">
         </div>
     </div>
 </div>
