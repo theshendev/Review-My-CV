@@ -4,9 +4,11 @@
 @endsection
 @section('content')
 
-    <p><a class="btn btn-primary" href="{{ $url }}">
+    <p>
+        <a class="btn btn-primary" href="{{ $url }}">
             Reset Password
-        </a></p>
+        </a>
+    </p>
 
     <p>Thanks</p>
 

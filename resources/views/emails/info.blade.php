@@ -1,17 +1,17 @@
 @extends('layouts.email')
 @section('title')
-    Login Information
+    اطلاعات ورود به حساب
 @endsection
 @section('content')
 
-    <p>Hello</p>
-    <p>Welcome to our website.</p>
-    <p>This is your login info.</p>
+    <p>سلام، به سایت ما خوش آمدید. امیدواریم تجربه‌ی خوبی داشته باشید.</p>
+    <p>با ما در تماس باشید و نظرهای خود را به ما اطلاع دهید</p>
+    <p style="margin-top: 4rem">اطلاعات ورود به حساب شما به شرح زیر است:</p>
     <p>
-        Email: {{$email}}
+        ایمیل:{{$email}}
     </p>
     <p>
-        Password: {{$password}}
+        رمز عبور: {{$password}}
     </p>
 
 

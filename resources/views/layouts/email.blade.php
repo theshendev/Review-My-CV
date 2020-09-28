@@ -10,8 +10,10 @@
         body{
             direction: rtl;
             background-color: #063443;
+            color: #fff !important;
         }
         .container {
+            padding-top: 3rem;
             width: 100%;
             padding-right: 15px;
             padding-left: 15px;
@@ -38,45 +40,7 @@
                 max-width: 1140px;
             }
         }
-        table{
-            width: 100%;
-            border-spacing: 0;
-            border-collapse: collapse;
 
-        }
-
-        th{
-            width: 30%;
-            background-color: #c91192;
-            color: white;
-            padding: 3rem;
-            border-bottom: 2px solid #4A1800;
-
-
-        }
-        td{
-            width: 50%;
-            padding: 3rem;
-            border-bottom: 2px solid #4A1800;
-
-
-        }
-        td p{
-            width: 80%;
-            margin: auto;
-            text-align: justify;
-        }
-        .card{
-            /*padding: 2rem;*/
-            border: 2px solid #4A1800;
-            width: 100%;
-        }
-        hr{
-            width: 200px;
-            height: 2px;
-            background: #00354E;
-            border-radius: 50%;
-        }
         h3{
             margin-bottom: 2rem;
         }
@@ -94,14 +58,13 @@
     </style>
 </head>
 <body>
-<header>
-    <div style="text-align: center">
-        <img class="logo-main" src="{{asset('images/logo.png')}}" alt="logo-1" width="200px">
-    </div>
-</header>
-<hr>
 <section style="text-align: center;margin-top: 2rem;">
     <div class="container">
+        <div style="text-align: center">
+            <a href="{{url('/')}}">
+            <img class="logo-main" src="{{asset('images/logo.png')}}" alt="logo-1" width="200px">
+            </a>
+        </div>
         <h3>@yield('title')</h3>
         <div class="card">
             @yield('content')
