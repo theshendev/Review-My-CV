@@ -3,7 +3,7 @@
     <div class="form-row no-gutters">
         <div class="form-group col-md-6">
             <label for="company"
-                   class="col-form-label text-md-right">سازمان</label>
+                   class="col-form-label text-md-right full-circle-before">سازمان</label>
             <div class="input-field">
                 <input id="company" type="text"
                        class="form-control @error('company') is-invalid @enderror"
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group col-md-6">
             <label for="position"
-                   class="col-form-label text-md-right">موقعیت شغلی</label>
+                   class="col-form-label text-md-right full-circle-before">موقعیت شغلی</label>
             <div class="input-field">
                 <input id="position" type="text"
                        class="form-control @error('position') is-invalid @enderror"

@@ -54,6 +54,28 @@
   border-top: 1px solid white;
 }
 
+.full-circle-before::before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  content: "";
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.empty-circle-before::before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  content: "";
+  width: 25px;
+  height: 25px;
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
 .invalid-feedback, .alert {
   direction: rtl;
 }
@@ -796,16 +818,6 @@ header #menu .menu li a {
   font-size: 1.25rem;
   font-weight: 300;
 }
-.profile-information .form-group label:before, .profile-information .form-group h4:before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-  content: "";
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background-color: white;
-}
 .profile .form-row {
   width: 80%;
   margin: auto;
@@ -853,30 +865,21 @@ header #menu .menu li a {
   direction: rtl;
   text-align: right;
 }
-.change-password h3:before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-  content: "";
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background-color: white;
-}
 .change-password label, .change-password h4 {
   font-size: 1.1rem;
   font-weight: 300;
   direction: rtl;
 }
-.change-password label:before, .change-password h4:before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-  content: "";
-  width: 25px;
-  height: 25px;
-  border: 4px solid white;
-  border-radius: 50%;
+
+/* Reset Password Page */
+.reset-password label {
+  font-size: 1.2rem;
+}
+.reset-password .input-field {
+  display: block;
+}
+.reset-password .input-field input {
+  height: 43px;
 }
 
 /* Requests Page */
@@ -887,16 +890,6 @@ header #menu .menu li a {
   width: 80%;
   margin: auto;
   overflow: hidden;
-}
-.requests-container .heading-line:before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-  content: "";
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background-color: white;
 }
 .requests-container .requests {
   margin-top: 3rem;

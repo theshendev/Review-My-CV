@@ -4,7 +4,7 @@
     <section class="requests-container">
         <div class="container">
             <div class="row">
-                <h3 class="heading-line">
+                <h3 class="heading-line full-circle-before">
                     وضعیت درخواست ها
                 </h3>
             </div>

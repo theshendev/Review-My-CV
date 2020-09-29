@@ -3,7 +3,7 @@
 
     <div class="form-group">
         <label for="cv"
-               class="col-form-label text-md-right">رزومه</label>
+               class="col-form-label text-md-right full-circle-before">رزومه</label>
 
         <div class="input-field">
             <div class="file-drop-area">

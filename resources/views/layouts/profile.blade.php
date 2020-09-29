@@ -36,7 +36,7 @@
 
                     <div class="form-group">
                         <label for="name"
-                               class="col-form-label text-md-right">نام و نام خانوادگی</label>
+                               class="col-form-label text-md-right full-circle-before">نام و نام خانوادگی</label>
 
                         <div class="input-field">
                             <input id="name" type="text"
@@ -53,7 +53,7 @@
                     <div class="form-row no-gutters">
                         <div class="form-group col-md-6">
                             <label for="email"
-                                   class="col-form-label text-md-right">ایمیل</label>
+                                   class="col-form-label text-md-right full-circle-before">ایمیل</label>
                             <div class="input-field">
                                 <input id="email" type="email"
                                        class="form-control @error('email') is-invalid @enderror"
@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="linkedin"
-                                   class="col-form-label text-md-right">لینکدین</label>
+                                   class="col-form-label text-md-right full-circle-before">لینکدین</label>
                             <div class="input-field">
                                 <input id="linkedin" type="text"
                                        class="form-control @error('linkedin') is-invalid @enderror"

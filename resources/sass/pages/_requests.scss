@@ -4,16 +4,6 @@
     width: 80%;
     margin: auto;
     overflow: hidden;
-    &:before{
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 0.5rem;
-      content: "";
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background-color: white;
-    }
   }
   .requests {
     margin-top: 3rem;

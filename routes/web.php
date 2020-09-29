@@ -21,7 +21,7 @@ Route::get('/payment/verify', 'PaymentController@verify')->name('verify');
 
 Auth::routes(['verify' => true]);
 Route::get('/password/change', 'Auth\ChangePasswordController@showChangeForm')->name('password.change');
-Route::patch('/password/update', 'Auth\ChangePasswordController@update')->name('password.update');
+Route::patch('/password/update', 'Auth\ChangePasswordController@update')->name('password.auth.update');
 
 Route::get('/requests', 'RequestController@index')->name('requests.index');
 
