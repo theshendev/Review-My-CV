@@ -4,7 +4,7 @@
     <section class="reset-password">
 
 <div class="container">
-    <div class="row justify-content-center mt-5" dir="rtl">
+    <div class="row justify-content-center mt-5">
         <div class="col-md-10 col-lg-9">
                 <h3 class="heading-line full-circle-before overflow-hidden">بازیابی رمز عبور</h3>
 

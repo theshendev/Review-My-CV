@@ -1,28 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
-                <div class="card-body">
+    <section class="verify-notice">
+        <div class="container">
+            <div class="row">
+                <div class="verify-notice_caption col-md-9 col-lg-6 offset-lg-1">
                     @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+                        <div class="alert alert-success text-center my-3" role="alert">
+                            لینک تایید تازه‌ای به آدرس ایمیل شما ارسال شد.
                         </div>
                     @endif
+                    <h3>
+                        <span class="fal fa-frown"></span>
+                        هنوز ایمیل ات رو تایید نکردی؟
+                    </h3>
+                    <p>
+                        قبل از ادامه دادن، ایمیل خود را برای ایمیل تایید چک کنید، اگر ایمیلی دریافت نکردید، کلیک کنید تا ایمیل دیگری برایتان ارسال شود.
+                    </p>
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
+                        <form class="text-center mt-4" method="POST" action="{{ route('verification.resend') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">ارسال مجدد ایمیل</button>
+                        </form>
                 </div>
+                <div class="col-md-9 mx-auto col-lg-5">
+                    <img width="100%" src="{{asset('images/4.png')}}" alt="">
+                </div>
+
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection
