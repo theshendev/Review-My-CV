@@ -1009,36 +1009,82 @@ header #menu .menu li a {
   background-color: white;
 }
 
+/* Comments Page */
+.comments {
+  direction: rtl;
+}
+.comments .heading-line {
+  overflow: hidden;
+}
+.comments-list {
+  margin-top: 4rem;
+}
+.comments-list > div:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+.comments-list_comment {
+  text-align: right;
+  background-color: #1f6fb2;
+  color: white;
+  padding: 2rem;
+  border-radius: 40px;
+  margin-top: 3rem;
+  position: relative;
+  height: 105px;
+}
+@media (max-width: 991.9px) {
+  .comments-list_comment {
+    text-align: center;
+  }
+}
+.comments-list_comment:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 25px solid transparent;
+  border-top-color: #1f6fb2;
+  border-bottom: 0;
+  bottom: 15%;
+  right: 36%;
+  margin-left: -37px;
+  margin-bottom: -37px;
+}
+@media (min-width: 300px) {
+  .comments-list_comment:after {
+    right: 39%;
+  }
+}
+@media (min-width: 450px) {
+  .comments-list_comment:after {
+    right: 41%;
+  }
+}
+@media (min-width: 768px) {
+  .comments-list_comment:after {
+    right: 44%;
+  }
+}
+@media (min-width: 992px) {
+  .comments-list_comment:after {
+    bottom: 15%;
+    right: 7%;
+    border-right: 0;
+    margin-left: -18.5px;
+    margin-bottom: -37px;
+  }
+}
+@media (min-width: 1200px) {
+  .comments-list_comment:after {
+    right: 5%;
+  }
+}
+
 /* Comment Show Page */
 .comment {
   margin-top: 2rem;
   direction: rtl;
   color: white;
-}
-.comment .reviewer-info {
-  text-align: right;
-  margin-bottom: 3rem;
-}
-.comment .reviewer-info_image img {
-  width: 134px;
-  height: 134px;
-}
-.comment .reviewer-info_caption {
-  align-self: center;
-}
-.comment .reviewer-info_caption h4 {
-  margin-bottom: 0.75rem;
-}
-.comment .reviewer-info_caption p {
-  margin-bottom: 0.25rem;
-}
-.comment .reviewer-info .rating-wrapper {
-  direction: ltr;
-  text-align: left;
-  align-self: center;
-}
-.comment .reviewer-info .rating-wrapper .fa-star {
-  font-size: 2rem;
 }
 .comment-text {
   direction: ltr;
@@ -1049,6 +1095,33 @@ header #menu .menu li a {
   overflow-y: auto;
   overflow-wrap: break-word;
   max-height: 700px;
+}
+
+.reviewer-info {
+  color: white;
+  text-align: right;
+  margin-bottom: 3rem;
+}
+.reviewer-info_image img {
+  width: 134px;
+  height: 134px;
+}
+.reviewer-info_caption {
+  align-self: center;
+}
+.reviewer-info_caption h4 {
+  margin-bottom: 0.75rem;
+}
+.reviewer-info_caption p {
+  margin-bottom: 0.25rem;
+}
+.reviewer-info .rating-wrapper {
+  direction: ltr;
+  text-align: left;
+  align-self: center;
+}
+.reviewer-info .rating-wrapper .fa-star, .reviewer-info .rating-wrapper .fa-star-half-alt {
+  font-size: 2rem;
 }
 
 /* About Page */

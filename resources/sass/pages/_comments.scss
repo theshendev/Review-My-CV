@@ -1,0 +1,60 @@
+.comments{
+  direction: rtl;
+  .heading-line{
+    overflow: hidden;
+  }
+&-list {
+  margin-top: 4rem;
+  & > div {
+    &:not(:last-child) {
+      border-bottom: 1px solid white;
+    }
+  }
+  &_comment {
+    text-align: right;
+    background-color: #1f6fb2;
+    color: white;
+    padding: 2rem;
+    border-radius: 40px;
+    margin-top: 3rem;
+    position: relative;
+    height: 105px;
+    @media (max-width: 991.9px) {
+    text-align: center;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 25px solid transparent;
+      border-top-color: #1f6fb2;
+      border-bottom: 0;
+      bottom: 15%;
+      right: 36%;
+      margin-left: -37px;
+      margin-bottom: -37px;
+      @media (min-width: 300px) {
+        right: 39%;
+      }
+      @media (min-width: 450px) {
+        right: 41%;
+      }
+
+      @media (min-width: 768px) {
+        right: 44%;
+      }
+      @media (min-width: 992px){
+        bottom: 15%;
+        right:7%;
+        border-right: 0;
+        margin-left: -18.5px;
+        margin-bottom: -37px;
+      }
+      @media (min-width: 1200px){
+        right:5%;
+      }
+    }
+  }
+}
+}

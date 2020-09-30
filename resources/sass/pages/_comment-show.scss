@@ -2,33 +2,6 @@
   margin-top: 2rem;
   direction: rtl;
   color: white;
-  .reviewer-info{
-    text-align: right;
-    margin-bottom: 3rem;
-    &_image{
-      img{
-        width: 134px;
-        height: 134px;
-      }
-    }
-    &_caption{
-      align-self: center;
-      h4{
-        margin-bottom: 0.75rem;
-      }
-      p{
-        margin-bottom: 0.25rem;
-      }
-    }
-    .rating-wrapper{
-      direction: ltr;
-      text-align: left;
-      align-self: center;
-      .fa-star{
-        font-size: 2rem;
-      }
-    }
-  }
   &-text{
     direction: ltr;
     background-color: rgba(white,5%);
@@ -38,5 +11,33 @@
     overflow-y:auto ;
     overflow-wrap: break-word;
     max-height: 700px;
+  }
+}
+.reviewer-info{
+  color: white;
+  text-align: right;
+  margin-bottom: 3rem;
+  &_image{
+    img{
+      width: 134px;
+      height: 134px;
+    }
+  }
+  &_caption{
+    align-self: center;
+    h4{
+      margin-bottom: 0.75rem;
+    }
+    p{
+      margin-bottom: 0.25rem;
+    }
+  }
+  .rating-wrapper{
+    direction: ltr;
+    text-align: left;
+    align-self: center;
+    .fa-star,.fa-star-half-alt{
+      font-size: 2rem;
+    }
   }
 }
