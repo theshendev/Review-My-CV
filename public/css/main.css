@@ -996,15 +996,16 @@ header #menu .menu li a {
 }
 .about .buy-coffee {
   margin-bottom: 5rem;
+  padding: inherit;
 }
 .about .buy-coffee_heading {
   text-align: center;
-  font-size: 3.25rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 .about .buy-coffee_caption {
   width: 80%;
-  margin: 2rem auto;
+  margin: 1rem auto;
+  margin-bottom: 1.5rem;
   font-size: 1.12rem;
   text-align: center;
 }
@@ -1012,12 +1013,28 @@ header #menu .menu li a {
   background-color: white;
   width: 70%;
   margin: auto;
-  padding: 2rem;
+  padding: 0.75rem 2rem;
   border-radius: 40px;
 }
+@media (max-width: 767.9px) {
+  .about .buy-coffee_payment {
+    width: 90%;
+  }
+}
+@media (max-width: 575.9px) {
+  .about .buy-coffee_payment {
+    padding: 0.75rem 0.5rem;
+  }
+}
 .about .buy-coffee_payment .price {
+  text-align: center;
   font-size: 2rem;
   color: #FAC12A;
+}
+@media (max-width: 767.9px) {
+  .about .buy-coffee_payment .price {
+    font-size: 1.5rem;
+  }
 }
 .about .buy-coffee_payment .quantity {
   padding: 0;
@@ -1025,7 +1042,15 @@ header #menu .menu li a {
   border-radius: 20px;
   overflow: hidden;
 }
-.about .buy-coffee_payment .quantity > .col-md-4 > span {
+@media (max-width: 575.9px) {
+  .about .buy-coffee_payment .quantity {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+    max-width: 250px;
+  }
+}
+.about .buy-coffee_payment .quantity > div > span {
   color: white;
   font-size: 2rem;
   background-color: #1b4b72;
@@ -1034,10 +1059,33 @@ header #menu .menu li a {
   height: 100%;
   text-align: center;
 }
-.about .buy-coffee_payment .quantity > .col-md-4 > span.fal {
+.about .buy-coffee_payment .quantity > div > span.fal {
   cursor: pointer;
   background-color: #1d68a7;
   padding: 0.5rem 0;
+}
+@media (max-width: 767.9px) {
+  .about .buy-coffee_payment .quantity > div > span {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 991.9px) {
+  .about .buy-coffee_image {
+    order: -1;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+.about .buy-coffee_image img {
+  max-width: 250px;
+}
+@media (min-width: 992px) {
+  .about .buy-coffee_image img {
+    max-width: 300px;
+  }
+}
+.about .buy-coffee .btn {
+  padding: 0.25rem 2rem;
 }
 .about .heading-line {
   overflow: hidden;
@@ -1058,6 +1106,11 @@ header #menu .menu li a {
   text-align: right;
   margin-bottom: 2rem;
 }
+@media (max-width: 991.9px) {
+  .about-title {
+    text-align: center;
+  }
+}
 .about-website {
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -1071,6 +1124,25 @@ header #menu .menu li a {
 }
 .about-us .developer:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+}
+.about-image {
+  align-self: center;
+  text-align: center;
+}
+@media (max-width: 991.9px) {
+  .about-image {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+}
+.about-image img {
+  width: 100%;
+}
+@media (max-width: 991.9px) {
+  .about-image img {
+    width: 80%;
+    max-width: 350px;
+  }
 }
 
 /* Contact Page */

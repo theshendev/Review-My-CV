@@ -2,14 +2,16 @@
   margin-top: 4rem;
   .buy-coffee{
     margin-bottom: 5rem;
+   padding: inherit;
     &_heading{
       text-align: center;
-      font-size: 3.25rem;
-      font-weight: 300;
+      //font-size: 3.25rem;
+      font-weight: 400;
     }
     &_caption{
       width: 80%;
-      margin: 2rem auto;
+      margin: 1rem auto;
+      margin-bottom: 1.5rem;
       font-size: 1.12rem;
       text-align: center;
     }
@@ -17,18 +19,35 @@
       background-color: white;
       width: 70%;
       margin: auto;
-      padding: 2rem;
+      padding: 0.75rem 2rem;
       border-radius: 40px;
+      @media (max-width: 767.9px) {
+        width: 90%;
+      }
+      @media (max-width: 575.9px) {
+        padding: 0.75rem 0.5rem;
+      }
       .price{
+        text-align: center;
         font-size: 2rem;
         color: $main-yellow;
+        @media (max-width: 767.9px) {
+        font-size: 1.5rem;
+        }
       }
       .quantity{
         padding: 0;
         align-self: center;
         border-radius: 20px;
         overflow: hidden;
-        & > .col-md-4 >span{
+        @media (max-width: 575.9px) {
+          margin-right:auto;
+          margin-left:auto;
+          margin-top: 1rem;
+          max-width: 250px;
+
+        }
+        & > div >span{
           color: white;
           font-size: 2rem;
           background-color: #1b4b72;
@@ -42,8 +61,29 @@
             background-color:#1d68a7 ;
             padding: 0.5rem 0;
           }
+          @media (max-width: 767.9px) {
+            font-size: 1.5rem;
+
+          }
         }
       }
+    }
+    &_image{
+      @media (max-width: 991.9px){
+        order: -1;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      img{
+        max-width: 250px;
+        @media (min-width: 992px){
+          max-width: 300px;
+        }
+
+      }
+    }
+    .btn{
+      padding: 0.25rem 2rem;
     }
   }
   .heading-line {
@@ -64,6 +104,10 @@
     color: white;
     text-align: right;
     margin-bottom: 2rem;
+    @media (max-width: 991.9px) {
+     text-align: center;
+
+    }
   }
   &-website{
     margin-top: 5rem;
@@ -76,6 +120,23 @@
       padding-bottom: 5rem;
       &:not(:last-child){
         border-bottom: 1px solid rgba(white,65%);
+      }
+    }
+  }
+  &-image{
+    align-self: center;
+    text-align: center;
+    @media (max-width: 991.9px) {
+      order: -1;
+      margin-bottom: 2rem;
+
+    }
+    img{
+      width: 100%;
+      @media (max-width: 991.9px) {
+        width: 80%;
+        max-width: 350px;
+        
       }
     }
   }

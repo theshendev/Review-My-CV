@@ -16,7 +16,7 @@
             @endif
             <section class="buy-coffee">
                 <div class="row about-text">
-                    <div class="col-md-8">
+                    <div class="col-lg-8">
                         <h1 class="buy-coffee_heading">
                             قهوه، مهمان شما؟!
                         </h1>
@@ -29,22 +29,22 @@
                             <input type="hidden" name="amount" id="amount">
                             <div class="buy-coffee_payment">
                                 <div class="row">
-                                    <div class="quantity col-6 row no-gutters">
-                                        <div class="col-md-4">
+                                    <div class="quantity col-8 col-sm-6 row no-gutters order-1 order-sm-0">
+                                        <div class="col-4">
                                             <span class="fal fa-plus"></span>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-4">
                                         <span>
                                             <span>x</span>
                                             <span id="qty">1</span>
 
                                         </span>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-4">
                                             <span class="fal fa-minus"></span>
                                         </div>
                                     </div>
-                                    <div class="price col-6">
+                                    <div class="price col-sm-6">
                                         <span id="price">
                                             12,000
                                         </span>
@@ -63,22 +63,22 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-4">
-                        <img width="100%" src="{{asset('images/coffee.png')}}" alt="">
+                    <div class="col-lg-4 buy-coffee_image">
+                        <img width="100%" src="{{asset('images/coffee.png')}}" alt="coffee">
                     </div>
                 </div>
             </section>
             <div class="row">
-                <div class="col-12 p-0 text-right">
+                <div class="col-12 text-right">
                     <h4 class="text-white heading-line">درباره ما</h4>
                 </div>
             </div>
             <section class="about-website">
                 <div class="row">
-                    <div class="col-md-4">
-                        <img class="w-100" src="{{asset('images/main.png')}}" alt="">
+                    <div class="col-lg-5 col-xl-4 about-image">
+                        <img src="{{asset('images/main.png')}}" alt="">
                     </div>
-                    <div class="col-md-6 offset-md-2 p-0">
+                    <div class="col-lg-6 col-xl-7 offset-lg-1">
                         <div class="about-text">
                             <p>
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
@@ -108,28 +108,23 @@
                                 باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را
                                 می
                                 طلبد،
-                                تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ
-                                پیشرو
-                                در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
-                                راهکارها،
-                                و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی
-                                سوالات
-                                پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
+
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
             <div class="row">
-                <div class="col-12 p-0 text-right">
+                <div class="col-12 text-right">
                     <h4 class="text-white heading-line">توسعه دهنده ها</h4>
                 </div>
             </div>
             <section class="about-us">
                 <div class="row developer">
-                    <div class="col-md-4">
-                        <img class="w-100" src="{{asset('images/user-register.png')}}" alt="">
+                    <div class="col-lg-5 col-xl-4 about-image">
+                        <img src="{{asset('images/user-register.png')}}" alt="">
                     </div>
-                    <div class="col-md-7 offset-md-1 p-0">
+                    <div class="col-lg-6 col-xl-7 offset-lg-1">
                         <h5 class="about-title">
                             حمیدرضا شندآبادی (موسس)
                         </h5>
@@ -156,7 +151,7 @@
                 </div>
                 <div class="row developer">
 
-                    <div class="col-md-7">
+                    <div class="col-lg-6 col-xl-7">
                         <h5 class="about-title">
                             حسین شندآبادی (برنامه نویس)
                         </h5>
@@ -180,15 +175,15 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-4 offset-md-1  p-0">
-                        <img class="w-100" src="{{asset('images/reviewer-register.png')}}" alt="">
+                    <div class="col-lg-5 col-xl-4 offset-lg-1 p-0 about-image">
+                        <img src="{{asset('images/reviewer-register.png')}}" alt="">
                     </div>
                 </div>
                 <div class="row developer">
-                    <div class="col-md-4">
-                        <img class="w-100" src="{{asset('images/user-register.png')}}" alt="">
+                    <div class="col-lg-5 col-xl-4 about-image">
+                        <img src="{{asset('images/user-register.png')}}" alt="">
                     </div>
-                    <div class="col-md-7 offset-md-1 p-0">
+                    <div class="col-lg-6 col-xl-7 offset-lg-1">
                         <h5 class="about-title">
                             محمد شندآبادی (طراح)
                         </h5>
