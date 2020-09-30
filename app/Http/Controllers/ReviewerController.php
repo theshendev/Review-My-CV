@@ -93,7 +93,7 @@ class ReviewerController extends Controller
         $comment->is_checked = true;
         $comment->score = $request->score;
         $comment->save();
-        return redirect('/requests');
+        return back();
     }
 
 }

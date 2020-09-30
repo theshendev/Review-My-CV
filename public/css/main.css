@@ -924,6 +924,15 @@ header #menu .menu li a {
   margin: auto;
   overflow: hidden;
 }
+@media (max-width: 575.9px) {
+  .requests-container .heading-line {
+    width: 100%;
+    text-align: center;
+  }
+  .requests-container .heading-line:after, .requests-container .heading-line:before {
+    content: none;
+  }
+}
 .requests-container .requests {
   margin-top: 3rem;
 }
@@ -932,16 +941,26 @@ header #menu .menu li a {
   width: 80%;
   margin: auto;
   margin-top: 1.5rem;
-  text-align: right;
+  text-align: center;
   direction: rtl;
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   padding: 1rem;
 }
+@media (max-width: 575.9px) {
+  .requests-container .requests .request {
+    width: 100%;
+  }
+}
 .requests-container .requests .request p {
   padding-right: 1.5rem;
   margin: 0;
+}
+@media (max-width: 767.9px) {
+  .requests-container .requests .request p {
+    padding-right: 0;
+  }
 }
 .requests-container .requests .request .btn-custom {
   font-size: 0.9rem;
@@ -988,6 +1007,48 @@ header #menu .menu li a {
 }
 .user-show .note-editor {
   background-color: white;
+}
+
+/* Comment Show Page */
+.comment {
+  margin-top: 2rem;
+  direction: rtl;
+  color: white;
+}
+.comment .reviewer-info {
+  text-align: right;
+  margin-bottom: 3rem;
+}
+.comment .reviewer-info_image img {
+  width: 134px;
+  height: 134px;
+}
+.comment .reviewer-info_caption {
+  align-self: center;
+}
+.comment .reviewer-info_caption h4 {
+  margin-bottom: 0.75rem;
+}
+.comment .reviewer-info_caption p {
+  margin-bottom: 0.25rem;
+}
+.comment .reviewer-info .rating-wrapper {
+  direction: ltr;
+  text-align: left;
+  align-self: center;
+}
+.comment .reviewer-info .rating-wrapper .fa-star {
+  font-size: 2rem;
+}
+.comment-text {
+  direction: ltr;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 3rem;
+  border-radius: 60px;
+  text-align: right;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  max-height: 700px;
 }
 
 /* About Page */
