@@ -2,6 +2,8 @@
   direction: rtl;
   .heading-line{
     overflow: hidden;
+    width: 95%;
+    margin: auto;
   }
 &-list {
   margin-top: 4rem;
@@ -12,13 +14,17 @@
   }
   &_comment {
     text-align: right;
-    background-color: #1f6fb2;
+    background-color: rgb(28,67,84);
     color: white;
     padding: 2rem;
     border-radius: 40px;
     margin-top: 3rem;
     position: relative;
-    height: 105px;
+    height: 155px;
+    word-wrap: break-word;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
     @media (max-width: 991.9px) {
     text-align: center;
     }
@@ -28,33 +34,35 @@
       width: 0;
       height: 0;
       border: 25px solid transparent;
-      border-top-color: #1f6fb2;
+      border-top-color: rgb(28,67,84);
       border-bottom: 0;
       bottom: 15%;
-      right: 36%;
+      right: 38%;
       margin-left: -37px;
       margin-bottom: -37px;
       @media (min-width: 300px) {
-        right: 39%;
+        right: 41%;
       }
       @media (min-width: 450px) {
-        right: 41%;
+        right: 45%;
       }
 
       @media (min-width: 768px) {
-        right: 44%;
+        right: 46%;
       }
       @media (min-width: 992px){
-        bottom: 15%;
-        right:7%;
+        bottom: 13%;
+        right:2%;
         border-right: 0;
         margin-left: -18.5px;
         margin-bottom: -37px;
       }
-      @media (min-width: 1200px){
-        right:5%;
-      }
     }
   }
 }
+  .reviewer-info .rating-wrapper .fa-star, .reviewer-info .rating-wrapper .fa-star-half-alt {
+    @media (max-width: 992px) {
+      font-size: 1.5rem;
+    }
+  }
 }

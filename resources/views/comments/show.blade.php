@@ -69,8 +69,10 @@
                 </div>
             </section>
             <div class="comment-text">
+                <div dir="rtl">
                 {!! $comment->body !!}
-            </div>
+                </div>
+                </div>
             <div class="row justify-content-end my-5 ml-4">
                 <a href="{{route('comments.index')}}" class="btn btn-primary py-2 px-4">
                     بازگشت به صفحه‌ی نظرات

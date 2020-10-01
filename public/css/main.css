@@ -1015,6 +1015,8 @@ header #menu .menu li a {
 }
 .comments .heading-line {
   overflow: hidden;
+  width: 95%;
+  margin: auto;
 }
 .comments-list {
   margin-top: 4rem;
@@ -1024,13 +1026,17 @@ header #menu .menu li a {
 }
 .comments-list_comment {
   text-align: right;
-  background-color: #1f6fb2;
+  background-color: #1c4354;
   color: white;
   padding: 2rem;
   border-radius: 40px;
   margin-top: 3rem;
   position: relative;
-  height: 105px;
+  height: 155px;
+  word-wrap: break-word;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 991.9px) {
   .comments-list_comment {
@@ -1043,40 +1049,40 @@ header #menu .menu li a {
   width: 0;
   height: 0;
   border: 25px solid transparent;
-  border-top-color: #1f6fb2;
+  border-top-color: #1c4354;
   border-bottom: 0;
   bottom: 15%;
-  right: 36%;
+  right: 38%;
   margin-left: -37px;
   margin-bottom: -37px;
 }
 @media (min-width: 300px) {
   .comments-list_comment:after {
-    right: 39%;
+    right: 41%;
   }
 }
 @media (min-width: 450px) {
   .comments-list_comment:after {
-    right: 41%;
+    right: 45%;
   }
 }
 @media (min-width: 768px) {
   .comments-list_comment:after {
-    right: 44%;
+    right: 46%;
   }
 }
 @media (min-width: 992px) {
   .comments-list_comment:after {
-    bottom: 15%;
-    right: 7%;
+    bottom: 13%;
+    right: 2%;
     border-right: 0;
     margin-left: -18.5px;
     margin-bottom: -37px;
   }
 }
-@media (min-width: 1200px) {
-  .comments-list_comment:after {
-    right: 5%;
+@media (max-width: 992px) {
+  .comments .reviewer-info .rating-wrapper .fa-star, .comments .reviewer-info .rating-wrapper .fa-star-half-alt {
+    font-size: 1.5rem;
   }
 }
 
