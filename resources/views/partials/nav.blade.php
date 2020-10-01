@@ -16,17 +16,19 @@
                                 aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="ml-auto text-center d-block d-md-none col-7 col-sm-5">
+                        <div class="mobile-logo mx-auto text-center d-block d-md-none">
                             <a href="{{ url('/') }}">
-                                <img class="mobile-logo" src="{{asset('images/LOGO123.png')}}"
+                                <img src="{{asset('images/LOGO123.png')}}"
                                      alt="{{ config('app.name', 'Laravel') }}">
                             </a>
                         </div>
-                        <div class="ml-auto d-block d-md-none">
+                        @guest(getGuard())
+                        <div class="d-block d-md-none">
                             <a href="{{route('login')}}">
                                 <span class="fa fa-door-open"></span>
                             </a>
                         </div>
+                        @endguest
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <!-- Left Side Of Navbar -->
                             <ul class="navbar-nav mr-auto d-none d-lg-block">
@@ -73,11 +75,14 @@
                                                href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span
                                                         class="fa fa-user"></span> پروفایل</a>
                                             <a class="dropdown-item" href="{{route('password.change')}}"><span
-                                                        class="fa fa-slack-hash"></span> تغییر رمز عبور</a>
+                                                        class="fa fa-hashtag"></span> تغییر رمز عبور</a>
 
                                             <a class="dropdown-item" href="{{ route('requests.index') }}"><span
                                                         class="fa fa-receipt"></span> وضعیت درخواست ها</a>
-
+                                            @if(getGuard()=='web')
+                                            <a class="dropdown-item" href="{{ route('comments.index') }}"><span
+                                                        class="fa fa-comment-check"></span> نظر ارزیاب ها</a>
+@endif
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -97,7 +102,7 @@
                                         <div class="col-12">
                                             <ul class="list-unstyled menu">
                                                     <li>
-                                                        <p style="font-weight: bold;font-size: 1.1rem;">
+                                                        <p style="font-weight: bold;font-size: 1rem;">
                                                             <img width="100px" src="{{auth(getGuard())->user()->image}}" alt="">
                                                             {{ auth(getGuard())->user()->name }} <span>({{auth(getGuard())->user()->getTable()=='users' ? 'کاربر' : 'ارزیاب'}})</span>
                                                         </p>
@@ -107,11 +112,14 @@
                                                                href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span
                                                                         class="fa fa-user"></span> پروفایل</a>
                                                             <a class="menu-auth_item" href="{{route('password.change')}}"><span
-                                                                        class="fa fa-slack-hash"></span> تغییر رمز عبور</a>
+                                                                        class="fa fa-hashtag"></span> تغییر رمز عبور</a>
 
                                                             <a class="menu-auth_item" href="{{ route('requests.index') }}"><span
                                                                         class="fa fa-receipt"></span> وضعیت درخواست ها</a>
-
+                                                            @if(getGuard()=='web')
+                                                            <a class="menu-auth_item" href="{{ route('comments.index') }}"><span
+                                                                        class="fa fa-comment-check"></span> نظر ارزیاب ها</a>
+                                                            @endif
                                                             <a class="menu-auth_item" href="{{ route('logout') }}"
                                                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -132,15 +140,21 @@
 
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('reviewers.index')}}">
+                                            <span class="fa fa-list"></span>
                                             لیست ارزیاب ها
                                         </a>
                                     </li>
                                 @endguest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/about">درباره ما</a>
+                                    <a class="nav-link" href="{{route('about')}}">
+                                        <span class="fa fa-info"></span>
+                                        درباره ما</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/contact">تماس با ما</a>
+                                    <a class="nav-link" href="{{route('contact')}}">
+                                    <span class="fa fa-headset"></span>
+                                        تماس با ما
+                                    </a>
                                 </li>
                             </ul>
                         </div>

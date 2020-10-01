@@ -90,7 +90,7 @@ header .container {
 }
 header .navbar {
   background-color: #FAC12A;
-  border-radius: 50px;
+  border-radius: 25px;
 }
 @media (min-width: 768px) {
   header .navbar {
@@ -133,6 +133,11 @@ header .navbar .nav-item .nav-link {
   padding: 0.5rem 1rem;
   color: #204948;
 }
+@media (max-width: 767.9px) {
+  header .navbar .nav-item .nav-link {
+    padding: 0.5rem;
+  }
+}
 header .navbar .nav-item .dropdown-menu {
   width: 100%;
   background-color: #073B4C;
@@ -155,19 +160,26 @@ header .navbar .container {
   padding: 0;
 }
 header .navbar .container .mobile-logo {
-  min-width: 150px;
-  max-width: 220px;
-  width: 100%;
+  max-width: 200px;
 }
 @media (max-width: 576px) {
   header .navbar .container .mobile-logo {
-    max-width: 190px;
+    max-width: 150px;
   }
+}
+@media (max-width: 300px) {
+  header .navbar .container .mobile-logo {
+    max-width: 100px;
+  }
+}
+header .navbar .container .mobile-logo img {
+  min-width: 100px;
+  width: 100%;
 }
 header .navbar .navbar-toggler {
   border: none;
   max-width: 1.5em;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0rem;
   outline: none !important;
 }
 header .navbar .navbar-toggler:last-child {
@@ -175,6 +187,11 @@ header .navbar .navbar-toggler:last-child {
 }
 header .navbar .navbar-toggler .fa-user {
   font-size: 1.5rem;
+}
+@media (max-width: 300px) {
+  header .navbar .navbar-toggler .navbar-toggler-icon {
+    width: 1em;
+  }
 }
 header .navbar .typo-logo {
   font-size: 1.7rem;
@@ -184,11 +201,10 @@ header .navbar .typo-logo {
 }
 header #menu {
   direction: rtl;
-  width: 100%;
 }
 header #menu .menu {
   border: #FAC12A solid 2px;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   padding-bottom: 0;
   color: #204948;
 }
@@ -216,6 +232,27 @@ header #menu .menu li {
 }
 header #menu .menu li a {
   color: white;
+}
+header .fa-door-open {
+  font-size: 1rem;
+  background-color: rgba(7, 59, 76, 0.89);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: white;
+}
+@media (max-width: 300px) {
+  header .fa-door-open {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+}
+header .nav-link span {
+  display: none;
+}
+@media (max-width: 768px) {
+  header .nav-link span {
+    display: inline-block;
+  }
 }
 
 /* Home Page */

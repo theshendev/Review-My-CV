@@ -4,7 +4,7 @@ header{
   }
   .navbar{
   background-color: $main-yellow;
-  border-radius: 50px;
+  border-radius: 25px;
     @media (min-width: 768px) {
       padding: 0 1rem;
 
@@ -42,6 +42,10 @@ header{
     .nav-link{
       padding: 0.5rem 1rem;
       color: #204948;
+      @media (max-width: 767.9px) {
+        padding: 0.5rem;
+
+      }
 
     }
     .dropdown-menu{
@@ -65,26 +69,36 @@ header{
   }
 
 .container{
-  .mobile-logo{
-    min-width: 150px;
-    max-width: 220px;
-    width: 100%;
-    @media (max-width: 576px){
-      max-width: 190px;
+  .mobile-logo {
+    @media (max-width: 576px) {
+      max-width: 150px;
     }
+    @media (max-width: 300px) {
+      max-width: 100px;
+    }
+    max-width: 200px;
+    img{
+    min-width: 100px;
+    width: 100%;
+  }
   }
   padding: 0;
 }
     .navbar-toggler{
       border: none;
       max-width: 1.5em;
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem 0rem;
       outline: none !important;
       &:last-child{
         padding-right: 1.5rem;
       }
       .fa-user{
         font-size: 1.5rem;
+      }
+      .navbar-toggler-icon {
+        @media (max-width: 300px) {
+          width: 1em;
+        }
       }
     }
 .typo-logo{
@@ -96,10 +110,9 @@ header{
 }
   #menu {
     direction: rtl;
-    width: 100%;
     .menu {
       border: $main-yellow solid 2px;
-      padding: 1rem;
+      padding: 1rem 0.5rem;
       padding-bottom: 0;
       color: #204948;
       img{
@@ -126,6 +139,26 @@ header{
         a{
           color: white;
         }
+      }
+    }
+  }
+  .fa-door-open{
+    font-size: 1rem;
+    background-color: rgba(7, 59, 76, 0.89);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    color: white;
+    @media (max-width: 300px) {
+      font-size: 0.75rem;
+      padding: 0.5rem;
+
+    }
+  }
+  .nav-link{
+    span{
+      display: none;
+      @media (max-width: 768px) {
+        display: inline-block;
       }
     }
   }
