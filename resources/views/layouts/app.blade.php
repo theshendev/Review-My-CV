@@ -48,16 +48,6 @@
     </div>
 
     <script>
-        $('.navbar-toggler').click(function () {
-            if ($(this).data('target')==='#menu'){
-                $($(this).parent().prev().prev().data('target')).collapse('hide');
-            }
-            else{
-                $($(this).next().next().find('button').data('target')).collapse('hide');
-
-            }
-        });
-
         @yield('scripts')
 </script>
 </body>

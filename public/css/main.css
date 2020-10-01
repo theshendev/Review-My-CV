@@ -184,32 +184,28 @@ header .navbar .typo-logo {
 }
 header #menu {
   direction: rtl;
+  width: 100%;
 }
 header #menu .menu {
   border: #FAC12A solid 2px;
   padding: 1rem;
-  background-color: #073B4C;
-  color: white;
+  padding-bottom: 0;
+  color: #204948;
 }
-header #menu .menu:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -9px;
-  right: 35px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  transform: rotate(1turn);
-  border-width: 0 10px 10px;
-  border-color: transparent transparent #073B4C;
+header #menu .menu img {
+  width: 70px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 header #menu .menu .menu-auth {
   display: flex;
   flex-direction: column;
 }
 header #menu .menu .menu-auth_item {
-  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #204948;
   margin: 0.5rem 0rem;
 }
 header #menu .menu .menu-auth_item:hover {

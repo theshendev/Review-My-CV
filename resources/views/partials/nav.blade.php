@@ -23,13 +23,9 @@
                             </a>
                         </div>
                         <div class="ml-auto d-block d-md-none">
-
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#menu" aria-controls="navbarSupportedContent"
-                                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                                <span class="fa fa-user"></span>
-                            </button>
-
+                            <a href="{{route('login')}}">
+                                <span class="fa fa-door-open"></span>
+                            </a>
                         </div>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <!-- Left Side Of Navbar -->
@@ -96,6 +92,44 @@
 
                                         </div>
                                     </li>
+                                    <div class="row text-right d-block d-md-none" id="menu">
+
+                                        <div class="col-12">
+                                            <ul class="list-unstyled menu">
+                                                    <li>
+                                                        <p style="font-weight: bold;font-size: 1.1rem;">
+                                                            <img width="100px" src="{{auth(getGuard())->user()->image}}" alt="">
+                                                            {{ auth(getGuard())->user()->name }} <span>({{auth(getGuard())->user()->getTable()=='users' ? 'کاربر' : 'ارزیاب'}})</span>
+                                                        </p>
+                                                    </li>
+                                                        <div class="menu-auth text-right">
+                                                            <a class="menu-auth_item"
+                                                               href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span
+                                                                        class="fa fa-user"></span> پروفایل</a>
+                                                            <a class="menu-auth_item" href="{{route('password.change')}}"><span
+                                                                        class="fa fa-slack-hash"></span> تغییر رمز عبور</a>
+
+                                                            <a class="menu-auth_item" href="{{ route('requests.index') }}"><span
+                                                                        class="fa fa-receipt"></span> وضعیت درخواست ها</a>
+
+                                                            <a class="menu-auth_item" href="{{ route('logout') }}"
+                                                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                                <span class="fa fa-portal-exit"></span>
+                                                                خروج
+                                                            </a>
+
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                                  style="display: none;">
+                                                                @csrf
+                                                            </form>
+
+                                                        </div>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{route('reviewers.index')}}">
                                             لیست ارزیاب ها
@@ -112,56 +146,6 @@
                         </div>
                     </div>
                 </nav>
-            </div>
-        </div>
-        <div class="row collapse text-right" id="menu">
-
-            <div class="col-6 ml-auto">
-                <ul class="list-unstyled menu">
-                    @guest(getGuard())
-                        @if (Route::has('register'))
-                            <li>
-                                <a href="{{ route('register') }}"> <span
-                                            style="font-size: 1rem;" class="fa fa-user-plus"></span> ثبت نام</a>
-                            </li>
-                        @endif
-                        <li>
-                            <a href="{{ route('login') }}"><span
-                                        style="font-size: 1rem;vertical-align: middle"
-                                        class="fa fa-portal-enter"></span> ورود</a>
-                        </li>
-                    @else
-                        <li>
-                            <p class="dropdown-toggle">
-                                {{ auth(getGuard())->user()->name }} <span class="caret"></span>
-                            </p>
-
-                            <div class="menu-auth text-right">
-                                <a class="menu-auth_item"
-                                   href="{{ route(getGuard()=='web' ? 'user.profile' : 'reviewer.profile') }}"><span
-                                            class="fa fa-user"></span> پروفایل</a>
-                                <a class="menu-auth_item" href="{{route('password.change')}}"><span
-                                            class="fa fa-slack-hash"></span> تغییر رمز عبور</a>
-
-                                <a class="menu-auth_item" href="{{ route('requests.index') }}"><span
-                                            class="fa fa-receipt"></span> وضعیت درخواست ها</a>
-
-                                <a class="menu-auth_item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    <span class="fa fa-portal-exit"></span>
-                                    خروج
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-
-                            </div>
-                        </li>
-                    @endguest
-                </ul>
             </div>
         </div>
     </div>
