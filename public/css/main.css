@@ -84,6 +84,13 @@
   background-image: none;
 }
 
+#crop-modal .modal-dialog {
+  max-width: 80%;
+}
+#crop-modal img {
+  width: 100%;
+}
+
 /* Header Styles */
 header .container {
   max-width: 1500px;

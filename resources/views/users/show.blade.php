@@ -16,7 +16,7 @@
                         </h6>
                     @else
                         <div class="col-12 text-center">
-                            <a class="btn btn-primary" href="sss">دانلود رزومه</a>
+                            <a class="btn btn-primary" href="{{asset("users_cv/$user->cv")}}">دانلود رزومه</a>
                         </div>
                     @endif
                 </div>

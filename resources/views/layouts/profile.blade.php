@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('head')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js" integrity="sha512-9pGiHYK23sqK5Zm0oF45sNBAX/JqbZEP7bSDHyt+nT3GddF+VFIcYNqREt0GDpmFVZI3LZ17Zu9nMMc9iktkCw==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.css" integrity="sha512-w+u2vZqMNUVngx+0GVZYM21Qm093kAexjueWOv9e9nIeYJb1iEfiHC7Y+VvmP/tviQyA5IR32mwN/5hTEJx6Ng==" crossorigin="anonymous" />
+@endsection
 @section('content')
     <section class="profile text-white mt-5">
 
@@ -28,6 +32,35 @@
                     </div>
                     </div>
                 </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="crop-modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="crop-modal-title">Crop Image</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <img src="" id="modal-image" alt="">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="modal-image-preview">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary">Crop</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             <div class="row justify-content-center mt-5">
                 <h3 class="profile-heading">پروفایل</h3>
             </div>
@@ -95,54 +128,16 @@
         </div>
 
     </section>
-
-    {{--@if(!$comments->isEmpty())--}}
-        {{--<div class="card">--}}
-            {{--<div class="card-header">--}}
-                {{--{{$comments->first()->reviewer->name}}--}}
-            {{--</div>--}}
-            {{--<div class="card-body">--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-8">--}}
-                        {{--{{$comments->first()->body}}--}}
-                    {{--</div>--}}
-                    {{--<div class="col-4">--}}
-                        {{--<div class="rating">--}}
-                            {{--<form action="{{route('reviewer.score',['reviewer'=>$comments->first()->reviewer,'comment'=>$comments->first()])}}"--}}
-                                  {{--method="post">--}}
-                                {{--@csrf--}}
-                                {{--<input type="text" onchange="this.form.submit()" id="input-1" name="score"--}}
-                                       {{--class="rating" data-min="0" data-max="5" data-step="0.5" value="2.5"--}}
-                                       {{--data-size="sm">--}}
-                            {{--</form>--}}
-
-                        {{--</div>--}}
-                        {{--<div class="rating" dir="rtl">--}}
-                        {{--<span class="fal fa-star"></span>--}}
-                        {{--<span class="fal fa-star"></span>--}}
-                        {{--<span class="fal fa-star"></span>--}}
-                        {{--<span class="fal fa-star"></span>--}}
-                        {{--<span class="fal fa-star"></span>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
-
-        {{--</div>--}}
-        {{--<div class="row justify-content-center">--}}
-            {{--@if(count($user->comments)>1)--}}
-                {{--Rate the first comment to see the other one(s).--}}
-            {{--@endif--}}
-        {{--</div>--}}
-    {{--@else--}}
-        {{--<div class="row justify-content-center">--}}
-            {{--There is no comment for your cv.--}}
-        {{--</div>--}}
-    {{--@endif--}}
 @endsection
 @section('scripts')
     $(document).ready(function(){
+    let $modal = $('#crop-modal');
+    let image = $('#modal-image');
+    let cropper;
+    let done = function(url){
+        image.attr("src",url);
+        $modal.modal('show');
+    };
 
     let $fileInput = $('.file-input');
     let $droparea = $('.file-drop-area');
@@ -159,12 +154,12 @@
 
     // change inner text
     $fileInput.on('change', function() {
-    var filesCount = $(this)[0].files.length;
-    var $textContainer = $(this).prev();
+    let filesCount = $(this)[0].files.length;
+    let $textContainer = $(this).prev();
 
     if (filesCount === 1) {
     // if single file is selected, show file name
-    var fileName = $(this).val().split('\\').pop();
+    let fileName = $(this).val().split('\\').pop();
     $textContainer.text(fileName);
     } else {
     // otherwise show number of files
@@ -174,8 +169,9 @@
 
     function readURL(input) {
     if (input.files && input.files[0]) {
-    var reader = new FileReader();
+    let reader = new FileReader();
     reader.onload = function(e) {
+    done(reader.result);
     $('#imagePreview').css('background-image', 'url('+e.target.result +')');
     $('#imagePreview').hide();
     $('#imagePreview').fadeIn(650);
@@ -185,6 +181,14 @@
     }
     $("#imageUpload").change(function() {
     readURL(this);
+    });
+    $modal.on('shown.bs.modal', function () {
+        const image = document.getElementById('modal-image');
+        cropper = new Cropper(image,{
+                aspectRatio: 1,
+                viewMode: 3,
+                preview:'.modal-image-preview'
+        });
     });
     });
 

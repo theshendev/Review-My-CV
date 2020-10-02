@@ -57,7 +57,7 @@ class UserController extends Controller
         if ($request->hasFile('image')){
             $image=$request->image;
             $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
-            $uniqueFileName = str_replace(' ', '', $uniqueFileName);;
+            $uniqueFileName = str_replace(' ', '', $uniqueFileName);
             $image->storeAs('images/profiles/', $uniqueFileName);
             $path = url('images/profiles/'.$uniqueFileName);
             Storage::delete("images/profiles/".basename($user->image));
