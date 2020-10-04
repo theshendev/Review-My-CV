@@ -56,7 +56,7 @@ return [
         'string' => 'The :attribute must be greater than or equal :value characters.',
         'array' => 'The :attribute must have :value items or more.',
     ],
-    'image' => 'The :attribute must be an image.',
+    'image' => 'فایل انتخابی باید عکس باشد.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field does not exist in :other.',
     'integer' => 'The :attribute must be an integer.',
@@ -114,7 +114,7 @@ return [
     'string' => ':attribute باید رشته‌ای از کلمات باشد.',
     'timezone' => 'The :attribute must be a valid zone.',
     'unique' => ':attribute وارد شده قبلا در سایت ثبت شده است.',
-    'uploaded' => 'The :attribute failed to upload.',
+    'uploaded' => 'آپلود فایل با مشکل مواجه شد.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
 

@@ -90,6 +90,13 @@
 #crop-modal img {
   width: 100%;
 }
+#crop-modal .cropper-crop-box {
+  max-width: 140px;
+  max-height: 140px;
+}
+#crop-modal .cropper-view-box {
+  border-radius: 50%;
+}
 
 /* Header Styles */
 header .container {

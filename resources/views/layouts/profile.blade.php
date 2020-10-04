@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('head')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js" integrity="sha512-9pGiHYK23sqK5Zm0oF45sNBAX/JqbZEP7bSDHyt+nT3GddF+VFIcYNqREt0GDpmFVZI3LZ17Zu9nMMc9iktkCw==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.css" integrity="sha512-w+u2vZqMNUVngx+0GVZYM21Qm093kAexjueWOv9e9nIeYJb1iEfiHC7Y+VvmP/tviQyA5IR32mwN/5hTEJx6Ng==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.css" />
 @endsection
 @section('content')
     <section class="profile text-white mt-5">
@@ -16,22 +16,23 @@
                 @csrf
                 @method('PUT')
 
-                <div class="avatar-upload">
+                <div class="avatar-upload @error('image') is-invalid @enderror">
                 <div class="avatar-edit">
                     <input class="@error('image') is-invalid @enderror" name="image" type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
-                    @error('image')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
+                    <input type="text" id="image_base64" name="image_base64">
                     <label for="imageUpload"><span class="fal fa-plus"></span>
                     </label>
                 </div>
                 <div class="avatar-preview">
-                    <div id="imagePreview" style="background-image: url({{$user->image}});">
+                    <div id="imagePreview" style="background-image: url('{{$user->image}}');">
                     </div>
                     </div>
                 </div>
+                    @error('image')
+                    <span class="invalid-feedback text-center" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                    @enderror
                     <!-- Modal -->
                     <div class="modal fade" id="crop-modal" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
@@ -44,19 +45,14 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 mx-auto">
                                             <img src="" id="modal-image" alt="">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="modal-image-preview">
-
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary">Crop</button>
+                                    <button id="crop" type="button" class="btn btn-primary">Crop</button>
                                 </div>
                             </div>
                         </div>
@@ -172,9 +168,6 @@
     let reader = new FileReader();
     reader.onload = function(e) {
     done(reader.result);
-    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-    $('#imagePreview').hide();
-    $('#imagePreview').fadeIn(650);
     }
     reader.readAsDataURL(input.files[0]);
     }
@@ -187,8 +180,45 @@
         cropper = new Cropper(image,{
                 aspectRatio: 1,
                 viewMode: 3,
-                preview:'.modal-image-preview'
+                dragMode:'none',
+                autoCropArea: 1,
+                cropBoxResizable:false,
+
+
+    minCropBoxWidth: 140, minCropBoxHeight: 140,
+    maxCropBoxWidth: 140, maxCropBoxHeight: 140,
+    minContainerWidth: 140, minContainerHeight: 140,
+    maxContainerWidth: 140, maxContainerHeight: 140,
+
+
+    data:{
+                width: 140,
+                height:140,
+                },
         });
+
+    }).on('hidden.bs.modal',function(){
+        cropper.destroy();
+        cropper = null;
+    });
+    $('#crop').click(function(){
+        canvas = cropper.getCroppedCanvas();
+        let reader = new FileReader();
+        reader.onload = function(e) {
+        $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+        $('#imagePreview').hide();
+        $('#imagePreview').fadeIn(650);
+        }
+        canvas.toBlob(function(blob){
+            url = URL.createObjectURL(blob);
+
+            reader.readAsDataURL(blob);
+            reader.onloadend = function(){
+                let base64data = reader.result;
+                $('#image_base64').val(base64data);
+                $modal.modal('hide');
+            }
+        })
     });
     });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reviewer;
 use App\User;
+use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -46,6 +47,7 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', "unique:users,email,$user->id",'unique:reviewers'],
             'linkedin' => ['required',"unique:users,linkedin,$user->id",'unique:reviewers'],
             'cv' => ['mimes:pdf,docx'],
+            'image'=>['image']
         ]);
         if ($request->hasFile('cv')){
             $cv =$request->cv;
@@ -58,7 +60,10 @@ class UserController extends Controller
             $image=$request->image;
             $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
             $uniqueFileName = str_replace(' ', '', $uniqueFileName);
-            $image->storeAs('images/profiles/', $uniqueFileName);
+            $image_array_1 = explode(";",$request->image_base64);
+            $image_array_2 = explode(",",$image_array_1[1]);
+            $data = base64_decode($image_array_2[1]);
+            File::put("images/profiles/$uniqueFileName",$data);
             $path = url('images/profiles/'.$uniqueFileName);
             Storage::delete("images/profiles/".basename($user->image));
             $user->image=$path;

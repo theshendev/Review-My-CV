@@ -92,6 +92,13 @@
   img{
     width: 100%;
   }
+  .cropper-crop-box{
+    max-width: 140px;
+    max-height: 140px;
+  }
+  .cropper-view-box{
+    border-radius: 50%;
+  }
 }
 /* Header Styles */
 @import "layout/navbar";
