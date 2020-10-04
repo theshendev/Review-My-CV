@@ -84,15 +84,11 @@
   background-image: none;
 }
 
-#crop-modal .modal-dialog {
-  max-width: 80%;
+#crop-modal .modal-title {
+  color: black;
 }
 #crop-modal img {
   width: 100%;
-}
-#crop-modal .cropper-crop-box {
-  max-width: 140px;
-  max-height: 140px;
 }
 #crop-modal .cropper-view-box {
   border-radius: 50%;
@@ -499,6 +495,9 @@ header .nav-link span {
 }
 .register .register-form-container form .form-group:nth-of-type(8) {
   order: 8;
+}
+.register .register-form-container form .form-group:nth-of-type(9) {
+  order: 9;
 }
 
 .input-field {

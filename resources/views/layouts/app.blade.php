@@ -46,9 +46,6 @@
         </main>
     </div>
 
-    <script>
-
-        @yield('scripts')
-</script>
+        @stack('scripts')
 </body>
 </html>

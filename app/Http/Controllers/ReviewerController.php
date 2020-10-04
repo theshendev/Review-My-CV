@@ -6,6 +6,7 @@ use App\Comment;
 use App\Reviewer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -58,15 +59,17 @@ class ReviewerController extends Controller
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
         ]);
-        if ($request->hasFile('image')) {
-            $image = $request->image;
+        if ($request->hasFile('image')){
+            $image=$request->image;
             $uniqueFileName = trim(uniqid() . $image->getClientOriginalName());
-            $uniqueFileName = str_replace(' ', '', $uniqueFileName);;
-            $image->storeAs('images/profiles/', $uniqueFileName);
-            $path = url('/images/profiles/' . $uniqueFileName);
-            Storage::delete("images/profiles/" . basename($reviewer->image));
-
-            $reviewer->image = $path;
+            $uniqueFileName = str_replace(' ', '', $uniqueFileName);
+            $image_array_1 = explode(";",$request->image_base64);
+            $image_array_2 = explode(",",$image_array_1[1]);
+            $data = base64_decode($image_array_2[1]);
+            File::put("images/profiles/$uniqueFileName",$data);
+            $path = url('images/profiles/'.$uniqueFileName);
+            Storage::delete("images/profiles/".basename($reviewer->image));
+            $reviewer->image=$path;
         }
         $reviewer->name = $request->name;
         $reviewer->email = $request->email;

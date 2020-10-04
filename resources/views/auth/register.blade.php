@@ -32,26 +32,7 @@
                                         @includeWhen(!isset($url),'partials.auth.register.user')
 
                                     @else
-                                        <div class="avatar-upload @error('image') is-invalid @enderror">
-                                            <div class="avatar-edit">
-                                                <input class="@error('image') is-invalid @enderror" name="image"
-                                                       type='file' id="imageUpload" accept=".png, .jpg, .jpeg"/>
-
-                                                <label for="imageUpload"><span class="fal fa-plus"></span>
-                                                </label>
-                                            </div>
-                                            <div class="avatar-preview">
-                                                <div id="imagePreview"
-                                                     style="background-image: url();">
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        @error('image')
-                                        <span class="invalid-feedback text-center" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
+                                        @include('includes.image-upload')
                                         <div class="form-group">
                                             <label for="name"
                                                    class="col-form-label text-md-right">نام و نام خانوادگی</label>
@@ -96,7 +77,7 @@
 
                                         @includeWhen(isset($url),'partials.auth.register.reviewer')
                                         @includeWhen(!isset($url),'partials.auth.register.user')
-                                        <div class="form-group" style="order: 2">
+                                        <div class="form-group" style="order: 4">
                                             <label for="email"
                                                    class="col-form-label text-md-right">ایمیل</label>
 
@@ -149,7 +130,7 @@
 
 
                                     @endisset
-                                    <div class="row" style="order: 8">
+                                    <div class="row" style="order: 9">
                                         <div class="@isset($p) col-md-12 text-center @else col-5  text-left @endisset">
                                             <button type="submit" class="btn btn-custom">
                                                 ثبت نام
@@ -209,7 +190,8 @@
         </div>
     </section>
 @endsection
-@section('scripts')
+@push('scripts')
+    <script>
     $(document).ready(function(){
 
     let $fileInput = $('.file-input');
@@ -239,21 +221,6 @@
     $textContainer.text(filesCount + ' files selected');
     }
     });
-
-    function readURL(input) {
-    if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-    $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-    $('#imagePreview').hide();
-    $('#imagePreview').fadeIn(650);
-    }
-    reader.readAsDataURL(input.files[0]);
-    }
-    }
-    $("#imageUpload").change(function() {
-    readURL(this);
-    });
-    });
-
-@endsection
+        });
+</script>
+@endpush
