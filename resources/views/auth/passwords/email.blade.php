@@ -6,13 +6,14 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-10 col-lg-9">
-                <h3 class="heading-line full-circle-before overflow-hidden">بازیابی رمز عبور</h3>
 
-                    @if (session('status'))
-                        <div class="alert alert-success text-right my-3" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            @if (session('status'))
+                <div class="alert alert-success text-right my-3" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            <h3 class="heading-line full-circle-before overflow-hidden">بازیابی رمز عبور</h3>
 
                     <form class="col-md-9 mx-auto mt-5" method="POST" action="{{ route('password.email') }}">
                         @csrf

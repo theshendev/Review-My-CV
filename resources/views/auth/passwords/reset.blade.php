@@ -1,35 +1,37 @@
-
 @extends('layouts.app')
 
 @section('content')
     <section class="change-password text-white">
 
-    <div class="container">
-        <div class="row mt-5">
-            <h3 class="heading-line full-circle-before">تغییر رمز عبور</h3>
-        </div>
-    <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="container">
+            <div class="row mt-5">
+                <h3 class="heading-line full-circle-before">تغییر رمز عبور</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
 
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
                         <div class="change-password_form">
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+                            <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group">
-                            <label for="email" class="col-form-label text-md-right empty-circle-before">ایمیل</label>
+                            <div class="form-group">
+                                <label for="email"
+                                       class="col-form-label text-md-right empty-circle-before">ایمیل</label>
 
-                            <div class="input-field d-block">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                <div class="input-field d-block">
+                                    <input id="email" type="email"
+                                           class="form-control @error('email') is-invalid @enderror" name="email"
+                                           value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
                             <div class="form-group">
                                 <label for="password"
                                        class="col-form-label text-md-right empty-circle-before">رمز عبور</label>
@@ -67,7 +69,7 @@
                                 @enderror
                             </div>
 
-                        <div class="form-group text-center">
+                            <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary">
                                     بازیابی رمز عبور
                                 </button>
@@ -75,22 +77,23 @@
                         </div>
                     </form>
                 </div>
-    </div>
-</div>
+            </div>
+        </div>
     </section>
 @endsection
-@section('scripts')
-    $(document).ready(function(){
-    $('.input-field_icon').click(function(){
-    if($(this).find('i').hasClass('fa-eye-slash')){
-    $(this).prev().prop('type','text')
-    $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
-    }
-    else{
-    $(this).prev().prop('type','password')
-    $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
-    }
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('.input-field_icon').click(function () {
+                if ($(this).find('i').hasClass('fa-eye-slash')) {
+                    $(this).prev().prop('type', 'text')
+                    $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+                } else {
+                    $(this).prev().prop('type', 'password')
+                    $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+                }
 
-    });
-    });
-@endsection
+            });
+        });
+    </script>
+@endpush
