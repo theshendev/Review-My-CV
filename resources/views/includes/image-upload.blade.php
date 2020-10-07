@@ -1,6 +1,6 @@
 @section('head')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js" ></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.css" />
+    <script src="{{asset('js/cropper.min.js')}}" ></script>
+    <link rel="stylesheet" href="{{asset('css/cropper.min.css')}}" />
 @endsection
 @push('scripts')
     <script>

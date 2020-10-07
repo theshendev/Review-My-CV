@@ -82,7 +82,7 @@
     </section>
 
 @endsection
-@section('scripts')
+@push('scripts')
     $("#input-id").rating();
     $(document).ready(function(){
     $(".rating-stars").click(function(){
@@ -102,4 +102,4 @@
 
     });
     });
-@endsection
+@endpush

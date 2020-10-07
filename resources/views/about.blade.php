@@ -214,7 +214,7 @@
 
     </section>
 @endsection
-@section('scripts')
+@push('scripts')
     $(document).ready(function(){
     let price = 12000;
     let qty = $('#qty');
@@ -246,4 +246,4 @@
     $('#amount').val($('#price').text().replace(',',''));
     });
     });
-@endsection
+@endpush

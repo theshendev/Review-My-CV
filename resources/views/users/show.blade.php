@@ -59,15 +59,14 @@
 @endsection
 @if(relationExists($user,auth('reviewer')->user()) and !isRelationExpired($user,auth('reviewer')->user()))
 @section('head')
-    <script src="https://cdn.tiny.cloud/1/rr6lb7gurqghw4gvks7rjm25l2nr8p3talrvgtvkotcwpgyp/tinymce/5/tinymce.min.js"
-            referrerpolicy="origin"></script>
+    <script src="{{asset('js/tinymce.min.js')}}"></script>
 @endsection
-@section('scripts')
+@push('scripts')
     $(document).ready(function() {
     tinymce.init({
     selector: '#body',
     plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media table hr anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help quickbars emoticons',
     });
     });
-@endsection
+@endpush
 @endif
