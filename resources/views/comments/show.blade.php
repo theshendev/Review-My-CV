@@ -70,9 +70,9 @@
             </section>
             <div class="comment-text">
                 <div dir="rtl">
-                {!! $comment->body !!}
+                    {!! $comment->body !!}
                 </div>
-                </div>
+            </div>
             <div class="row justify-content-end my-5 ml-4">
                 <a href="{{route('comments.index')}}" class="btn btn-primary py-2 px-4">
                     بازگشت به صفحه‌ی نظرات
@@ -83,23 +83,24 @@
 
 @endsection
 @push('scripts')
-    $("#input-id").rating();
-    $(document).ready(function(){
-    $(".rating-stars").click(function(){
-    if($(".filled-stars").width()>0){
-    $("#submit").attr("disabled", false);
-    }
-    else{
-    $("#submit").attr("disabled", true);
+    <script>
+        $("#input-id").rating();
+        $(document).ready(function () {
+            $(".rating-stars").click(function () {
+                if ($(".filled-stars").width() > 0) {
+                    $("#submit").attr("disabled", false);
+                } else {
+                    $("#submit").attr("disabled", true);
 
-    }
-    });
+                }
+            });
 
-    $("form").submit(function(){
-    console.log($(".rating").val());
-    if($(this).val()>0){
-    }
+            $("form").submit(function () {
+                console.log($(".rating").val());
+                if ($(this).val() > 0) {
+                }
 
-    });
-    });
+            });
+        });
+    </script>
 @endpush

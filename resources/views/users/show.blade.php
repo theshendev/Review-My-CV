@@ -62,11 +62,13 @@
     <script src="{{asset('js/tinymce.min.js')}}"></script>
 @endsection
 @push('scripts')
-    $(document).ready(function() {
-    tinymce.init({
-    selector: '#body',
-    plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media table hr anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help quickbars emoticons',
-    });
-    });
+    <script>
+        $(document).ready(function () {
+            tinymce.init({
+                selector: '#body',
+                plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media table hr anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help quickbars emoticons',
+            });
+        });
+    </script>
 @endpush
 @endif

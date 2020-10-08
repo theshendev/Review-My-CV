@@ -39,6 +39,9 @@ class ReviewerController extends Controller
     public function show(Reviewer $reviewer)
     {
         $user = $reviewer;
+        if ($user->is_available==0){
+            abort(404);
+        }
         return view('reviewers.show', compact('user'));
 
     }

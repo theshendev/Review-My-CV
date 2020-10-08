@@ -101,6 +101,7 @@
     text-align: justify;
   }
   &-title{
+    direction: rtl;
     color: white;
     text-align: right;
     margin-bottom: 2rem;
@@ -121,6 +122,10 @@
       &:not(:last-child){
         border-bottom: 1px solid rgba(white,65%);
       }
+      img{
+        border-radius: 50%;
+
+      }
     }
   }
   &-image{
@@ -133,10 +138,10 @@
     }
     img{
       width: 100%;
+      max-width: 350px;
       @media (max-width: 991.9px) {
         width: 80%;
-        max-width: 350px;
-        
+
       }
     }
   }

@@ -9,7 +9,7 @@
             @endif
             <div class="row justify-content-start" dir="rtl">
                 <h2 class="heading text-white">
-                    {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام"}}
+                    {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام کاربر"}}
                 </h2>
             </div>
             <div class="row border-right">

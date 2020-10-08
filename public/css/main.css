@@ -1288,6 +1288,7 @@ header .nav-link span {
   text-align: justify;
 }
 .about-title {
+  direction: rtl;
   color: white;
   text-align: right;
   margin-bottom: 2rem;
@@ -1311,6 +1312,9 @@ header .nav-link span {
 .about-us .developer:not(:last-child) {
   border-bottom: 1px solid rgba(255, 255, 255, 0.65);
 }
+.about-us .developer img {
+  border-radius: 50%;
+}
 .about-image {
   align-self: center;
   text-align: center;
@@ -1323,11 +1327,11 @@ header .nav-link span {
 }
 .about-image img {
   width: 100%;
+  max-width: 350px;
 }
 @media (max-width: 991.9px) {
   .about-image img {
     width: 80%;
-    max-width: 350px;
   }
 }
 

@@ -86,10 +86,10 @@
         $(document).ready(function () {
             $('.input-field_icon').click(function () {
                 if ($(this).find('i').hasClass('fa-eye-slash')) {
-                    $(this).prev().prop('type', 'text')
+                    $(this).prev().prop('type', 'text');
                     $(this).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
                 } else {
-                    $(this).prev().prop('type', 'password')
+                    $(this).prev().prop('type', 'password');
                     $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
                 }
 
