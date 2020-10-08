@@ -80,12 +80,14 @@
                                     </span>
 @enderror
 <!-- Modal -->
-<div class="modal fade" id="crop-modal" tabindex="-1" role="dialog">
+<div class="modal fade" id="crop-modal" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
                 <h5 class="modal-title" id="crop-modal-title">Crop Image</h5>
-
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div>
