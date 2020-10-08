@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام کاربر"}}
+@endsection
 @section('content')
     <section class="register">
         <div class="container text-white text-right">
@@ -14,8 +17,8 @@
             </div>
             <div class="row border-right">
                 <div @isset($p) style="margin-top:0 " @endisset class="col-lg-6 register-image d-none d-lg-block">
-                    <img width="100%" src="/images/{{isset($url) ? "reviewer-register.png" : "user-register.png"}}"
-                         alt="">
+                    <img width="100%" src="/images/register/{{isset($url) ? "reviewer-register.png" : "user-register.png"}}"
+                         alt="ثبت نام">
                 </div>
                 <div class="col-sm-10 col-md-9 col-lg-5 ml-lg-auto register-form-container">
                     @isset($url)
@@ -173,14 +176,14 @@
                                             <a href="{{route(isset($url) ? "reviewer.social" : "user.social",['provider'=>'google'])}}"
                                                class="btn btn-social google">
                                                 <img style="max-width: 33px"
-                                                     src="{{asset('images/google-logo-9808.png')}}" alt=""> Google
+                                                     src="{{asset('images/social-logos/google-logo.png')}}" alt="google-logo"> Google
                                             </a>
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <a href="{{route(isset($url) ? "reviewer.social" : "user.social",['provider'=>'linkedin'])}}"
                                                class="btn btn-social linkedin">
-                                                <img style="max-width: 33px" src="{{asset('images/nextpng2.com.png')}}"
-                                                     alt=""> Linkedin
+                                                <img style="max-width: 33px" src="{{asset('images/social-logos/linkedin-logo.png')}}"
+                                                     alt="linkedin-logo"> Linkedin
                                             </a>
                                         </div>
                                     </div>

@@ -3,7 +3,7 @@
         <div class="row mt-5">
             <div class="col-lg-1 text-right d-none d-lg-block">
                 <a style="position: relative;top: -10px" href="{{ url('/') }}">
-                    <img style="width: 75%;min-width: 55px" src="{{asset('images/main.png')}}"
+                    <img style="width: 75%;min-width: 60px" src="{{asset('images/logos/main.png')}}"
                          alt="{{ config('app.name', 'Laravel') }}">
                 </a>
             </div>
@@ -18,7 +18,7 @@
                         </button>
                         <div class="mobile-logo mx-auto text-center d-block d-md-none">
                             <a href="{{ url('/') }}">
-                                <img src="{{asset('images/LOGO123.png')}}"
+                                <img src="{{asset('images/logos/LOGO123.png')}}"
                                      alt="{{ config('app.name', 'Laravel') }}">
                             </a>
                         </div>
@@ -103,7 +103,7 @@
                                             <ul class="list-unstyled menu">
                                                     <li>
                                                         <p style="font-weight: bold;font-size: 1rem;">
-                                                            <img width="100px" src="{{auth(getGuard())->user()->image}}" alt="">
+                                                            <img src="{{auth(getGuard())->user()->image}}" alt="">
                                                             {{ auth(getGuard())->user()->name }} <span>({{auth(getGuard())->user()->getTable()=='users' ? 'کاربر' : 'ارزیاب'}})</span>
                                                         </p>
                                                     </li>

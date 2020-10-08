@@ -32,7 +32,7 @@
 
         </div>
         <div class="col-lg-6 text-center">
-            <img src="{{asset('images/3.2.png')}}" alt="">
+            <img src="{{asset('images/home/guest.png')}}" alt="">
         </div>
     </div>
 </div>

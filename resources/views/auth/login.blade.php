@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('title')
+    ورود {{ isset($url) ? "ارزیاب" : "کاربر"}}
+@endsection
 @section('body_bg')
     @php
         $image_url = isset($url) ? 'reviewer.jpg' : 'user.png'
     @endphp
-    url("{{asset('images/'.$image_url)}}") no-repeat center center fixed
+    url("{{asset('images/login/'.$image_url)}}") no-repeat center center fixed
 @endsection
 @section('content')
     <section class="login">
@@ -12,7 +15,7 @@
             <div class="row logo justify-content-center">
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
                     <a href="/">
-                    <img width="100%" src="{{asset('images/logo.png')}}" alt="logo">
+                    <img width="100%" src="{{asset('images/logos/logo.png')}}" alt="logo">
 
                     </a>
                 </div>
@@ -123,15 +126,15 @@
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('reviewer.social','linkedin') }}">
-                                                            <img class="social" width="100%" src="{{asset('images/nextpng2.com.png')}}"
-                                                                 alt="linkedin">
+                                                            <img class="social" width="100%" src="{{asset('images/social-logos/linkedin-logo.png')}}"
+                                                                 alt="linkedin-logo">
                                                         </a>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('reviewer.social','google') }}">
                                                             <img class="social" width="100%"
-                                                                 src="{{asset('images/btn_google_light_normal_ios.png')}}"
-                                                                 alt="google">
+                                                                 src="{{asset('images/social-logos/google-logo-bg.png')}}"
+                                                                 alt="google-logo">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -147,15 +150,15 @@
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('user.social','linkedin') }}">
-                                                            <img class="social" width="100%" src="{{asset('images/nextpng2.com.png')}}"
-                                                                 alt="linkedin">
+                                                            <img class="social" width="100%" src="{{asset('images/social-logos/linkedin-logo.png')}}"
+                                                                 alt="linkedin-logo">
                                                         </a>
                                                     </div>
                                                     <div class="col-2">
                                                         <a href="{{ route('user.social','google') }}">
                                                             <img class="social" width="100%"
-                                                                 src="{{asset('images/btn_google_light_normal_ios.png')}}"
-                                                                 alt="google">
+                                                                 src="{{asset('images/social-logos/google-logo-bg.png')}}"
+                                                                 alt="google-logo">
                                                         </a>
                                                     </div>
                                                 </div>

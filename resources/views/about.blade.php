@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','درباره ما')
 @section('content')
     <section class="about">
         <div class="container">
@@ -64,7 +65,7 @@
                         </form>
                     </div>
                     <div class="col-lg-4 buy-coffee_image">
-                        <img width="100%" src="{{asset('images/coffee.png')}}" alt="coffee">
+                        <img width="100%" src="{{asset('images/about/coffee.png')}}" alt="coffee">
                     </div>
                 </div>
             </section>
@@ -76,7 +77,7 @@
             <section class="about-website">
                 <div class="row">
                     <div class="col-lg-5 col-xl-4 about-image">
-                        <img src="{{asset('images/main.png')}}" alt="">
+                        <img src="{{asset('images/logos/main.png')}}" alt="ReviewMyCV">
                     </div>
                     <div class="col-lg-6 col-xl-7 offset-lg-1 align-self-center">
                         <div class="about-text">
@@ -103,7 +104,7 @@
             <section class="about-us">
                 <div class="row developer">
                     <div class="col-lg-5 col-xl-4 about-image">
-                        <img src="{{asset('images/user-register.png')}}" alt="">
+                        <img src="{{asset('images/about/hr-sh.jpg')}}" alt="حمیدرضا شندآبادی">
                     </div>
                     <div class="col-lg-6 col-xl-7 offset-lg-1">
                         <h5 class="about-title">
@@ -153,7 +154,7 @@
                     </div>
                     <div class="col-lg-6 col-xl-7 offset-lg-1 align-self-center">
                         <h5 class="about-title">
-                            محمد شندآبادی (طراح UI/UX)
+                            محمد شندآبادی (طراح و گرافیست)
                         </h5>
                         <div class="about-text">
                             <p>

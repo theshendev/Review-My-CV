@@ -7,13 +7,25 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title','ReviewMyCV')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- Favicons -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/favicons/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicons/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('images/favicons/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{asset('images/favicons/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}">
@@ -22,7 +34,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <style>
-        body{
+        body {
             background: @yield('body_bg','#063443');
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -31,21 +43,21 @@
         }
 
         /*.custom-select{*/
-            /*width: 13%;*/
-            /*text-align: center;*/
-            /*border-radius: 20px;*/
+        /*width: 13%;*/
+        /*text-align: center;*/
+        /*border-radius: 20px;*/
         /*}*/
 
     </style>
 </head>
 <body>
-    <div id="app">
-        @includeWhen(!Str::contains(Request::path(),'login'),'partials.nav')
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+<div id="app">
+    @includeWhen(!Str::contains(Request::path(),'login'),'partials.nav')
+    <main class="py-4">
+        @yield('content')
+    </main>
+</div>
 
-        @stack('scripts')
+@stack('scripts')
 </body>
 </html>

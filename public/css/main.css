@@ -102,7 +102,7 @@ header .navbar {
   background-color: #FAC12A;
   border-radius: 25px;
 }
-@media (min-width: 768px) {
+@media (min-width: 767.9px) {
   header .navbar {
     padding: 0 1rem;
   }
@@ -220,6 +220,7 @@ header #menu .menu {
 }
 header #menu .menu img {
   width: 70px;
+  height: 70px;
   border-radius: 50%;
   margin-left: 10px;
 }
@@ -259,7 +260,7 @@ header .fa-door-open {
 header .nav-link span {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.9px) {
   header .nav-link span {
     display: inline-block;
   }

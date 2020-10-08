@@ -8,7 +8,7 @@
             </a>
        </div>
        <div class="col-lg-5 col-md-6 offset-lg-1 mt-5 mt-md-0 text-center">
-           <img src="{{asset('images/2.1.png')}}" alt="welcome">
+           <img src="{{asset('images/home/auth.png')}}" alt="welcome">
        </div>
    </div>
 </div>

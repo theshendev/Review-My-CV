@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','تماس با ما')
 @section('content')
 <section class="contact">
     <div class="container">
@@ -7,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-10 col-md-9 col-lg-7 col-xl-6 mx-auto mt-3 mb-4">
-                <img style="width: 100%" src="{{asset('images/1.png')}}" alt="">
+                <img style="width: 100%" src="{{asset('images/contact/contact-us.png')}}" alt="تماس با ما">
             </div>
         </div>
         <div class="row contact-fields">
@@ -54,8 +55,8 @@
         </div>
 
         <div class="row mt-5">
-            <h3 class="heading-line">تماس با برنامه نویس</h3>
-            <p>جهت تماس با برنامه نویس و پیشنهادات و انتقادات از راه های زیر اقدام نمایید:</p>
+            <h3 class="heading-line">تماس با توسعه دهنده‌ی وب</h3>
+            <p>جهت تماس با توسعه دهنده‌ی وب و پیشنهادات و انتقادات از راه های زیر اقدام نمایید:</p>
         </div>
         <div class="row contact-fields">
             <div class="col-lg-12">

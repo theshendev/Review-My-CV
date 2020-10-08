@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','بازیابی رمز عبور')
 @section('content')
     <section class="reset-password">
 
