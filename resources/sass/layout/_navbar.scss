@@ -31,16 +31,12 @@ header{
       background-color: rgba(7, 59, 76, 0.89);
     }
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 20px;
-    &:first-child{
-      margin-right:1.5rem;
-
-    }
-    margin:0.75rem 0.5rem;
+    margin:0.5rem;
     padding:0 0.5rem;
     .nav-link{
-      padding: 0.5rem 1rem;
+      padding: 0.5rem;
       color: #204948;
       @media (max-width: 767.9px) {
         padding: 0.5rem;
@@ -70,13 +66,17 @@ header{
 
 .container{
   .mobile-logo {
+
+    @media (max-width: 767px) {
+      max-width: 200px;
+    }
     @media (max-width: 576px) {
       max-width: 150px;
     }
     @media (max-width: 300px) {
       max-width: 100px;
     }
-    max-width: 200px;
+    max-width: 170px;
     img{
     min-width: 100px;
     width: 100%;
@@ -102,10 +102,10 @@ header{
       }
     }
 .typo-logo{
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: #073B4C !important;
   padding-left: 0 !important;
-  padding-top: 0.75rem;
+  padding-top: 0.4rem;
 }
 }
   #menu {
@@ -127,7 +127,7 @@ header{
         &_item{
           padding: 0.5rem 1rem;
           font-weight: bold;
-          font-size: 1.1rem;
+          font-size: 1rem;
           color: #204948;
           margin: 0.5rem 0rem;
           &:hover{
@@ -163,4 +163,7 @@ header{
       }
     }
   }
+}
+.nav-link{
+  padding: 0;
 }

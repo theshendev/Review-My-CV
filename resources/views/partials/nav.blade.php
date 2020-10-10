@@ -3,7 +3,7 @@
         <div class="row mt-5">
             <div class="col-lg-1 text-right d-none d-lg-block">
                 <a style="position: relative;top: -10px" href="{{ url('/') }}">
-                    <img style="width: 75%;min-width: 60px" src="{{asset('images/logos/main.png')}}"
+                    <img style="width: 60px" src="{{asset('images/logos/main.png')}}"
                          alt="{{ config('app.name', 'Laravel') }}">
                 </a>
             </div>
@@ -16,7 +16,7 @@
                                 aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="mobile-logo mx-auto text-center d-block d-md-none">
+                        <div class="mobile-logo mx-auto text-center d-block d-lg-none">
                             <a href="{{ url('/') }}">
                                 <img src="{{asset('images/logos/LOGO123.png')}}"
                                      alt="{{ config('app.name', 'Laravel') }}">

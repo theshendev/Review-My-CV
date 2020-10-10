@@ -113,9 +113,9 @@ header .navbar .navbar-nav.ml-auto {
 }
 header .navbar .nav-item {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 20px;
-  margin: 0.75rem 0.5rem;
+  margin: 0.5rem;
   padding: 0 0.5rem;
 }
 header .navbar .nav-item.nav-item_bg {
@@ -136,11 +136,8 @@ header .navbar .nav-item.nav-item_bg .nav-link__name {
   display: inline-block;
   vertical-align: middle;
 }
-header .navbar .nav-item:first-child {
-  margin-right: 1.5rem;
-}
 header .navbar .nav-item .nav-link {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   color: #204948;
 }
 @media (max-width: 767.9px) {
@@ -170,7 +167,12 @@ header .navbar .container {
   padding: 0;
 }
 header .navbar .container .mobile-logo {
-  max-width: 200px;
+  max-width: 170px;
+}
+@media (max-width: 767px) {
+  header .navbar .container .mobile-logo {
+    max-width: 200px;
+  }
 }
 @media (max-width: 576px) {
   header .navbar .container .mobile-logo {
@@ -204,10 +206,10 @@ header .navbar .navbar-toggler .fa-user {
   }
 }
 header .navbar .typo-logo {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: #073B4C !important;
   padding-left: 0 !important;
-  padding-top: 0.75rem;
+  padding-top: 0.4rem;
 }
 header #menu {
   direction: rtl;
@@ -231,7 +233,7 @@ header #menu .menu .menu-auth {
 header #menu .menu .menu-auth_item {
   padding: 0.5rem 1rem;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #204948;
   margin: 0.5rem 0rem;
 }
@@ -264,6 +266,10 @@ header .nav-link span {
   header .nav-link span {
     display: inline-block;
   }
+}
+
+.nav-link {
+  padding: 0;
 }
 
 /* Home Page */

@@ -69,8 +69,8 @@
         <label for="imageUpload"><span class="fal fa-plus"></span>
         </label>
     </div>
-    <div class="avatar-preview">
-        <div id="imagePreview" style="background-image: @isset($user) url('{{$user->image}}') @endisset;">
+    <div class="avatar-preview @if(!isset($user)) border-0 @endif">
+        <div id="imagePreview" style="background-image: @isset($user) url('{{$user->image}}') @else url('{{asset('upload-bg.svg')}}') @endisset;">
         </div>
     </div>
 </div>
@@ -80,12 +80,12 @@
                                     </span>
 @enderror
 <!-- Modal -->
-<div class="modal fade" id="crop-modal" tabindex="-1" role="dialog" data-backdrop="static">
+<div class="modal fade" id="crop-modal" tabindex="-1" role="dialog" data-backdrop="static" dir="ltr">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
                 <h5 class="modal-title" id="crop-modal-title">Crop Image</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close align-self-center" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
