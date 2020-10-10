@@ -19,7 +19,7 @@ class CommentController extends Controller
 
     public function index()
     {
-        $comments = Auth::user()->comments()->orderBy('is_checked')->get();
+        $comments = Auth::user()->comments()->orderBy('is_checked')->paginate(2);
         return view('comments.index',compact('comments'));
     }
     public function show($id)

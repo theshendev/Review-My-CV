@@ -55,6 +55,9 @@
                     </div>
                 @endforeach
             </div>
+                <div class="row justify-content-center" dir="ltr">
+                    {{$comments->links()}}
+                </div>
         </div>
     </section>
 

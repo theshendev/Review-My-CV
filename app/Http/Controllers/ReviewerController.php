@@ -23,14 +23,14 @@ class ReviewerController extends Controller
     {
         if (getGuard() == 'web') {
             anyRelationExists(auth()->user());
-            $reviewers = Reviewer::available()->get();
+            $reviewers = Reviewer::available()->orderByScore()->paginate(3);
             foreach ($reviewers as $key => $reviewer) {
                 if (relationExists(auth()->user(), $reviewer)) {
                     $reviewers->forget($key);
                 }
             }
         } else {
-            $reviewers = Reviewer::all();
+            $reviewers = Reviewer::orderByScore()->paginate(3);
 
         }
         return view('reviewers.index', compact('reviewers'));
