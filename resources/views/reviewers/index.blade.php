@@ -31,11 +31,11 @@
                                                 alt="">
                                         </div>
                                         <div class="reviewer-score-icons">
-                                            <span class="fa fa-star{{$reviewer->score==0.5 ? "-half-alt" : ($reviewer->score>=1 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$reviewer->score==1.5 ? "-half-alt" : ($reviewer->score>=2 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$reviewer->score==2.5 ? "-half-alt" : ($reviewer->score>=3 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$reviewer->score==3.5 ? "-half-alt" : ($reviewer->score>=4 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$reviewer->score==4.5 ? "-half-alt" : ($reviewer->score>=5 ? " full" : "")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{$reviewer->score<=1 ? $reviewer->score*100: "100"}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(1,2,$reviewer->score) ? getDecimalPart($reviewer->score)*100 : ($reviewer->score>=2 ? "100" : "0")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(2,3,$reviewer->score) ? getDecimalPart($reviewer->score)*100 : ($reviewer->score>=3 ? "100" : "0")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(3,4,$reviewer->score) ? getDecimalPart($reviewer->score)*100 : ($reviewer->score>=4 ? "100" : "0")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(4,5,$reviewer->score) ? getDecimalPart($reviewer->score)*100 : ($reviewer->score>=5 ? "100" : "0")}}"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-7 col-lg-8 col-xl-9 align-self-center text-center text-md-right">

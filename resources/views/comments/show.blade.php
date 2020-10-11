@@ -44,25 +44,24 @@
                                     <div class="col-auto">
                                         <input class="rating rating-animate rating-loading" type="text" id="input-1"
                                                name="score"
-                                               data-min="0" data-max="5" data-step="0.5" value="2.5"
-                                               data-size="sm" data-show-caption="false" data-show-clear="false">
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-success" id="submit" type="submit">ثبت امتیاز</button>
+                                               data-min="0" data-max="5" data-step="0.1" value="2.5"
+                                               data-size="sm" data-show-caption="true" data-show-clear="false">
                                     </div>
                                 </div>
-
+                                <div class="ml-5 mt-2">
+                                    <button class="btn btn-success" id="submit" type="submit">ثبت امتیاز</button>
+                                </div>
                             </form>
 
                         </div>
                     @else
                         <div class="col-12">
                             <div class="reviewer-score-icons">
-                                <span class="fa fa-star{{$comment->score==0.5 ? "-half-alt" : ($comment->score>=1 ? " full" : "")}}"></span>
-                                <span class="fa fa-star{{$comment->score==1.5 ? "-half-alt" : ($comment->score>=2 ? " full" : "")}}"></span>
-                                <span class="fa fa-star{{$comment->score==2.5 ? "-half-alt" : ($comment->score>=3 ? " full" : "")}}"></span>
-                                <span class="fa fa-star{{$comment->score==3.5 ? "-half-alt" : ($comment->score>=4 ? " full" : "")}}"></span>
-                                <span class="fa fa-star{{$comment->score==4.5 ? "-half-alt" : ($comment->score>=5 ? " full" : "")}}"></span>
+                                <span class="fa fa-star custom-star star-{{$comment->score<=1 ? $comment->score*100: "100"}}"></span>
+                                <span class="fa fa-star custom-star star-{{isBetween(1,2,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=2 ? "100" : "0")}}"></span>
+                                <span class="fa fa-star custom-star star-{{isBetween(2,3,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=3 ? "100" : "0")}}"></span>
+                                <span class="fa fa-star custom-star star-{{isBetween(3,4,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=4 ? "100" : "0")}}"></span>
+                                <span class="fa fa-star custom-star star-{{isBetween(4,5,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=5 ? "100" : "0")}}"></span>
                             </div>
                         </div>
                     @endif

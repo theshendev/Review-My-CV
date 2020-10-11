@@ -34,3 +34,11 @@ function getGuard(){
     }
     return $guard;
 }
+
+
+function isBetween($min,$max,$num){
+    return ($num<$max && $num>$min);
+}
+function getDecimalPart($num){
+    return $num-floor($num);
+}

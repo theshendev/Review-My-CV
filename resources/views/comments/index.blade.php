@@ -37,11 +37,11 @@
                                 <div class="col-12 text-center">
                                     @isset($comment->score)
                                         <div class="reviewer-score-icons">
-                                            <span class="fa fa-star{{$comment->score==0.5 ? "-half-alt" : ($comment->score>=1 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$comment->score==1.5 ? "-half-alt" : ($comment->score>=2 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$comment->score==2.5 ? "-half-alt" : ($comment->score>=3 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$comment->score==3.5 ? "-half-alt" : ($comment->score>=4 ? " full" : "")}}"></span>
-                                            <span class="fa fa-star{{$comment->score==4.5 ? "-half-alt" : ($comment->score>=5 ? " full" : "")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{$comment->score<=1 ? $comment->score*100: "100"}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(1,2,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=2 ? "100" : "0")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(2,3,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=3 ? "100" : "0")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(3,4,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=4 ? "100" : "0")}}"></span>
+                                            <span class="fa fa-star custom-star star-{{isBetween(4,5,$comment->score) ? getDecimalPart($comment->score)*100 : ($comment->score>=5 ? "100" : "0")}}"></span>
                                         </div>
                                     @else
                                         <div class="font-weight-bold" dir="rtl">
