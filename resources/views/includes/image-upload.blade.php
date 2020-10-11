@@ -70,7 +70,7 @@
         </label>
     </div>
     <div class="avatar-preview @if(!isset($user)) border-0 @endif">
-        <div id="imagePreview" style="background-image: @isset($user) url('{{$user->image}}') @else url('{{asset('upload-bg.svg')}}') @endisset;">
+        <div id="imagePreview" style="background-image: @isset($user) url('{{$user->image}}') @else url('{{asset('images/register/upload-bg.svg')}}') @endisset;">
         </div>
     </div>
 </div>

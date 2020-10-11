@@ -116,12 +116,12 @@ header .navbar .nav-item {
   font-size: 1rem;
   border-radius: 20px;
   margin: 0.5rem;
-  padding: 0 0.5rem;
+  padding: 0 0.05rem;
 }
 header .navbar .nav-item.nav-item_bg {
   background-color: rgba(7, 59, 76, 0.89);
 }
-@media (max-width: 767px) {
+@media (max-width: 767.9px) {
   header .navbar .nav-item.nav-item_bg {
     display: none;
   }
@@ -136,6 +136,22 @@ header .navbar .nav-item.nav-item_bg .nav-link__name {
   display: inline-block;
   vertical-align: middle;
 }
+@media (min-width: 992px) {
+  header .navbar .nav-item.nav-item_bg .nav-link__name {
+    max-width: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  header .navbar .nav-item.nav-item_bg .nav-link__name {
+    max-width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  header .navbar .nav-item {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+  }
+}
 header .navbar .nav-item .nav-link {
   padding: 0.5rem;
   color: #204948;
@@ -146,7 +162,7 @@ header .navbar .nav-item .nav-link {
   }
 }
 header .navbar .nav-item .dropdown-menu {
-  width: 100%;
+  margin-top: 1rem;
   background-color: #073B4C;
   border: 2px solid #FAC12A;
 }
@@ -169,12 +185,12 @@ header .navbar .container {
 header .navbar .container .mobile-logo {
   max-width: 170px;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.9px) {
   header .navbar .container .mobile-logo {
     max-width: 200px;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 575.9px) {
   header .navbar .container .mobile-logo {
     max-width: 150px;
   }
@@ -206,7 +222,7 @@ header .navbar .navbar-toggler .fa-user {
   }
 }
 header .navbar .typo-logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #073B4C !important;
   padding-left: 0 !important;
   padding-top: 0.4rem;
@@ -231,7 +247,7 @@ header #menu .menu .menu-auth {
   flex-direction: column;
 }
 header #menu .menu .menu-auth_item {
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
   color: #204948;
@@ -1032,20 +1048,6 @@ header .nav-link span {
   text-align: right;
   direction: rtl;
 }
-.user-show .user-show_information .contact-info h4 {
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-.user-show .user-show_information .contact-info h4:before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5rem;
-  content: "";
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background-color: white;
-}
 .user-show .user-show_information .contact-info_box {
   margin-top: 1rem;
   border-radius: 7px;
@@ -1059,6 +1061,21 @@ header .nav-link span {
   font-size: 1.5rem;
 }
 .user-show .note-editor {
+  background-color: white;
+}
+.user-show h4, .user-show label {
+  font-size: 1.25rem;
+  font-weight: 300;
+  direction: rtl;
+}
+.user-show h4:before, .user-show label:before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  content: "";
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   background-color: white;
 }
 

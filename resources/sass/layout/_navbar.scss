@@ -15,7 +15,7 @@ header{
   }
   .nav-item{
     &.nav-item_bg{
-      @media (max-width: 767px) {
+      @media (max-width: 767.9px) {
         display: none;
       }
       .nav-link{
@@ -24,17 +24,27 @@ header{
           overflow: hidden;
           text-overflow: ellipsis;
           max-width: 160px;
-          display: inline-block;
+          @media (min-width: 992px) {
+            max-width: 200px;
+          }
+          @media (min-width: 1200px) {
+            max-width: 300px;
+          }
+            display: inline-block;
           vertical-align: middle;
         }
       }
       background-color: rgba(7, 59, 76, 0.89);
     }
     font-weight: bold;
+    @media (min-width: 992px) {
+      font-size: 1.1rem;
+      padding:0 0.5rem;
+    }
     font-size: 1rem;
     border-radius: 20px;
     margin:0.5rem;
-    padding:0 0.5rem;
+    padding:0 0.05rem;
     .nav-link{
       padding: 0.5rem;
       color: #204948;
@@ -45,7 +55,8 @@ header{
 
     }
     .dropdown-menu{
-      width: 100%;
+      //width: 100%;
+      margin-top: 1rem;
       background-color:#073B4C ;
       border: 2px solid $main-yellow;
       .dropdown-item{
@@ -67,10 +78,10 @@ header{
 .container{
   .mobile-logo {
 
-    @media (max-width: 767px) {
+    @media (max-width: 767.9px) {
       max-width: 200px;
     }
-    @media (max-width: 576px) {
+    @media (max-width: 575.9px) {
       max-width: 150px;
     }
     @media (max-width: 300px) {
@@ -102,7 +113,7 @@ header{
       }
     }
 .typo-logo{
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #073B4C !important;
   padding-left: 0 !important;
   padding-top: 0.4rem;
@@ -125,7 +136,7 @@ header{
         display: flex;
         flex-direction: column;
         &_item{
-          padding: 0.5rem 1rem;
+          padding: 0.5rem;
           font-weight: bold;
           font-size: 1rem;
           color: #204948;

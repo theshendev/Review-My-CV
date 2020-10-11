@@ -44,12 +44,12 @@
                 <div class="row mt-3">
                     <form class="w-100" action="{{route('comment.store',['user'=>$user->id])}}" method="post">
                         @csrf
-                        <div class="form-group">
-                            <label for="body">Comment Body</label>
+                        <div class="form-group text-right mt-4">
+                            <label class="text-white mb-4" for="body">نظر ارزیاب</label>
                             <textarea class="form-control" name="body" id="body" rows="3"></textarea>
                         </div>
                         <button class="btn btn-success">
-                            Submit
+                            ثبت نظر
                         </button>
                     </form>
                 </div>
@@ -67,6 +67,7 @@
             tinymce.init({
                 selector: '#body',
                 plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media table hr anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help quickbars emoticons',
+                directionality :"rtl",
             });
         });
     </script>

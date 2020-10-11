@@ -27,7 +27,7 @@
                                 @if(reviewerCommented(Auth::user(),$request) and getComment(Auth::user(),$request)->is_checked==0)
                                     بررسی شد
                                     <a href="{{route('comment.show',['id'=> getComment(Auth::user(),$request)])}}">مشاهده</a>
-                                @elseif(getComment(Auth::user(),$request)->is_checked==1)
+                                @elseif(reviewerCommented(Auth::user(),$request) and getComment(Auth::user(),$request)->is_checked==1)
                                     اتمام بررسی
                                 @else
                                     در انتظار بررسی
