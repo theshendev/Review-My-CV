@@ -1418,7 +1418,7 @@ header .nav-link span {
 
 /* User Show Page */
 .user-show {
-  margin-top: 7rem;
+  margin-top: 4rem;
 }
 .user-show .user-show_information h4 {
   margin-top: 1rem;
@@ -1458,6 +1458,53 @@ header .nav-link span {
   height: 22px;
   border-radius: 50%;
   background-color: white;
+}
+.user-show .reviewer {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+.user-show .reviewer-image {
+  width: 134px;
+  height: 134px;
+  padding: 0.15rem;
+  background-color: gray;
+  border: 1px solid #dee2e6;
+}
+.user-show .reviewer-image-container {
+  position: relative;
+}
+.user-show .reviewer-image-wrapper {
+  width: 134px;
+  height: 134px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+.user-show .reviewer-image-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.user-show .reviewer-score-icons {
+  position: relative;
+  bottom: 35px;
+  direction: ltr;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .user-show .reviewer-score-icons {
+    width: 106%;
+  }
 }
 
 /* Comments Page */

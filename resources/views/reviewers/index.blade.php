@@ -30,7 +30,7 @@
                                                 src="{{$reviewer->image}}"
                                                 alt="">
                                         </div>
-                                        <div class="reviewer-score-icons">
+                                        <div class="reviewer-score-icons" title="{{$reviewer->score}}">
                                             <span class="fa fa-star custom-star star-{{$reviewer->score<=1 ? $reviewer->score*100: "100"}}"></span>
                                             <span class="fa fa-star custom-star star-{{isBetween(1,2,$reviewer->score) ? getDecimalPart($reviewer->score)*100 : ($reviewer->score>=2 ? "100" : "0")}}"></span>
                                             <span class="fa fa-star custom-star star-{{isBetween(2,3,$reviewer->score) ? getDecimalPart($reviewer->score)*100 : ($reviewer->score>=3 ? "100" : "0")}}"></span>

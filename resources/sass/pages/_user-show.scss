@@ -1,5 +1,5 @@
 .user-show{
-  margin-top:7rem ;
+  margin-top:4rem ;
   .user-show_information{
     h4{
       margin-top: 1rem;
@@ -40,6 +40,58 @@
       height: 22px;
       border-radius: 50%;
       background-color: white;
+    }
+  }
+  .reviewer{
+    background-color: rgba(white , 10%);
+    border-radius: 50px;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    &-image{
+      width: 134px;
+      height: 134px;
+      //margin: 2rem;
+      padding: 0.15rem;
+      background-color: gray;
+      border: 1px solid #dee2e6;
+      &-container{
+        position: relative;
+      }
+      &-wrapper{
+        width: 134px;
+        height: 134px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        border-radius: 50%;
+        //@media (max-width: 768px) {
+        //  margin: 2rem auto;
+        //}
+        &::before{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 30%;
+          width: 100%;
+          background: rgba(0,0,0,0.5);
+          z-index: 2;
+        }
+      }
+    }
+    &-score-icons{
+      position: relative;
+      bottom: 35px;
+      direction: ltr;
+      z-index: 3;
+      width: 100%;
+      text-align: center;
+      @media (min-width: 768px) and (max-width: 991px){
+        //width: 83%;
+      }
+      @media (min-width: 992px){
+        width: 106%;
+      }
     }
   }
 
