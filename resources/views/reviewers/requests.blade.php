@@ -18,7 +18,7 @@
                         </p>
                     </div>
                     <div class="col-md-4 text-left">
-                        <a class="btn btn-custom" href="{{route('user.show',['user'=>$request])}}">
+                        <a class="btn btn-custom" href="{{route('users.show',['user'=>$request])}}">
                             مشاهده پروفایل
                         </a>
                     </div>

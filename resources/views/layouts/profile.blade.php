@@ -9,7 +9,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-                <form action="{{route(Str::singular($user->getTable()).".update",$user)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route($user->getTable().".update",$user)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

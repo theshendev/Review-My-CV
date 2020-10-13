@@ -62,7 +62,7 @@
                                     <br>
                                 @endif
                                 <a class="btn btn-primary"
-                                   href="{{route('reviewer.show',['reviewer'=>$reviewer->id])}}">
+                                   href="{{route('reviewers.show',['reviewer'=>$reviewer->id])}}">
                                     مشاهده پروفایل
                                     <span class="fas fa-chevron-left mr-2" style="vertical-align: middle"></span>
                                 </a>
