@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','لیست ارزیاب ها')
 @section('content')
     <section class="reviewers-list">
 

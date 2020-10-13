@@ -16,15 +16,9 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['download_cv','show','index']);
-        $this->middleware('auth:reviewer')->only(['download_cv','show','index']);
+        $this->middleware('auth')->except(['download_cv','show']);
+        $this->middleware('auth:reviewer')->only(['download_cv','show']);
 
-    }
-
-    public function index()
-    {
-        $users = User::all();
-        return view('users.index',compact('users'));
     }
 
     public function show(User $user)

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','تایید ایمیل')
 @section('content')
     <section class="verify-notice">
         <div class="container">

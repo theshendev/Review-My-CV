@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    {{$user->name}}
+@endsection
 @section('content')
     <section class="user-show">
         <div class="container">
@@ -20,16 +22,6 @@
                             <span class="fa fa-star custom-star star-{{isBetween(4,5,$user->score) ? getDecimalPart($user->score)*100 : ($user->score>=5 ? "100" : "0")}}"></span>
                         </div>
                     </div>
-                    {{--<div class="col-12 text-center">--}}
-                        {{--<img class="user-image" src="{{$user->image}}" alt="">--}}
-                        {{--<div class="reviewer-score-icons" title="{{$user->score}}">--}}
-                            {{--<span class="fa fa-star custom-star star-{{$user->score<=1 ? $user->score*100: "100"}}"></span>--}}
-                            {{--<span class="fa fa-star custom-star star-{{isBetween(1,2,$user->score) ? getDecimalPart($user->score)*100 : ($user->score>=2 ? "100" : "0")}}"></span>--}}
-                            {{--<span class="fa fa-star custom-star star-{{isBetween(2,3,$user->score) ? getDecimalPart($user->score)*100 : ($user->score>=3 ? "100" : "0")}}"></span>--}}
-                            {{--<span class="fa fa-star custom-star star-{{isBetween(3,4,$user->score) ? getDecimalPart($user->score)*100 : ($user->score>=4 ? "100" : "0")}}"></span>--}}
-                            {{--<span class="fa fa-star custom-star star-{{isBetween(4,5,$user->score) ? getDecimalPart($user->score)*100 : ($user->score>=5 ? "100" : "0")}}"></span>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     <h4>{{$user->name}}</h4>
                         <h6 class="col-12 text-center text-white" dir="rtl">
                             {{$user->position}}

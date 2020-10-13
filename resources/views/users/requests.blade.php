@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title','وضعیت درخواست‌ها')
 @section('content')
     <section class="requests-container">
         <div class="container">

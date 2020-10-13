@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','نظرات ارزیاب ها')
 @section('content')
     <section class="comments">
         <div class="container">

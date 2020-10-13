@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','پروفایل')
 @section('content')
     <section class="profile text-white mt-5">
 

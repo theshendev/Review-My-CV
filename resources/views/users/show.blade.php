@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    {{$user->name}}
+@endsection
 @section('content')
     <section class="user-show">
         <div class="container">

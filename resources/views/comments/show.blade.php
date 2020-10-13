@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    {{$comment->reviewer->name}}
+@endsection
 @section('head')
     <link rel="stylesheet" href="{{asset('css/star-rating.min.css')}}"/>
     <script src="{{asset('js/star-rating.min.js')}}"></script>
