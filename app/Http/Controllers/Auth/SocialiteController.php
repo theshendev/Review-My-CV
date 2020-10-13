@@ -23,7 +23,14 @@ class SocialiteController extends Controller
 
     public function handleProviderCallback($provider)
     {
-        $getInfo = Socialite::driver($provider)->user();
+         try{
+             $getInfo = Socialite::driver($provider)->user();
+
+         }
+         catch (\Exception $exception){
+             $getInfo = Socialite::driver($provider)->stateless()->user();
+
+         }
 
 
         $type = session()->pull('type');
