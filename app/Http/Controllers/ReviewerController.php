@@ -61,6 +61,7 @@ class ReviewerController extends Controller
             'linkedin' => ['required', "unique:reviewers,linkedin,$reviewer->id", 'unique:users'],
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
+            'image' => ['image','max:5120'],
         ]);
         if ($request->hasFile('image')){
             $image=$request->image;

@@ -93,8 +93,8 @@ class RegisterController extends Controller {
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'unique:reviewers'],
             'linkedin' => ['required', 'unique:users', 'unique:reviewers'],
-            'cv' => ['required', 'mimes:pdf,docx'],
-            'image' => ['required','image'],
+            'cv' => ['required', 'mimes:pdf,docx','file','max:5120'],
+            'image' => ['required','image','max:5120'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -109,7 +109,7 @@ class RegisterController extends Controller {
             'linkedin' => ['required', 'unique:reviewers', 'unique:users'],
             'company' => ['required', 'string'],
             'position' => ['required', 'string'],
-            'image' => ['required','image'],
+            'image' => ['required','image','max:5120'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

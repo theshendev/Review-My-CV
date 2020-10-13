@@ -74,6 +74,9 @@
         </div>
     </div>
 </div>
+<span class="@error('image') {{Str::contains($message,'5') ? 'd-none' :'' }}@enderror text-center" dir="rtl"><small>حداکثر حجم عکس ۵ مگابایت می باشد.
+    </small>
+</span>
 @error('image')
 <span class="invalid-feedback text-center" role="alert">
                                         <strong>{{ $message }}</strong>

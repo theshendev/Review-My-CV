@@ -46,8 +46,8 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', "unique:users,email,$user->id",'unique:reviewers'],
             'linkedin' => ['required',"unique:users,linkedin,$user->id",'unique:reviewers'],
-            'cv' => ['mimes:pdf,docx'],
-            'image'=>['image']
+            'cv' => ['mimes:pdf,docx','file','max:5120'],
+            'image' => ['image','max:5120'],
         ]);
         if ($request->hasFile('cv')){
             $cv =$request->cv;

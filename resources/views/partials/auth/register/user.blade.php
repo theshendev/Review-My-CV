@@ -1,23 +1,4 @@
-
-<div class="form-group">
-    <label for="cv"
-           class="col-form-label text-md-right">رزومه</label>
-
-    <div class="input-field @error('cv') is-invalid @enderror">
-        <div class="file-drop-area">
-            <span class="fake-btn">بارگذاری</span>
-            <span class="file-msg">فایلی انتخاب نشده است.</span>
-            <input class="file-input @error('cv') is-invalid @enderror" type="file" name="cv" accept=".pdf,.docx">
-
-        </div>
-    </div>
-    @error('cv')
-    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-    @enderror
-
-</div>
+@include('includes.cv-upload')
 @isset($p)
     <div class="form-group ">
         <label for="linkedin"
