@@ -34,3 +34,39 @@
     </div>
 
 @endsection
+@push('scripts')
+    <script>
+        $(".switch input").click(function(){
+            if (this.checked){
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('reviewer.available')}}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function () {
+                        alert("در دسترس قرار گرفتید.");
+                    },
+                    error: function () {
+                        alert("مشکلی پیش آمد، دوباره امتحان کنید.");
+                    },
+                });
+            }
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('reviewer.not.available')}}",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function () {
+                        alert("از دسترس خارج شدید.");
+                    },
+                    error: function () {
+                        alert("مشکلی پیش آمد، دوباره امتحان کنید.");
+                    },
+                });
+            }
+        });
+    </script>
+@endpush

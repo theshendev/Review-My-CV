@@ -39,7 +39,12 @@ Route::get('/register/reviewer', 'Auth\RegisterController@showReviewerRegisterFo
 Route::get('/register/reviewer/p2', 'Auth\RegisterController@showSecondRegisterForm');
 Route::post('/register/reviewer', 'Auth\RegisterController@createReviewer')->name('register.reviewer');
 
-Route::get('/reviewer/profile', 'ReviewerController@profile')->name('reviewer.profile');
+Route::prefix('reviewer')->group(function () {
+    Route::get('/profile', 'ReviewerController@profile')->name('reviewer.profile');
+    Route::post('/profile/available', 'ReviewerController@makeAvailable')->name('reviewer.available');
+    Route::post('/profile/not-available', 'ReviewerController@makeNotAvailable')->name('reviewer.not.available');
+
+});
 Route::resource('reviewers','ReviewerController')->only(['index','show','update']);
 
 Route::post('/{reviewer}/{comment}/score','ReviewerController@commentScore')->name('reviewer.score');

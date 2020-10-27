@@ -14,9 +14,16 @@
                 @method('PUT')
 
                 @include('includes.image-upload')
-            <div class="row justify-content-center mt-5">
-                <h3 class="profile-heading">پروفایل</h3>
-            </div>
+                @auth('reviewer')
+                        <label class="switch">
+                            <input type="checkbox" {{$user->is_available ? "checked" : ''}}>
+                            <span class="slider round"></span>
+                        </label>
+
+                        <div class="row justify-content-center mt-5">
+                            <h3 class="profile-heading">پروفایل</h3>
+                        </div>
+                    @endauth
 
             <div class="profile-information">
 

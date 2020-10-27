@@ -16,6 +16,7 @@ class ReviewerController extends Controller
     public function __construct()
     {
         $this->middleware('auth:web,reviewer');
+        $this->middleware('auth:reviewer')->only(['makeAvailable','makeNotAvailable']);
         $this->middleware('verified')->only(['update', 'profile']);
     }
 
@@ -103,4 +104,16 @@ class ReviewerController extends Controller
         return back();
     }
 
+    public function makeAvailable()
+    {
+         $reviewer = Auth::user();
+         $reviewer->is_available=1;
+         $reviewer->save();
+    }
+    public function makeNotAvailable()
+    {
+        $reviewer = Auth::user();
+        $reviewer->is_available=0;
+        $reviewer->save();
+    }
 }
