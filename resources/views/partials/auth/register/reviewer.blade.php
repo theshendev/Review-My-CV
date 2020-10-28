@@ -8,7 +8,7 @@
                name="company" value="{{ old('company') }}" required
         >
         <span class="input-field_icon icon-left">
-            <i class="icon-company"></i>
+            <i class="fal fa-building"></i>
         </span>
         @error('company')
         <span class="invalid-feedback" role="alert">
@@ -26,7 +26,9 @@
         <input id="position" type="text"
                class="form-control @error('position') is-invalid @enderror"
                name="position" value="{{ old('position') }}" required>
-
+        <span class="input-field_icon icon-left">
+            <i class="fal fa-id-badge"></i>
+        </span>
         @error('position')
         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

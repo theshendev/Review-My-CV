@@ -112,10 +112,13 @@
       height: 40px;
       display: block;
     }
+    i{
+      font-size: 1.2rem;
+    }
   }
 
   input {
-    padding:0 30px;
+    padding:0 33px;
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
     height: 48px;
