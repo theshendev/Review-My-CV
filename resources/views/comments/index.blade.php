@@ -13,7 +13,7 @@
                     <div>
                         <div class="comments-list_comment">
                             {!! Str::limit(strip_tags($comment->body),50) !!}
-                            <a href="{{route('comments.show',['id'=>$comment->id])}}">مشاهده کامنت</a>
+                            <a href="{{route('comments.show',['comment'=>$comment->id])}}">مشاهده کامنت</a>
                         </div>
                         <div class="reviewer-info row no-gutters mt-5 text-center text-lg-right">
                             <div class="col-lg-7 col-xl-8 d-block d-lg-flex">

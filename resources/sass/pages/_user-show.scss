@@ -30,17 +30,6 @@
     font-size: 1.25rem;
     font-weight: 300;
     direction: rtl;
-
-    &:before {
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 0.5rem;
-      content: "";
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background-color: white;
-    }
   }
   .reviewer{
     background-color: rgba(white , 10%);

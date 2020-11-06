@@ -9,10 +9,10 @@
                 </h3>
             </div>
             <div class="requests">
-            @foreach($requests as $request)
+            @forelse($requests as $request)
                 <div class="row no-gutters request">
                     <div class="col-md-8">
-                        <p>
+                        <p class="text-right">
                             درخواست بررسی رزومه از طرف
                             {{$request->name}}
                         </p>
@@ -23,7 +23,9 @@
                         </a>
                     </div>
                 </div>
-            @endforeach
+                @empty
+                <h5 class="text-center text-white" dir="rtl">درخواستی برای شما وجود ندارد.</h5>
+            @endforelse
         </div>
             ‌</div>
     </section>

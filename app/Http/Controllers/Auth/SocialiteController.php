@@ -37,12 +37,12 @@ class SocialiteController extends Controller
         if ($type == 'reviewer') {
             $user = Reviewer::where('email', $getInfo->email)->first();
             if ( User::where('email', $getInfo->email)->exists()){
-                return redirect('/register/reviewer')->with('status','یک کاربر با این اکانت ثبت شده است، از صفحه‌ی ورود کاربر وارد شوید.');
+                return redirect('/login')->with('status','یک کاربر با این مشخصات ثبت شده است، از این قسمت وارد شوید.');
     }
         } else {
             $user = User::where('email', $getInfo->email)->first();
             if ( Reviewer::where('email', $getInfo->email)->exists()){
-                return redirect('/register')->with('status','یک ارزیاب با این اکانت ثبت شده است. از صفحه‌ی ورود ارزیاب وارد شوید.');
+                return redirect('/login/reviewer')->with('status','یک ارزیاب با این مشخصات ثبت شده است. از این قسمت وارد شوید.');
             }
         }
         if (!$user) {

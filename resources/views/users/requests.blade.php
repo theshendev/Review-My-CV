@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="requests">
-                @foreach($requests as $request)
+                @forelse($requests as $request)
                     <div class="row no-gutters request">
                         <div class="col-md-8 my-3 my-md-0">
                             <p class="text-md-right">
@@ -26,7 +26,7 @@
                             <span class="font-weight-bold">
                                 @if(reviewerCommented(Auth::user(),$request) and getComment(Auth::user(),$request)->is_checked==0)
                                     بررسی شد
-                                    <a href="{{route('comments.show',['id'=> getComment(Auth::user(),$request)])}}">مشاهده</a>
+                                    <a href="{{route('comments.show',['comment'=> getComment(Auth::user(),$request)])}}">مشاهده</a>
                                 @elseif(reviewerCommented(Auth::user(),$request) and getComment(Auth::user(),$request)->is_checked==1)
                                     اتمام بررسی
                                 @else
@@ -35,7 +35,14 @@
                             </span>
                         </div>
                     </div>
-                @endforeach
+                    @empty
+                    <h5 class="text-center text-white" dir="rtl">
+                    شما درخواستی برای بررسی رزومه ی خود ندادید.
+                        <a href="{{route('reviewers.index')}}">
+                            مشاهده ی ارزیاب ها
+                        </a>
+                    </h5>
+                @endforelse
             </div>
         </div>
     </section>

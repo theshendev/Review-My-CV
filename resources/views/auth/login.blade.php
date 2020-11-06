@@ -9,11 +9,17 @@
     url("{{asset('images/login/'.$image_url)}}") no-repeat center center fixed
 @endsection
 @section('content')
+
     <section class="login">
 
         <div class="container">
             <div class="row logo justify-content-center">
                 <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    @if(session('status'))
+                        <div class="alert alert-primary text-right" dir="rtl">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <a href="/">
                     <img width="100%" src="{{asset('images/logos/logo.png')}}" alt="logo">
 

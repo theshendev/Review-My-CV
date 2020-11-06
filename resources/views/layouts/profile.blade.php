@@ -23,9 +23,9 @@
                         <div class="row justify-content-center mt-5">
                             <h3 class="profile-heading">پروفایل</h3>
                         </div>
-                    @endauth
+                @endauth
 
-            <div class="profile-information">
+                <div class="profile-information mt-4">
 
                     <div class="form-group">
                         <label for="name"

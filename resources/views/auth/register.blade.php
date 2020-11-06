@@ -5,11 +5,6 @@
 @section('content')
     <section class="register">
         <div class="container text-white text-right">
-            @if(session('status'))
-                <div class="alert alert-primary" dir="rtl">
-                    {{ session('status') }}
-                </div>
-            @endif
             <div class="row justify-content-start" dir="rtl">
                 <h2 class="heading text-white">
                     {{ isset($url) ? "ثبت نام ارزیاب" : "ثبت نام کاربر"}}

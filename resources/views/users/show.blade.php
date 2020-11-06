@@ -24,18 +24,18 @@
                 </div>
                 <div class="contact-info">
                     <div class="row">
-                        <h4>
+                        <h4 class="full-circle-before">
                             اطلاعات تماس
                         </h4>
                     </div>
                     <div class="contact-info_box row">
                         <div class="col-md-7">
-                            <span class="fab fa-google">
+                            <span class="fab fa-google pr-2 border-right">
                             </span>
                             <a href="mailto:{{$user->email}}">{{$user->email}}</a>
                         </div>
                         <div class="col-md-5">
-                            <span class="fab fa-linkedin-in">
+                            <span class="fab fa-linkedin-in pr-2 border-right">
                             </span>
                             <a href="{{$user->linkedin}}">{{basename($user->linkedin)}}</a>
                         </div>
@@ -47,7 +47,7 @@
                     <form class="w-100" action="{{route('comment.store',['user'=>$user->id])}}" method="post">
                         @csrf
                         <div class="form-group text-right mt-4">
-                            <label class="text-white mb-4" for="body">نظر ارزیاب</label>
+                            <label class="text-white mb-4 full-circle-before" for="body">نظر ارزیاب</label>
                             <textarea class="form-control" name="body" id="body" rows="3"></textarea>
                         </div>
                         <button class="btn btn-success">
